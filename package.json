@@ -31,6 +31,7 @@
   },
   "files": [
     "index.js",
+    "standard-data.js",
     "map.js",
     "glossary.js",
     "data",

@@ -10,7 +10,9 @@
  *
  * The text is RAWeb's own, in French, with only its Markdown taken out:
  * glossary links keep their words and code spans lose their backticks.
- * Nothing is translated or reworded. RAWeb is under CC BY 3.0 LU, and the
+ * Nothing is translated or reworded. RAWeb's own English version gives the
+ * English texts (RAWEB_TRANSLATIONS), checked to match the French test for
+ * test. RAWeb is under CC BY 3.0 LU, and the
  * modules say they hold an adaptation of it (markup removed, restructured as
  * data), as the licence asks.
  */
@@ -33,9 +35,28 @@ const SOURCES = [
     wcagVersion: '2.1',
     file: 'fr/criteres.json',
     methodologies: 'fr/methodologies.json',
-    glossary: 'fr/glossaire.json'
+    glossary: 'fr/glossaire.json',
+    // RAWeb's own translations, by locale.
+    translations: {
+      en: { file: 'en/criteres.json', methodologies: 'en/methodologies.json' }
+    }
   }
 ];
+
+// How a methodology says a test is passed, and that a test takes another's
+// steps, in each language RAWeb is published in.
+const WORDING = {
+  fr: {
+    passed: /test est validé/,
+    passedAt: /^.*?test est validé\s*\.?/,
+    same: /^Tests? identiques? à ([\d.]+)/
+  },
+  en: {
+    passed: /test is validated/,
+    passedAt: /^.*?test is validated\s*\.?/,
+    same: /^Tests? identical to ([\d.]+)/
+  }
+};
 
 function plainText(markdown) {
   return String(markdown)
@@ -80,11 +101,12 @@ const stepText = (markdown) => plainText(String(markdown).replace(/\*\*/g, ''));
 // error, so a new gap is seen.
 const NO_METHODOLOGY = ['8.1.1', '8.2.1'];
 
-function methodologyOf(id, methodologies) {
+function methodologyOf(id, methodologies, lang = 'fr') {
+  const wording = WORDING[lang];
   const source = String(methodologies[id] || '');
   if (!source.trim() && NO_METHODOLOGY.includes(id)) return null;
-  const same = /^Tests? identiques? à ([\d.]+)/.exec(source.trim());
-  if (same) return methodologyOf(same[1], methodologies);
+  const same = wording.same.exec(source.trim());
+  if (same) return methodologyOf(same[1], methodologies, lang);
   const steps = source
     .replace(/^Test [\d.]+\s*/, '')
     .split(/\n(?=\d+\.\s)/)
@@ -93,9 +115,9 @@ function methodologyOf(id, methodologies) {
   if (!steps.length) throw new Error(`[generate-raweb-map] no methodology for test ${id}`);
   // The last step says when the test is passed, in all but one test (11.1.3).
   const last = steps.at(-1);
-  if (steps.length < 2 || !/test est validé/.test(last)) return { steps };
+  if (steps.length < 2 || !wording.passed.test(last)) return { steps };
   // What follows the verdict is a note on the test, not part of the verdict.
-  const verdict = /^.*?test est validé\s*\.?/.exec(last)[0];
+  const verdict = wording.passedAt.exec(last)[0];
   const note = last.slice(verdict.length).trim();
   return { steps: steps.slice(0, -1), passWhen: verdict, ...(note ? { note } : {}) };
 }
@@ -122,7 +144,7 @@ function referencesOf(criterium, kind) {
  * The tables for one version of the source file: themes, criteria keyed
  * "1.1", tests keyed "1.1.1".
  */
-function buildVersionTables(source, methodologies = {}) {
+function buildVersionTables(source, methodologies = {}, lang = 'fr') {
   const themes = [];
   const criteria = {};
   const tests = {};
@@ -158,7 +180,7 @@ function buildVersionTables(source, methodologies = {}) {
           criterion: id,
           title: plainText(question),
           ...(conditions.length ? { conditions: conditions.map(plainText) } : {}),
-          methodology: methodologyOf(testId, methodologies),
+          methodology: methodologyOf(testId, methodologies, lang),
           ...(glossary.length ? { glossary } : {})
         };
       }
@@ -199,9 +221,67 @@ function glossaryOf(source) {
   return out;
 }
 
+// The parts of a translation that must line up with the French, for a text
+// to stand for the same one: the same criteria and tests, the same number of
+// conditions and steps, and of notes where the translation gives a
+// criterion's notes (RAWeb's English gives none: they stay untranslated).
+function shapeOf(tables, notesOf = () => true) {
+  const n = (list) => (list ? list.length : 0);
+  return JSON.stringify({
+    themes: tables.themes.map((t) => t.number),
+    criteria: Object.entries(tables.criteria).map(([id, c]) => [
+      id,
+      c.tests,
+      ...(notesOf(id) ? [n(c.particularCases), n(c.technicalNotes)] : [])
+    ]),
+    tests: Object.entries(tables.tests).map(([id, t]) => [
+      id,
+      n(t.conditions),
+      t.methodology
+        ? [n(t.methodology.steps), !!t.methodology.passWhen, !!t.methodology.note]
+        : null
+    ])
+  });
+}
+
+// A translation's texts, keyed as the French tables are.
+function translationOf(tables) {
+  return {
+    themes: tables.themes,
+    criteria: Object.fromEntries(
+      Object.entries(tables.criteria).map(([id, c]) => [
+        id,
+        {
+          title: c.title,
+          ...(c.particularCases ? { particularCases: c.particularCases } : {}),
+          ...(c.technicalNotes ? { technicalNotes: c.technicalNotes } : {})
+        }
+      ])
+    ),
+    tests: Object.fromEntries(
+      Object.entries(tables.tests).map(([id, t]) => [
+        id,
+        {
+          title: t.title,
+          ...(t.conditions ? { conditions: t.conditions } : {}),
+          methodology: t.methodology
+        }
+      ])
+    )
+  };
+}
+
 function buildTables(readSource = (file) => fs.readFileSync(path.join(DATA_DIR, file), 'utf8')) {
-  const out = { versions: [], themes: {}, criteria: {}, tests: {}, glossary: {} };
-  for (const { version, published, wcagVersion, file, methodologies, glossary } of SOURCES) {
+  const out = { versions: [], themes: {}, criteria: {}, tests: {}, glossary: {}, translations: {} };
+  for (const {
+    version,
+    published,
+    wcagVersion,
+    file,
+    methodologies,
+    glossary,
+    translations = {}
+  } of SOURCES) {
     const t = buildVersionTables(
       JSON.parse(readSource(file)),
       JSON.parse(readSource(methodologies))
@@ -211,6 +291,22 @@ function buildTables(readSource = (file) => fs.readFileSync(path.join(DATA_DIR, 
     out.criteria[version] = t.criteria;
     out.tests[version] = t.tests;
     out.glossary[version] = glossaryOf(JSON.parse(readSource(glossary)));
+    out.translations[version] = {};
+    for (const [locale, source] of Object.entries(translations)) {
+      const tr = buildVersionTables(
+        JSON.parse(readSource(source.file)),
+        JSON.parse(readSource(source.methodologies)),
+        locale
+      );
+      const hasNotes = (id) =>
+        !!(tr.criteria[id] && (tr.criteria[id].particularCases || tr.criteria[id].technicalNotes));
+      if (shapeOf(tr, hasNotes) !== shapeOf(t, hasNotes)) {
+        throw new Error(
+          `[generate-raweb-map] the ${locale} version of RAWeb ${version} doesn't line up with the French`
+        );
+      }
+      out.translations[version][locale] = translationOf(tr);
+    }
     // A link's anchor, as the term's: RAWeb writes a few with characters its
     // site leaves out of the anchor ("et/ou"), so a link is read as the site
     // reads it. A note may link to an anchor of another page of RAWeb's
@@ -245,11 +341,12 @@ function renderModule(tables) {
  * Service information et presse (SIP), Government of Luxembourg,
  * https://accessibilite.public.lu/fr/raweb1.1/index.html, from
  * https://github.com/accessibility-luxembourg/ReferentielAccessibiliteWeb
- * (fr/json/criteres.json). Licensed under CC BY 3.0 LU,
+ * (fr/json/criteres.json, fr/json/methodologies.json, and their English
+ * versions in en/json/). Licensed under CC BY 3.0 LU,
  * https://creativecommons.org/licenses/by/3.0/lu/ (data/fr/LICENSE.md).
  * The original work has been modified: its markup is removed and it is
- * restructured as data; the wording is RAWeb's own, neither reworded nor
- * translated. RAWeb contains an adapted copy of RGAA 4.1.2 by DINUM (see
+ * restructured as data; the wording is RAWeb's own, in French and in
+ * RAWeb's own English, neither reworded nor translated by this pack. RAWeb contains an adapted copy of RGAA 4.1.2 by DINUM (see
  * data/README.md for RAWeb's full notice). The code around the text is
  * under MPL-2.0. This pack is not affiliated with or endorsed by the SIP,
  * the Government of Luxembourg or DINUM.
@@ -267,6 +364,11 @@ function renderModule(tables) {
  * - RAWEB_TESTS[version]["1.1.1"]: { criterion, title, conditions?,
  *   methodology, glossary? }. \`conditions\` lists what a test enumerates;
  *   \`methodology\` is RAWeb's own { steps, passWhen, note? }.
+ * - RAWEB_TRANSLATIONS[version][locale]: RAWeb's own version in that
+ *   language, { themes, criteria: { [id]: { title, particularCases?,
+ *   technicalNotes? } }, tests: { [id]: { title, conditions?, methodology } }
+ *   }, keyed and shaped as the French (checked when generated). RAWeb's
+ *   English gives no particular cases or technical notes.
  *
  * This states what a published document says, nothing more.
  */
@@ -279,7 +381,9 @@ const RAWEB_CRITERIA = ${json(tables.criteria)};
 
 const RAWEB_TESTS = ${json(tables.tests)};
 
-module.exports = { RAWEB_VERSIONS, RAWEB_THEMES, RAWEB_CRITERIA, RAWEB_TESTS };
+const RAWEB_TRANSLATIONS = ${json(tables.translations)};
+
+module.exports = { RAWEB_VERSIONS, RAWEB_THEMES, RAWEB_CRITERIA, RAWEB_TESTS, RAWEB_TRANSLATIONS };
 `;
 }
 

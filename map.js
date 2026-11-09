@@ -14,11 +14,12 @@
  * Service information et presse (SIP), Government of Luxembourg,
  * https://accessibilite.public.lu/fr/raweb1.1/index.html, from
  * https://github.com/accessibility-luxembourg/ReferentielAccessibiliteWeb
- * (fr/json/criteres.json). Licensed under CC BY 3.0 LU,
+ * (fr/json/criteres.json, fr/json/methodologies.json, and their English
+ * versions in en/json/). Licensed under CC BY 3.0 LU,
  * https://creativecommons.org/licenses/by/3.0/lu/ (data/fr/LICENSE.md).
  * The original work has been modified: its markup is removed and it is
- * restructured as data; the wording is RAWeb's own, neither reworded nor
- * translated. RAWeb contains an adapted copy of RGAA 4.1.2 by DINUM (see
+ * restructured as data; the wording is RAWeb's own, in French and in
+ * RAWeb's own English, neither reworded nor translated by this pack. RAWeb contains an adapted copy of RGAA 4.1.2 by DINUM (see
  * data/README.md for RAWeb's full notice). The code around the text is
  * under MPL-2.0. This pack is not affiliated with or endorsed by the SIP,
  * the Government of Luxembourg or DINUM.
@@ -36,6 +37,11 @@
  * - RAWEB_TESTS[version]["1.1.1"]: { criterion, title, conditions?,
  *   methodology, glossary? }. `conditions` lists what a test enumerates;
  *   `methodology` is RAWeb's own { steps, passWhen, note? }.
+ * - RAWEB_TRANSLATIONS[version][locale]: RAWeb's own version in that
+ *   language, { themes, criteria: { [id]: { title, particularCases?,
+ *   technicalNotes? } }, tests: { [id]: { title, conditions?, methodology } }
+ *   }, keyed and shaped as the French (checked when generated). RAWeb's
+ *   English gives no particular cases or technical notes.
  *
  * This states what a published document says, nothing more.
  */
@@ -7435,4 +7441,4781 @@ const RAWEB_TESTS = {
   }
 };
 
-module.exports = { RAWEB_VERSIONS, RAWEB_THEMES, RAWEB_CRITERIA, RAWEB_TESTS };
+const RAWEB_TRANSLATIONS = {
+  1.1: {
+    en: {
+      themes: [
+        {
+          number: 1,
+          title: 'Images'
+        },
+        {
+          number: 2,
+          title: 'Frames'
+        },
+        {
+          number: 3,
+          title: 'Colours'
+        },
+        {
+          number: 4,
+          title: 'Multimedia'
+        },
+        {
+          number: 5,
+          title: 'Tables'
+        },
+        {
+          number: 6,
+          title: 'Links'
+        },
+        {
+          number: 7,
+          title: 'Scripts'
+        },
+        {
+          number: 8,
+          title: 'Mandatory elements'
+        },
+        {
+          number: 9,
+          title: 'Information structure'
+        },
+        {
+          number: 10,
+          title: 'Presentation of information'
+        },
+        {
+          number: 11,
+          title: 'Forms'
+        },
+        {
+          number: 12,
+          title: 'Navigation'
+        },
+        {
+          number: 13,
+          title: 'Consultation'
+        },
+        {
+          number: 14,
+          title: 'Documentation and accessibility features'
+        },
+        {
+          number: 15,
+          title: 'Editing tools'
+        },
+        {
+          number: 16,
+          title: 'Support services'
+        },
+        {
+          number: 17,
+          title: 'Real-time communication'
+        }
+      ],
+      criteria: {
+        1.1: {
+          title: 'Does each image conveying information have a text alternative?'
+        },
+        1.2: {
+          title:
+            'Is every decorative image, without a caption, correctly ignored by assistive technologies?'
+        },
+        1.3: {
+          title:
+            'For each image conveying information with a text alternative, is this alternative relevant (excluding special cases)?'
+        },
+        1.4: {
+          title:
+            'For each image used as a CAPTCHA or test image, with a text alternative, does this alternative make it possible to identify the nature and function of the image?'
+        },
+        1.5: {
+          title:
+            'For each image used as a CAPTCHA, is there an alternative access solution to the content or to the CAPTCHA function?'
+        },
+        1.6: {
+          title: 'Does each image conveying information have, if necessary, a detailed description?'
+        },
+        1.7: {
+          title:
+            'For each image conveying information with a detailed description, is this description relevant?'
+        },
+        1.8: {
+          title:
+            'In the absence of a replacement mechanism, each image of text conveying information must, if possible, be replaced by styled text. Is this rule respected (excluding special cases)?'
+        },
+        1.9: {
+          title: 'Is each image caption, if necessary, correctly linked to the corresponding image?'
+        },
+        2.1: {
+          title: 'Does each frame have a frame title?'
+        },
+        2.2: {
+          title: 'For each frame with a frame title, is this frame title relevant?'
+        },
+        3.1: {
+          title:
+            'On each web page, the information must not be provided by colour alone. Is this rule respected?'
+        },
+        3.2: {
+          title:
+            'On each web page, is the contrast between the colour of the text and the colour of its background sufficiently high (excluding special cases)?'
+        },
+        3.3: {
+          title:
+            'On each web page, are the colours used in the user interface components or graphic element conveying information sufficiently contrasting (excluding special cases)?'
+        },
+        4.1: {
+          title:
+            'Does each pre-recorded time-based media have, if necessary, a transcript or an audio description (excluding special cases)?'
+        },
+        4.2: {
+          title:
+            'For each pre-recorded time-based media with a synchronised transcript or audio description, are these relevant (excluding special cases)?'
+        },
+        4.3: {
+          title:
+            'Does each synchronised time-based media have, if necessary, synchronised captions (excluding special cases)?'
+        },
+        4.4: {
+          title:
+            'For each synchronised time-based media with synchronised captions, are these captions relevant (excluding special cases)?'
+        },
+        4.5: {
+          title:
+            'Does each pre-recorded time-based media have, if necessary, a synchronised audio description (excluding special cases)?'
+        },
+        4.6: {
+          title:
+            'For each pre-recorded time-based media with a synchronised audio description, is this audio description relevant?'
+        },
+        4.7: {
+          title: 'Is each time-based media clearly identifiable (excluding special cases)?'
+        },
+        4.8: {
+          title:
+            'Does each non-time-based media have, if necessary, an alternative (excluding special cases)?'
+        },
+        4.9: {
+          title:
+            'For each non-time-based media having an alternative, is this alternative relevant?'
+        },
+        '4.10': {
+          title: 'Is each automatically triggered sound controllable by the user?'
+        },
+        4.11: {
+          title:
+            'Is the viewing of each time-based media, if required, accessible and operable by keyboard and any pointing device?'
+        },
+        4.12: {
+          title:
+            'Is the viewing of each non-time-based media accessible and operable by keyboard and any pointing device?'
+        },
+        4.13: {
+          title:
+            'Is each time-based media and non-time-based media compatible with assistive technologies (excluding special cases)?'
+        },
+        4.14: {
+          title:
+            'For each time-based media that has a synchronised caption or audio description track, are the control features for these alternatives presented at the same level as the main features?'
+        },
+        4.15: {
+          title:
+            'For each feature that transmits, converts or records pre-recorded synchronised time-based media that has a captions track, are the captions correctly preserved at the end of the process?'
+        },
+        4.16: {
+          title:
+            'For each feature that transmits, converts or records a pre-recorded time-based media with an audio description, is at the end of the process the audio description correctly preserved?'
+        },
+        4.17: {
+          title:
+            'For each pre-recorded time-based media, is the presentation of captions controllable by the user (excluding special cases)?'
+        },
+        4.18: {
+          title:
+            'For each pre-recorded synchronised time-based media that has subtitles, can these be vocalised (excluding special cases)?'
+        },
+        5.1: {
+          title: 'Does each complex data table have a summary?'
+        },
+        5.2: {
+          title: 'For each complex data table with a summary, is the summary relevant?'
+        },
+        5.3: {
+          title: 'For each layout table, is the linearized content still comprehensible?'
+        },
+        5.4: {
+          title:
+            'For each data table with a title, is the title correctly associated with the data table?'
+        },
+        5.5: {
+          title: 'For each data table with a title, is the title relevant?'
+        },
+        5.6: {
+          title:
+            'For each data table, are each column header and each row header correctly declared?'
+        },
+        5.7: {
+          title:
+            'For each data table, is the appropriate technique used to associate each cell with its headers (excluding special cases)?'
+        },
+        5.8: {
+          title:
+            'Each layout table must not use elements specific to data tables. Is this rule respected?'
+        },
+        6.1: {
+          title: 'Is every link explicit (except in special cases)?'
+        },
+        6.2: {
+          title: 'On each web page, does each link have an accessible name?'
+        },
+        7.1: {
+          title: 'Is each script, if necessary, compatible with assistive technologies?'
+        },
+        7.2: {
+          title: 'For each script with an alternative, is this alternative relevant?'
+        },
+        7.3: {
+          title:
+            'Is each script accessible and operable by keyboard and any pointing device (excluding special cases)?'
+        },
+        7.4: {
+          title:
+            'For each script that initiates a change of context, is the user warned or does the user have control?'
+        },
+        7.5: {
+          title:
+            'On each web page, are status messages correctly rendered (by assistive technologies)?'
+        },
+        8.1: {
+          title: 'Has each web page a defined document type?'
+        },
+        8.2: {
+          title:
+            'For each web page, is the generated source code valid for the specified document type?'
+        },
+        8.3: {
+          title: 'On each web page, is the default language present?'
+        },
+        8.4: {
+          title: 'For each web page with a default language, is the language code relevant?'
+        },
+        8.5: {
+          title: 'Does every web page have a page title?'
+        },
+        8.6: {
+          title: 'For each web page with a page title, is this title relevant?'
+        },
+        8.7: {
+          title:
+            'On each web page, is each language change indicated in the source code (excluding special cases)?'
+        },
+        8.8: {
+          title:
+            'On each web page, is the language code for each language change valid and relevant?'
+        },
+        8.9: {
+          title:
+            'On each web page, tags must not be used only for layout purposes. Is this rule respected?'
+        },
+        '8.10': {
+          title: 'On each web page, are changes in reading direction indicated?'
+        },
+        9.1: {
+          title:
+            'On each web page, is the information structured by the appropriate use of headings?'
+        },
+        9.2: {
+          title: 'On each web page, is the document structure consistent (excluding special cases)?'
+        },
+        9.3: {
+          title: 'On each web page, is each list correctly structured?'
+        },
+        9.4: {
+          title: 'On each web page, is each quotation correctly indicated?'
+        },
+        10.1: {
+          title: 'In the website, are style sheets used to control the presentation of information?'
+        },
+        10.2: {
+          title:
+            'On each web page, is the visible content conveying information accessible to assistive technologies?'
+        },
+        10.3: {
+          title:
+            'On each web page, does the information remain understandable when the style sheets are deactivated?'
+        },
+        10.4: {
+          title:
+            'On each web page, is the text still readable when the font size is increased by at least 200% (excluding special cases)?'
+        },
+        10.5: {
+          title:
+            'On each web page, are the CSS declarations for element background and font colours used correctly?'
+        },
+        10.6: {
+          title:
+            'On each web page, is each link whose nature is not obvious visible in relation to the surrounding text?'
+        },
+        10.7: {
+          title:
+            'On each web page, for each element receiving keyboard focus, is the focus visible?'
+        },
+        10.8: {
+          title: 'For each web page, should hidden content be ignored by assistive technologies?'
+        },
+        10.9: {
+          title:
+            'On each web page, information must not be conveyed solely by shape, size or location. Is this rule respected?'
+        },
+        '10.10': {
+          title:
+            'On each web page, information must not be conveyed by shape, size or location only. Is this rule implemented appropriately?'
+        },
+        10.11: {
+          title:
+            'For each web page, can the content be presented without any loss of information or functionality and without having to scroll vertically for a window with a height of 256 px or horizontally for a window with a width of 320 px (excluding special cases)?'
+        },
+        10.12: {
+          title:
+            'On each web page, can the text spacing properties be redefined by the user without loss of content or functionality (except in special cases)?'
+        },
+        10.13: {
+          title:
+            'On each web page, is the additional content appearing when focused or when hovering over a user interface component controllable by the user (excluding special cases)?'
+        },
+        10.14: {
+          title:
+            'On each web page, can additional content that appears using CSS styles only be made visible using the keyboard and any pointing device?'
+        },
+        11.1: {
+          title: 'Does each form input field have a label?'
+        },
+        11.2: {
+          title:
+            'Is each label associated with a form input field relevant (excluding special cases)?'
+        },
+        11.3: {
+          title:
+            'In each form, is each label associated with a form input field having the same function and repeated several times in the same page or in a set of web pages consistent?'
+        },
+        11.4: {
+          title:
+            'In each form, are each field label and its associated field located next to each other (excluding special cases)?'
+        },
+        11.5: {
+          title: 'In each form, are the related form controls grouped together, if necessary?'
+        },
+        11.6: {
+          title: 'In each form, does each group of related form controls have a legend?'
+        },
+        11.7: {
+          title:
+            'In each form, is each legend associated with a group of related form controls relevant?'
+        },
+        11.8: {
+          title:
+            'In each form, are the items of the same type in a combobox grouped together in a relevant way?'
+        },
+        11.9: {
+          title: 'In each form, is the label of each button relevant (excluding special cases)?'
+        },
+        '11.10': {
+          title:
+            'In each form, is the error management used appropriately (excluding special cases)?'
+        },
+        11.11: {
+          title:
+            'In each form, is the error management accompanied, if necessary, by suggestions to help correct input errors?'
+        },
+        11.12: {
+          title:
+            'For each form that modifies or deletes data, or transmits answers to a test or examination, or whose validation has financial or legal consequences, can the data entered be modified, updated or recovered by the user?'
+        },
+        11.13: {
+          title:
+            'Can the purpose of an input field be identified to facilitate the automatic filling of fields with user data?'
+        },
+        12.1: {
+          title:
+            'Does each set of web pages have at least two different navigation systems (excluding special cases)?'
+        },
+        12.2: {
+          title:
+            'In each set of web pages, are the menu and navigation bars always at the same place (except in special cases)?'
+        },
+        12.3: {
+          title: 'Is the site map page relevant?'
+        },
+        12.4: {
+          title:
+            'In each set of web pages, is the site map page accessible from an identical functionality?'
+        },
+        12.5: {
+          title: 'In each set of web pages, is the search engine reachable in the same way?'
+        },
+        12.6: {
+          title:
+            'Can content grouping blocks present on several web pages (with the exception of the main regions composing the document structure) be reached or avoided, if necessary?'
+        },
+        12.7: {
+          title:
+            'On each web page, is there a bypass or skip link to the main content region (excluding special cases)?'
+        },
+        12.8: {
+          title: 'On each web page, is the navigation sequence consistent?'
+        },
+        12.9: {
+          title:
+            'On each web page, navigation must not contain any keyboard traps. Is this rule respected?'
+        },
+        '12.10': {
+          title:
+            'On each web page, are keyboard shortcuts using only one key (lowercase or uppercase letter, punctuation, number or symbol) controllable by the user?'
+        },
+        12.11: {
+          title:
+            'On each web page, is the additional content that appears when hovering, focusing or activating a user interface component accessible by keyboard if necessary?'
+        },
+        13.1: {
+          title:
+            'For each web page, does the user have control over each time limit modifying the content (excluding special cases)?'
+        },
+        13.2: {
+          title:
+            'On each web page, the opening of a new window must not be triggered without user action. Is this rule respected?'
+        },
+        13.3: {
+          title:
+            'On each web page, does each downloadable office document have an accessible version (excluding special cases)?'
+        },
+        13.4: {
+          title:
+            'For each office document with an accessible version, does this version offer the same information?'
+        },
+        13.5: {
+          title: 'On each web page, is each cryptic content correctly identified?'
+        },
+        13.6: {
+          title:
+            'On each web page, for each cryptic content having an alternative, is this alternative relevant?'
+        },
+        13.7: {
+          title: 'On each web page, are sudden changes in brightness or blinking used correctly?'
+        },
+        13.8: {
+          title:
+            'On each web page, is every moving or blinking content controllable by the user (excluding special cases)?'
+        },
+        13.9: {
+          title:
+            'On each web page, can the content be viewed in any screen orientation (portrait or landscape) (excluding special cases)?'
+        },
+        '13.10': {
+          title:
+            'On each web page, can the features usable or available by means of a complex gesture also be available by means of a simple gesture (excluding special cases)?'
+        },
+        13.11: {
+          title:
+            'On each web page, can actions triggered by a pointing device on a single point on the screen be cancelled (except in special cases)?'
+        },
+        13.12: {
+          title:
+            'On each web page, can the features that involve movement to or from the device be satisfied in an alternative way (excluding special cases)?'
+        },
+        13.13: {
+          title:
+            'For each document conversion feature, is the accessibility information available in the source document kept in the destination document (excluding special cases)?'
+        },
+        13.14: {
+          title:
+            'Does each identification or control feature that relies on the use of biological characteristics of the user have an alternative method?'
+        },
+        14.1: {
+          title:
+            "Does the website's documentation describe the accessibility features available and information relating to compatibility with accessibility?"
+        },
+        14.2: {
+          title:
+            'For each accessibility feature described in the documentation, the mechanism for enabling an accessibility feature meets the accessibility needs of the users concerned. Is this rule respected (excluding special cases)?'
+        },
+        14.3: {
+          title: 'Does the website documentation comply with the digital accessibility rules?'
+        },
+        15.1: {
+          title:
+            'Does each editing tool allow you to define the accessibility information needed to create content that complies with the digital accessibility rules?'
+        },
+        15.2: {
+          title:
+            'Does each editing tool provide help with creating accessible content that complies with the digital accessibility rules?'
+        },
+        15.3: {
+          title:
+            'Does the content generated by each transformation comply with the digital accessibility rules (excluding special cases)?'
+        },
+        15.4: {
+          title:
+            'For each accessibility issue identified by an automatic or semi-automatic accessibility test, does the editing tool provide suggestions for repair?'
+        },
+        15.5: {
+          title:
+            'For each set of templates, at least one template complies with the digital accessibility rules. Is this rule respected?'
+        },
+        15.6: {
+          title:
+            'Is each template that makes it possible to comply with the digital accessibility rules clearly identifiable?'
+        },
+        16.1: {
+          title:
+            'Does each support service provide information about the accessibility features and accessibility compatibility described in the documentation of the website?'
+        },
+        16.2: {
+          title:
+            'Each support service meets the communication needs of people with disabilities directly or through a relay service. Is this rule respected?'
+        },
+        16.3: {
+          title:
+            'Does the documentation provided by the support service comply with the digital accessibility rules?'
+        },
+        17.1: {
+          title:
+            'For each two-way voice communication web application, is the application capable of encoding and decoding this communication with a frequency range whose upper limit is at least 7,000 Hz?'
+        },
+        17.2: {
+          title:
+            'Does every web application that enables two-way voice communication have real-time text communication functionality?'
+        },
+        17.3: {
+          title:
+            'For each web application that enables two-way voice communication and real-time text, can both modes be used simultaneously?'
+        },
+        17.4: {
+          title:
+            'For each real-time text (RTT) functionality, can the messages be identified (excluding special cases)?'
+        },
+        17.5: {
+          title:
+            'For each two-way voice communication web application, is there a visual indicator of oral activity?'
+        },
+        17.6: {
+          title:
+            'Does each real-time text communication web application that can interact with other real-time text communication applications comply with the interoperability rules in force?'
+        },
+        17.7: {
+          title:
+            'For each real-time text communication (RTT) web application, the transmission time for each input unit is 500ms or less. Is this rule respected?'
+        },
+        17.8: {
+          title:
+            'For each telecommunication web application, is it possible to identify the person initiating a call?'
+        },
+        17.9: {
+          title:
+            'For each two-way voice communication web application which makes it possible to identify the activity of a speaker, it is possible to identify the activity of a signer. Is this rule respected?'
+        },
+        '17.10': {
+          title:
+            'For each two-way voice communication web application that has voice-based services, can these be used without the need to listen or speak?'
+        },
+        17.11: {
+          title:
+            'For each two-way voice communication web application that has real-time video, is the quality of the video sufficient?'
+        }
+      },
+      tests: {
+        '1.1.1': {
+          title:
+            'Does each image (<img> tag or a tag with the WAI-ARIA role="img" attribute) conveying information have a text alternative?',
+          methodology: {
+            steps: [
+              'Find in the document the images implemented using an <img> element or an element with the WAI-ARIA role="img" attribute.',
+              'For each image, determine whether the image conveys information.',
+              'If it is an <img> element, check that the image has at least one of the following text alternatives: - passage of text associated via the WAI-ARIA aria-labelledby attribute; - value of the WAI-ARIA aria-label attribute; - value of the alt attribute; - value of the title attribute.',
+              'In the case of an element with the WAI-ARIA role="img" attribute, check that the image has at least one of the following text alternatives: - passage of text associated via the WAI-ARIA aria-labelledby attribute; - value of the WAI-ARIA aria-label attribute.'
+            ],
+            passWhen: 'If at least one text alternative is found, the test is validated.'
+          }
+        },
+        '1.1.2': {
+          title:
+            'Does each image map area (<area> tag) conveying information have a text alternative?',
+          methodology: {
+            steps: [
+              'Find in the document the <area> elements.',
+              'For each <area> element, determine whether the image map area carries information.',
+              'Check that the image map area has at least one of the following text alternatives: - value of the WAI-ARIA aria-label attribute; - value of the alt attribute;'
+            ],
+            passWhen: 'If at least one text alternative is found, the test is validated.'
+          }
+        },
+        '1.1.3': {
+          title:
+            'Does each button of type image (<input> tag with type="image" attribute) have a text alternative?',
+          methodology: {
+            steps: [
+              'Find in the document the <input> elements with the type="image" attribute.',
+              'For each <input> element with the attribute type="image", determine whether the image used conveys information.',
+              'Check that the <input> element has at least one of the following text alternatives: - passage of text associated via the WAI-ARIA aria-labelledby attribute; - value of the WAI-ARIA aria-label attribute; - value of the alt attribute; - value of the title attribute.'
+            ],
+            passWhen: 'If at least one text alternative is found, the test is validated.'
+          }
+        },
+        '1.1.4': {
+          title:
+            'Is each clickable area in a server-side image map accompanied by a mechanism that can be used regardless of the pointing device used and allows to access the same destination?',
+          methodology: {
+            steps: [
+              'Find in the document the <img> elements with the ismap attribute.',
+              'For each <img> element with the ismap attribute, check for the presence of a link or set of links (or another type of user interface component which plays a similar role, such as a combobox, for example) providing access to the same resources as when the image is clicked.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '1.1.5': {
+          title: 'Does each vector image (<svg> tag) conveying information meet these conditions?',
+          conditions: [
+            'The <svg> tag has a WAI-ARIA role="img" attribute;',
+            'The <svg> tag has a text alternative.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <svg> elements.',
+              'For each <svg> element, determine whether the image conveys information.',
+              'Check that the <svg> element has a WAI-ARIA role="img" attribute.',
+              'If this is not the case, the test is invalidated.',
+              'If necessary, check that the <svg> element has at least one of the following text alternatives: - value of the <title> element; - passage of text linked by the WAI-ARIA aria-labelledby attribute; - value of the WAI-ARIA aria-label attribute;'
+            ],
+            passWhen: 'If at least one text alternative is found, the test is validated.'
+          }
+        },
+        '1.1.6': {
+          title:
+            'Does each object image (<object> tag with the type="image/..." attribute) conveying information meet one of these conditions?',
+          conditions: [
+            'The <object> tag has a text alternative and a role="img" attribute;',
+            'The <object> element is immediately followed by an adjacent link or button giving access to alternative content;',
+            'A mechanism allows the user to replace the <object> element with alternative content.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the opening <object> tags with the type="image/..." attribute.',
+              'For each opening <object> tag with the type="image/..." attribute, determine whether the image used is conveying information.',
+              'Check that the <object> element has a WAI-ARIA role="img" attribute.',
+              'Check that the <object> element has at least one of the following text alternatives: - passage of text associated via the WAI-ARIA aria-labelledby attribute; - value of the WAI-ARIA aria-label attribute; - value of the title attribute.',
+              'If at least one text alternative is found, the test is validated.',
+              'Otherwise, check that: - either the <object> element is immediately followed by an adjacent link or button providing access to alternative content; - or a mechanism allows the user to replace the <object> element with alternative content.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '1.1.7': {
+          title:
+            'Does each embedded image (<embed> tag with the type="image/..." attribute) conveying information meet one of these conditions?',
+          conditions: [
+            'The <embed> tag has a text alternative and a role="img" attribute;',
+            'The <embed> element is immediately followed by an adjacent link or button giving access to alternative content;',
+            'A mechanism allows the user to replace the <embed> element with alternative content.'
+          ],
+          methodology: {
+            steps: [
+              'For each <embed> element with the type="image/..." attribute, determine whether the image used is conveying information.',
+              'Check that the <embed> element has a WAI-ARIA role="img" attribute.',
+              'Check that the <embed> element has at least one of the following text alternatives: - passage of text associated via the WAI-ARIA aria-labelledby attribute; - value of the WAI-ARIA aria-label attribute; - value of the title attribute.',
+              'If at least one text alternative is found, the test is validated.',
+              'Otherwise, check that: - either the <object> element is immediately followed by an adjacent link or button providing access to alternative content; - or a mechanism allows the user to replace the <object> element with alternative content.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '1.1.8': {
+          title:
+            'Does each bitmap image (<canvas> tag) conveying information meet one of these conditions?',
+          conditions: [
+            'The <canvas> tag has a text alternative and a role="img" attribute;',
+            'An alternative content is present between the <canvas> and </canvas> tags;',
+            'The <canvas> element is immediately followed by an adjacent link or button giving access to alternative content;',
+            'A mechanism allows the user to replace the <canvas> element with alternative content.'
+          ],
+          methodology: {
+            steps: [
+              'Find <canvas> elements in the document.',
+              'For each <canvas> element, determine whether the image used conveys information.',
+              'Check that the <canvas> element has a WAI-ARIA role="img" attribute.',
+              'Check that the opening <canvas> tag has at least one of the following text alternatives: - passage of text associated via the WAI-ARIA aria-labelledby attribute; - value of the WAI-ARIA aria-label attribute.',
+              'If at least one text alternative is found, the test is validated.',
+              'If steps 3 and 4 are not satisfied, check that: - either the <canvas> element has alternative content between the <canvas> and </canvas> tags; - or the <canvas> element is immediately followed by an adjacent link or button providing access to alternative content; - or a mechanism allows the user to replace the <canvas> element with alternative content.'
+            ],
+            passWhen: 'If this is the case, the test is validated.',
+            note: 'Note: if the <canvas> element has an img role, its alternative can only be provided by the techniques listed in step 4.'
+          }
+        },
+        '1.2.1': {
+          title:
+            'Does each decorative image (<img> tag), without image caption, meet one of these conditions?',
+          conditions: [
+            'The <img> tag has an empty alt attribute (alt="") and no other attribute to provide a text alternative.',
+            'The <img> tag has a WAI-ARIA aria-hidden="true" attribute.',
+            'The <img> tag has a role="presentation" or a role="none" attribute and does not have the title, aria-label, or aria-labelledby attributes.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the decorative images without a legend implemented using an <img> element.',
+              'For each image, check that it has an aria-hidden="true" attribute.',
+              'If not, check that the image has a role="presentation" or role="none" attribute and that it does not have aria-labelledby, aria-label, or title attributes.',
+              'If not, check that the image has an empty alt attribute (alt="") and that it does not have aria-labelledby, aria-label, or title attributes.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.2.2': {
+          title:
+            'Does each non-clickable decoration area (<area> tag without href attribute), meet one of these conditions?',
+          conditions: [
+            'The <area> tag has an empty alt attribute (alt="") and no other attribute to provide a text alternative.',
+            'The <area> tag has a WAI-ARIA aria-hidden="true".',
+            'The <area> tag has a role="presentation" or a role="none" attribute and does not have the title, aria-label, or aria-labelledby attributes.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the decorative images implemented using an <area> element (without a href attribute).',
+              'For each image, check that the <area> element has an aria-hidden="true" attribute.',
+              'If not, check that the <area> element has a role="presentation" or role="none" attribute and that it does not have aria-labelledby, aria-label, or title attributes.',
+              'If not, check that the <area> element has an empty alt attribute (alt="") and that it does not have aria-labelledby, aria-label, or title attributes.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.2.3': {
+          title:
+            'Does each decorative object image (<object> tag with type="image/..." attribute), without image caption, meet these conditions?',
+          conditions: [
+            'The <object> tag has a WAI-ARIA aria-hidden="true" attribute.',
+            'The <object> tag has no text alternative.',
+            'There is no alternative text between <object> and </object>.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the decorative images implemented without an image caption using an <object> element (with a type="image/..." attribute).',
+              'For each image, check that the opening <object> tag does not have aria-labelledby, aria-label or title attributes and that it - has a WAI-ARIA aria-hidden="true" attribute; - and has no text alternative; - and has no alternative content between the <object> and </object> tags.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.2.4': {
+          title:
+            'Each decorative vector image (<svg> tag), without image caption, has a WAI-ARIA aria-hidden="true" attribute. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find in the document the decorative images without an image caption, implemented using a <svg> element.',
+              'For each image, check that the <svg> element has a WAI-ARIA aria-hidden="true" attribute.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.2.5': {
+          title:
+            'Does each decorative bitmap image (<canvas> tag), without image caption, meet these conditions?',
+          conditions: [
+            'The <canvas> tag has a WAI-ARIA aria-hidden="true" attribute.',
+            'The <canvas> tag and its children have no text alternative.',
+            'There is no text acting as a text alternative between <canvas> and </canvas>.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the decorative images without an image caption implemented using a <canvas> element.',
+              'For each image, check that the <canvas> element has no aria-labelledby, aria-label or title attributes and that it - has a WAI-ARIA aria-hidden="true" attribute; - and has no text alternative; - and has no alternative content between the <canvas> and </canvas> tags.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.2.6': {
+          title:
+            'Does each decorative embedded image (<embed> tag with type="image/..." attribute), without image caption, meet these conditions?',
+          conditions: [
+            'The <embed> tag has a WAI-ARIA aria-hidden="true" attribute.',
+            'The <embed> tag and its children have no text alternative.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the decorative images without an image caption using an <embed> element (with a type="image/..." attribute).',
+              'For each image, check that the <embed> element does not have aria-labelledby, aria-label or title attributes and that it - has a WAI-ARIA aria-hidden="true" attribute; - and has no text alternative;'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.1': {
+          title:
+            'For each image (<img> tag or tag with WAI-ARIA role="img" attribute) conveying information, having a text alternative, is this alternative relevant (excluding special cases)?',
+          conditions: [
+            'If present, the value of the alt attribute is relevant.',
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text linked by aria-labelledby WAI-ARIA attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the images implemented using an <img> element (or an element with the WAI-ARIA role="img" attribute) with a text alternative (image).',
+              'For each image, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.2': {
+          title:
+            'For each area (<area> tag) of an image map conveying information, having a text alternative, is this alternative relevant (excluding special cases)?',
+          conditions: [
+            'If present, the value of the alt attribute is relevant.',
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text linked by the aria-labelledby WAI-ARIA attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <area> elements with a text alternative.',
+              'For each <area> element, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.3': {
+          title:
+            'For each button of type image (<input> tag with the type="image" attribute), having a text alternative, is this alternative relevant (excluding special cases)?',
+          conditions: [
+            'If present, the value of the alt attribute is relevant.',
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <input> elements with the type="image" attribute and a text alternative (image).',
+              'For each <input> element with the type="image" attribute, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.4': {
+          title:
+            'For each object image (<object> tag with the type="image/..." attribute) conveying information, having an alternative text or an alternative content, is this alternative relevant (excluding special cases)?',
+          conditions: [
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.',
+            'If present, the alternative content is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <object> elements with the type="image/..." attribute and a text alternative.',
+              'For each <object> element with the type="image/..." attribute, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.5': {
+          title:
+            'For each embedded image (<embed> tag with the type="image/..." attribute) conveying information, having an alternative text or an alternative content, is this alternative relevant (excluding special cases)?',
+          conditions: [
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.',
+            'If present, the alternative content is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <embed> elements with the type="image/..." attribute and a text alternative.',
+              'For each <embed> element with the type="image/..." attribute, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.6': {
+          title:
+            'For each vector image (<svg> tag) conveying information, having a text alternative, is this alternative relevant (excluding special cases)?',
+          conditions: [
+            'If present, the content of the <title> element is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the WAI-ARIA aria-labelledby attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <svg> elements with a text alternative.',
+              'For each <svg> element, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.7': {
+          title:
+            'For each bitmap image (<canvas> tag) conveying information, having an alternative text or an alternative content, is this alternative relevant (excluding special cases)?',
+          conditions: [
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.',
+            'If present, the alternative content is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <canvas> elements that have an alternative text.',
+              'For each <canvas> element, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.8': {
+          title:
+            'For each bitmap image (<canvas> tag) conveying information and having an alternative content between <canvas> and </canvas>, is this alternative content correctly rendered (by assistive technologies)?',
+          methodology: {
+            steps: [
+              'Find in the document the <canvas> elements with alternative content between the <canvas> and </canvas> tags.',
+              'For each <canvas> element, check that the alternative content is correctly rendered (by assistive technologies).'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.3.9': {
+          title:
+            'For each image conveying information with a text alternative, is the text alternative short and concise (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the images with a text alternative.',
+              'For each image, check that the text alternative is short and concise.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.4.1': {
+          title:
+            'For each image (<img> tag) used as CAPTCHA or as test image, having a text alternative, is this alternative relevant?',
+          conditions: [
+            'If present, the value of the alt attribute is relevant.',
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the images that are implemented by means of an <img> element with a text alternative and used as a CAPTCHA or as a test image.',
+              'For each image, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.4.2': {
+          title:
+            'For each image map area (<area> tag) used as a CAPTCHA or as a test image, having a text alternative, is this alternative relevant?',
+          conditions: [
+            'If present, the value of the alt attribute is relevant.',
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text linked by the WAI-ARIA aria-labelledby attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <area> elements with a text alternative and used as a CAPTCHA or as a test image.',
+              'For each <area> element, check that the alternative text is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.4.3': {
+          title:
+            'For each button of image type (<input> tag with the type="image" attribute) used as a CAPTCHA or as a test image, having a text alternative, is this alternative relevant?',
+          conditions: [
+            'If present, the value of the alt attribute is relevant.',
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <input> elements with the type="image" attribute and a text alternative, and used as a CAPTCHA or as a test image.',
+              'For each <input> element with the type="image" attribute, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.4.4': {
+          title:
+            'For each object image (<object> tag with the type="image/..." attribute) used as a CAPTCHA or as a test image, having a text alternative or an alternative content, is this alternative relevant?',
+          conditions: [
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.',
+            'If present, the alternative content is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <object> elements with the type="image/..." attribute and a text alternative, and used as a CAPTCHA or as a test image.',
+              'For each <object> element with the type="image/..." attribute, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.4.5': {
+          title:
+            'For each embedded image (<embed> tag with the type="image/..." attribute) used as a CAPTCHA or as a test image, having a text alternative or an alternative content, is this alternative relevant?',
+          conditions: [
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.',
+            'If present, the alternative content is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <embed> elements with the type="image/..." attribute and a text alternative, and used as a CAPTCHA or as a test image.',
+              'For each <embed> element with the type="image/..." attribute, check that the text alternative is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.4.6': {
+          title:
+            'For each vector image (<svg> tag) used as CAPTCHA or as test image, having a text alternative, is this alternative relevant?',
+          conditions: [
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <svg> elements with a text alternative and used as a CAPTCHA or as a test image.',
+              'For each <svg> element, check that the alternative text is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.4.7': {
+          title:
+            'For each bitmap image (<canvas> tag) used as a CAPTCHA or as a test image, having a text alternative or an alternative content, is this alternative relevant?',
+          conditions: [
+            'If present, the value of the title attribute is relevant.',
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text associated via the aria-labelledby WAI-ARIA attribute is relevant.',
+            'If present, the alternative content is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <canvas> elements with a text alternative and used as a CAPTCHA or as a test image.',
+              'For each <canvas> element, check that the alternative text is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.5.1': {
+          title:
+            'Does each image (<img>, <area>, <object>, <embed>, <svg>, <canvas> tags or tags with a WAI-ARIA role="img" attribute) used as a CAPTCHA meet one of these conditions?',
+          conditions: [
+            'There is another form of non-graphical CAPTCHA, at least.',
+            'There is another way to access functionality that is secured by the CAPTCHA.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the images (<img>, <area>, <object>, <embed>, <svg>, <canvas> elements or elements with a WAI-ARIA role="img" attribute) used as CAPTCHA or test image.',
+              'For each image, check that there is - either another form of non-graphical CAPTCHA, at least; - or another solution for accessing the functionality that is secured by the CAPTCHA.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.5.2': {
+          title:
+            'Does each button associated with an image (input tag with the type="image" attribute) used as a CAPTCHA meet one of these conditions?',
+          conditions: [
+            'There is another form of non-graphical CAPTCHA, at least.',
+            'There is another way to access the functionality secured by the CAPTCHA.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the buttons associated with an image (<input> elements with the type="image" attribute) used as a CAPTCHA or as a test image.',
+              'For each button associated with an image, check that there is - either another form of non-graphical CAPTCHA, at least; - or another solution for accessing the functionality that is secured by the CAPTCHA.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.6.1': {
+          title:
+            'Does each image (<img> tag) conveying information, which requires a detailed description, meet one of these conditions?',
+          conditions: [
+            'There is an alternative text containing a reference to a detailed description adjacent to the image.',
+            'There is an adjacent link or button giving access to the detailed description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the images that are implemented using an <img> element (or an element with the WAI-ARIA role="img" attribute) and conveying information that requires a detailed description.',
+              'For each image, check that there is - Either a text alternative containing a reference to a detailed description adjacent to the image; - Or a link or adjacent button giving access to the detailed description.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.6.2': {
+          title:
+            'Does each object image (<object> tag with the type="image/..." attribute) conveying information, which requires a detailed description, meet one of these conditions?',
+          conditions: [
+            'There is an alternative text containing a reference to a detailed description adjacent to the image.',
+            'There is an adjacent link or button giving access to the detailed description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <object> elements with the type="image/..." attribute, which contain information requiring a detailed description.',
+              'For each <object> element with the type="image/..." attribute, check that there is - either a text alternative containing a reference to a detailed description adjacent to the image; - or an adjacent link or button giving access to the detailed description.'
+            ],
+            passWhen:
+              'If this is the case for each <object> element with the type="image/..." attribute, the test is validated.'
+          }
+        },
+        '1.6.3': {
+          title:
+            'Does each embedded image (<embed> tag) conveying information, which requires a detailed description, meet one of these conditions?',
+          conditions: [
+            'There is an alternative text containing a reference to a detailed description adjacent to the image.',
+            'There is an adjacent link or button giving access to the detailed description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <embed> elements with the type="image/..." attribute, which contain information requiring a detailed description.',
+              'For each <embed> element with the type="image/..." attribute, check that there is - either a text alternative containing a reference to a detailed description adjacent to the image; - or an adjacent link or button giving access to the detailed description.'
+            ],
+            passWhen:
+              'If this is the case for each <embed> element with the type="image/..." attribute, the test is validated.'
+          }
+        },
+        '1.6.4': {
+          title:
+            'Does each button of the image type (<input> tag with the type="image" attribute) conveying information, which requires a detailed description, meet one of these conditions?',
+          conditions: [
+            'There is an alternative text containing a reference to a detailed description adjacent to the image.',
+            'There is an adjacent link or button giving access to the detailed description.',
+            'There is a WAI-ARIA aria-describedby attribute associating a passage of text acting as detailed description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <input> elements with the type="image" attribute, which contain information requiring a detailed description.',
+              'For each <input> element with the type="image" attribute, check that there is - either a text alternative containing a reference to a detailed description adjacent to the image; - a link or adjacent button giving access to the detailed description; - or a WAI-ARIA attribute aria-describedby associating a passage of text acting as a detailed description.'
+            ],
+            passWhen:
+              'If this is the case for each <input> element with the type="image" attribute, the test is validated.'
+          }
+        },
+        '1.6.5': {
+          title:
+            'Does each vector image (<svg> tag) conveying information, which requires a detailed description, meet one of these conditions?',
+          conditions: [
+            'There is a WAI-ARIA aria-label attribute containing the text alternative and a reference to an adjacent detailed description.',
+            'There is a WAI-ARIA aria-labelledby attribute associating a passage of text acting as a text alternative and another acting as a detailed description.',
+            'There is a WAI-ARIA aria-describedby attribute associating a passage of text acting as a detailed description.',
+            'There is an adjacent link or button leading to the detailed description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <svg> elements conveying information that require a detailed description.',
+              'For each <svg> element, check that there is - either a WAI-ARIA aria-label attribute containing the text alternative and a reference to an adjacent detailed description; - or a WAI-ARIA aria-labelledby attribute associating a passage of text acting as a text alternative and another acting as a detailed description; - or a WAI-ARIA aria-describedby attribute associating a passage of text acting as a detailed description; - or a link or an adjacent button giving access to the detailed description.'
+            ],
+            passWhen: 'If this is the case for each <svg> element, the test is validated.'
+          }
+        },
+        '1.6.6': {
+          title:
+            'For each vector image (<svg> tag) conveying information, having a detailed description, is any reference to the detailed description in the WAI-ARIA aria-label attribute and the associated detailed description in the WAI-ARIA aria-labelledby or aria-describedby attribute correctly rendered (by assistive technologies)?',
+          methodology: {
+            steps: [
+              'Find in the document the <svg> elements conveying information for which a detailed description is provided using an aria-label, aria-labelledby or aria-describedby attribute.',
+              'For each <svg> element, check that the content of the detailed description is correctly rendered (by assistive technologies).'
+            ],
+            passWhen: 'If this is the case for each <svg> element, the test is validated.'
+          }
+        },
+        '1.6.7': {
+          title:
+            'Does each bitmap image (<canvas> tag), conveying information, which requires a detailed description, meet one of these conditions?',
+          conditions: [
+            'There is a WAI-ARIA aria-label attribute containing the text alternative and a reference to an adjacent detailed description.',
+            'There is a WAI-ARIA aria-labelledby attribute associating a passage of text acting as a text alternative and another acting as a detailed description.',
+            'There is text content between <canvas> and </canvas> referring to a detailed description adjacent to the bitmap image.',
+            'There is text content between <canvas> and </canvas> that acts as a detailed description.',
+            'There is an adjacent link or button allowing access to the detailed description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <canvas> elements conveying information that require a detailed description.',
+              'For each <canvas> element, check that there is - either a WAI-ARIA aria-label attribute containing the text alternative and a reference to an adjacent detailed description; - or a WAI-ARIA aria-labelledby attribute associating a passage of text acting as a text alternative and another acting as a detailed description; - or a text content between <canvas> and </canvas> referring to a detailed description adjacent to the bitmap image; - or a text content between <canvas> and </canvas> acting as a detailed description; - or an adjacent link or button giving access to the detailed description.'
+            ],
+            passWhen: 'If this is the case for each <canvas> element, the test is validated.'
+          }
+        },
+        '1.6.8': {
+          title:
+            'For each bitmap image (<canvas> tag) conveying information, which implements a reference to an adjacent detailed description, is this reference correctly rendered (by assistive technologies)?',
+          methodology: {
+            steps: [
+              'Find in the document the <canvas> elements conveying information whose detailed description is provided by means of an aria-label, aria-labelledby or aria-describedby attribute.',
+              'For each <canvas> element, check that the content of the detailed description is correctly rendered (by assistive technologies).'
+            ],
+            passWhen: 'If this is the case for each <canvas> element, the test is validated.'
+          }
+        },
+        '1.6.9': {
+          title:
+            'For each image (<img>, <input> tags with the type="image" attribute, <area>, <object>, <embed>, <svg>, <canvas> tags, or tags having a WAI-ARIA role="img" attribute) conveying information, which is accompanied by a detailed description and which uses a WAI-ARIA aria-describedby attribute, does the WAI-ARIA aria-describedby attribute associate the detailed description?',
+          methodology: {
+            steps: [
+              'Find in the document the images (<img>, <input> elements with the type="image" attribute, <area>, <object>, <embed>, <svg>, <canvas> elements, or elements possessing a WAI-ARIA role="img" attribute) conveying information whose detailed description uses a WAI-ARIA aria-describedby attribute.',
+              'For each image, check that the content of the detailed description is correctly rendered (by assistive technologies).'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.6.10': {
+          title:
+            'Does each tag with a WAI-ARIA role="img" attribute conveying information, which requires a detailed description, meet one of these conditions?',
+          conditions: [
+            'There is a WAI-ARIA aria-label attribute containing the text alternative and a reference to an adjacent detailed description.',
+            'There is a WAI-ARIA aria-labelledby attribute associating a passage of text acting as a text alternative and another acting as a detailed description.',
+            'There is a WAI-ARIA aria-describedby attribute associating a passage of text acting as a detailed description.',
+            'There is an adjacent link or button leading to the detailed description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the elements with a WAI-ARIA role="img" attribute that contain information requiring a detailed description.',
+              'For each role="img" element, check that there is - either a WAI-ARIA aria-label attribute containing the text alternative and a reference to an adjacent detailed description; - or a WAI-ARIA aria-labelledby attribute associating a passage of text acting as a text alternative and another acting as a detailed description; - or a WAI-ARIA aria-describedby attribute associating a passage of text acting as a detailed description; - or a link or an adjacent button giving access to the detailed description.'
+            ],
+            passWhen: 'If this is the case for each role="img" element, the test is validated.'
+          }
+        },
+        '1.7.1': {
+          title:
+            'Does each image (<img> tag) conveying information, with a detailed description, meet these conditions?',
+          conditions: [
+            'The detailed description on the page and indicated by the text alternative is relevant.',
+            'The detailed description via an adjacent link or button is relevant.',
+            'The passage of text linked by the WAI-ARIA aria-describedby attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the images that are implemented using an <img> element and have a detailed description.',
+              'For each image, check that the detailed description is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.7.2': {
+          title:
+            'Does each button of image type (<input> tag with the type="image" attribute), conveying information, having a detailed description, check these conditions?',
+          conditions: [
+            'The detailed description on the page and indicated by the text alternative is relevant.',
+            'The detailed description via an adjacent link or button is relevant.',
+            'The passage of text linked by the WAI-ARIA aria-describedby attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <input> elements with the type="image" attribute which have a detailed description.',
+              'For each <input> element with the type="image" attribute, check that the detailed description is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.7.3': {
+          title:
+            'Does each object image (<object> tag with the type="image/..." attribute) conveying information, with a detailed description, meet these conditions?',
+          conditions: [
+            'The detailed description on the page and indicated by the text alternative is relevant.',
+            'The detailed description adjacent to the object image is relevant.',
+            'The detailed description via an adjacent link or button is relevant.',
+            'The passage of text linked by the WAI-ARIA aria-describedby attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <object> elements with the type="image/..." attribute which have a detailed description.',
+              'For each <object> element with the type="image/..." attribute, check that the detailed description is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.7.4': {
+          title:
+            'Does each embedded image (<embed> tag with the type="image/..." attribute) conveying information, with a detailed description, meet these conditions?',
+          conditions: [
+            'The detailed description on the page and indicated by the text alternative is relevant.',
+            'The detailed description adjacent to the embedded image is relevant.',
+            'The detailed description via an adjacent link or button is relevant.',
+            'The passage of text linked by the WAI-ARIA aria-describedby attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <embed> elements with the type="image/..." attribute which have a detailed description.',
+              'For each <embed> element with the type="image/..." attribute, check that the detailed description is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.7.5': {
+          title:
+            'Does each vector image (<svg> tag) conveying information, with a detailed description, meet these conditions?',
+          conditions: [
+            'The detailed description on the page and indicated by the text alternative is relevant.',
+            'The detailed description on the page and indicated by the text contained in the <desc> or <title> tag is relevant.',
+            'The adjacent detailed description contained in the <desc> tag is relevant.',
+            'The detailed description via an adjacent link or button is relevant.',
+            'The passage of text linked by the WAI-ARIA aria-describedby attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <svg> elements that have a detailed description.',
+              'For each <svg> element, check that the detailed description is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.7.6': {
+          title:
+            'Does each bitmap image (<canvas> tag) conveying information, with a detailed description, meet these conditions?',
+          conditions: [
+            'The detailed description on the page and indicated by the text alternative is relevant.',
+            'The detailed description on the page and indicated by the text contained between <canvas> and </canvas> is relevant.',
+            'The detailed description contained between <canvas> and </canvas> is relevant.',
+            'The detailed description adjacent to the bitmap image is relevant.',
+            'The detailed description via an adjacent link or button is relevant.',
+            'The passage of text linked by the WAI-ARIA aria-describedby attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the <canvas> elements that have a detailed description.',
+              'For each <canvas> element, check that the detailed description is relevant.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.8.1': {
+          title:
+            'In the absence of a replacement mechanism, each image of text (<img> tag or tag having a WAI-ARIA role="img" attribute) conveying information must, if possible, be replaced by styled text. Is this rule respected (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the images of text implemented using an <img> element (or an element with the WAI-ARIA role="img" attribute).',
+              'For each image, check that: - either a replacement mechanism exists; - or the image contains text which uses a graphic effect which cannot be reproduced in CSS.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.8.2': {
+          title:
+            'In the absence of a replacement mechanism, each "image of text" button (<input> tag with the type="image" attribute) conveying information must, if possible, be replaced by styled text. Is this rule respected (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the "image of text" buttons (<input> element with the type="image" attribute).',
+              'For each image, check that - either there is a replacement mechanism; - or the image contains text that uses a graphic effect that cannot be reproduced in CSS.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.8.3': {
+          title:
+            'In the absence of a replacement mechanism, each image of text object (<object> tag with the type="image/..." attribute) conveying information must, if possible, be replaced by styled text. Is this rule respected (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the image of text objects (<object> element with the type="image/..." attribute).',
+              'For each image, check that - either there is a replacement mechanism; - or the image contains text which uses a graphic effect which cannot be reproduced in CSS.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.8.4': {
+          title:
+            'In the absence of a replacement mechanism, each embedded image of text (<embed> tag with the type="image/..." attribute) conveying information must, if possible, be replaced by styled text. Is this rule respected (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the embedded images of text (<embed> element with the type="image/..." attribute).',
+              'For each image, check that - Either there is a replacement mechanism; - Or the image contains text which uses a graphic effect which cannot be reproduced in CSS.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.8.5': {
+          title:
+            'In the absence of a replacement mechanism, each bitmap image of text (<canvas> tag) conveying information must, if possible, be replaced by styled text. Is this rule respected (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the bitmap images of text (<canvas> element).',
+              'For each image, check that - either there is a replacement mechanism; - or the image contains text that uses a graphic effect that cannot be reproduced in CSS.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.8.6': {
+          title:
+            'In the absence of a replacement mechanism, every SVG image of text (<svg> tag) conveying information whose text is not completely implemented using <text> elements, must, if possible, be replaced by styled text. Is this rule respected (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the vector images of texts (<svg> element) that carry information and whose text is not completely implemented using <text> elements.',
+              'For each image, check that - either there is a replacement mechanism; - or the image contains text which uses a graphic effect which cannot be reproduced in CSS.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.9.1': {
+          title:
+            'If necessary, does each image with an image caption (<img>, <input> tags with the type="image" attribute or with a WAI-ARIA role="img" attribute associated with an adjacent image caption) meet these conditions?',
+          conditions: [
+            'The image (<img>, <input> tag with the type="image" attribute or tag having a WAI-ARIA role="img" attribute) and its adjacent image caption are contained in a <figure> tag.',
+            'The image caption is contained in a <figcaption> tag.'
+          ],
+          methodology: {
+            steps: [
+              'In the document, find the images with a legend implemented using the <img> element, an <input> element with the type="image" attribute or an element with the WAI-ARIA role="img" attribute.',
+              'For each image, check that - the image and its legend are contained in a <figure> tag; - the legend is contained in a <figcaption> tag.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.9.2': {
+          title:
+            'Does each object image with an image caption (<object> tag with the type="image/..." attribute associated with an adjacent image caption), if necessary, meet these conditions?',
+          conditions: [
+            'The object image and its adjacent image caption are contained in a <figure> tag.',
+            'The image caption is contained in a <figcaption> tag.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the object images with a legend (<object> element with the type="image/..." attribute).',
+              'For each image, check that - the image and its legend are contained in a <figure> tag; - the legend is contained in a <figcaption> tag.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.9.3': {
+          title:
+            'Does each embedded image with an image caption (<embed> tag associated with an adjacent image caption), if necessary, meet these conditions?',
+          conditions: [
+            'The embedded image (<embed> tag) and its adjacent image caption are contained in a <figure> tag.',
+            'The image caption is contained in a <figcaption> tag.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the embedded images with a legend (<embed> element with the type="image/..." attribute).',
+              'For each image, check that - the image and its legend are contained in a <figure> tag; - the legend is contained in a <figcaption> tag.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.9.4': {
+          title:
+            'Does each vector image with an image caption (<svg> tag associated with an adjacent image caption), if necessary, meet these conditions?',
+          conditions: [
+            'The vector image (<svg> tag) and its adjacent image caption are contained in a <figure> tag.',
+            'The image caption is contained in a <figcaption> tag.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the vector images with a legend (<svg> element).',
+              'For each image, check that - the image and its legend are contained in a <figure> tag; - the legend is contained in a <figcaption> tag.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '1.9.5': {
+          title:
+            'Does each bitmap image with an image caption (<canvas> tag associated with an adjacent image caption), if necessary, meet these conditions?',
+          conditions: [
+            'The bitmap image (<canvas> tag) and its adjacent image caption are contained in a <figure> tag.',
+            'The image caption is contained in a <figcaption> tag.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the bitmap images (<canvas> element).',
+              'For each image, check that - the image and its legend are contained in a <figure> tag; - the legend is contained in a <figcaption> tag.'
+            ],
+            passWhen: 'If this is the case for each image, the test is validated.'
+          }
+        },
+        '2.1.1': {
+          title: 'Does each frame (<iframe> or <frame> tag) have a title attribute?',
+          methodology: {
+            steps: [
+              'Find the frames in the document (<iframe> or <frame> element).',
+              'For each frame, check that it has a title attribute.'
+            ],
+            passWhen: 'If this is the case for each frame, the test is validated.'
+          }
+        },
+        '2.2.1': {
+          title:
+            'For each frame (<iframe> or <frame> tag) with a title attribute, is the content of this attribute relevant?',
+          methodology: {
+            steps: [
+              'Find the frames in the document (<iframe> or <frame> element).',
+              'For each frame with a title attribute, check that its content is relevant.'
+            ],
+            passWhen: 'If this is the case for each frame, the test is validated.'
+          }
+        },
+        '3.1.1': {
+          title:
+            'For each word or set of words whose colouring provides information, the information must not be provided by colour alone. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find in the document the information provided by the colour in a word or set of words.',
+              'For each of these pieces of information, check for the presence of: - additional information in the code (title, aria-label, visually hidden text, aria-current, etc.); - and additional visual information to complement the colour (icon, graphic effect in terms of shape or position, typographical effect, etc.).'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '3.1.2': {
+          title:
+            'For each indication of colour given by a text, the information must not be given solely by the colour. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find the information (provided by colour) in a text in the document.',
+              'For each of these pieces of information, check for the presence of: - additional information in the code (title, aria-label, visually hidden text, aria-current, etc.); - and additional visual information to complement the colour (icon, graphic effect in terms of shape or position, typographical effect, etc.).'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '3.1.3': {
+          title:
+            'For each image conveying information, the information must not be provided by colour alone. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find the information provided by the colour in an image in the document.',
+              'For each of these pieces of information, check for the presence of: - additional information in the code (title, aria-label, visually hidden text, aria-current, etc.); - and additional visual information to complement the colour (icon, graphic effect in terms of shape or position, typographical effect, etc.).'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '3.1.4': {
+          title:
+            'For each CSS property defining a colour and conveying information, the information must not be given solely by the colour. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find the information provided by the colour in a CSS property in the document.',
+              'For each of these pieces of information, check for the presence of: - additional information in the code (title, aria-label, visually hidden text, aria-current, etc.); - and additional visual information to complement the colour (icon, graphic effect in terms of shape or position, typographical effect, etc.).'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '3.1.5': {
+          title:
+            'For each time-based media conveying information, the information must not be provided by colour alone. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find the information provided by the colour in the document in a time-based medium.',
+              'For each of these pieces of information, check for the presence of: - additional information in the code (title, aria-label, visually hidden text, aria-current, etc.); - and additional visual information to complement the colour (icon, graphic effect in terms of shape or position, typographical effect, etc.).'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '3.1.6': {
+          title:
+            'For each non-time-based media conveying information, the information must not be provided by colour alone. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find the information provided by colour in non-time-based media in the document.',
+              'For each of these pieces of information, check for the presence of: - additional information in the code (title, aria-label, visually hidden text, aria-current, etc.); - and additional visual information to complement the colour (icon, graphic effect in terms of shape or position, typographical effect, etc.).'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '3.2.1': {
+          title:
+            'On each web page, do texts and images of texts without bold effects with a rendered size of less than 24px meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The contrast ratio between the text and its background is at least 4.5:1.',
+            'A mechanism allows the user to display text with a contrast ratio of at least 4.5:1.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document texts and images of texts with no bold effect and a rendered size of less than 24px that could cause contrast problems.',
+              'For each of these texts, check that - either the contrast ratio between the text and its background is 4.5:1, at least; - or a mechanism allows the user to display the text with a contrast ratio of at least 4.5:1.'
+            ],
+            passWhen: 'If this is the case for each text, the test is validated.'
+          }
+        },
+        '3.2.2': {
+          title:
+            'On each web page, do bold texts and bold images of texts with a rendered size of less than 18.5px meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The contrast ratio between the text and its background is at least 4.5:1.',
+            'A mechanism allows the user to display the text with a contrast ratio of at least 4.5:1.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document bold texts and bold images of texts with a rendered size of less than 18.5px that could cause contrast problems.',
+              'For each of these texts, check that - either the contrast ratio between the text and its background is 4.5:1, at least; - or a mechanism allows the user to display the text with a contrast ratio of at least 4.5:1.'
+            ],
+            passWhen: 'If this is the case for each text, the test is validated.'
+          }
+        },
+        '3.2.3': {
+          title:
+            'On each web page, do texts and images of texts without bold effect with a rendered size greater than or equal to 24px meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The contrast ratio between the text and its background is at least 3:1.',
+            'A mechanism allows the user to display the text with a contrast ratio of at least 3:1.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document texts and images of texts without bold effect with a rendered size greater than or equal to 24px that could cause contrast problems.',
+              'For each of these texts, check that - either the contrast ratio between the text and its background is at least 3:1; - or a mechanism allows the user to display the text with a contrast ratio of at least 3:1.'
+            ],
+            passWhen: 'If this is the case for each text, the test is validated.'
+          }
+        },
+        '3.2.4': {
+          title:
+            'On each web page, do bold texts and bold images of texts with a rendered size greater than or equal to 18.5px meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The contrast ratio between the text and its background is at least 3:1.',
+            'A mechanism allows the user to display the text with a contrast ratio of at least 3:1.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document bold texts and bold images of texts with a rendered size greater than or equal to 18.5px that could cause contrast problems.',
+              'For each of these texts, check that - either the contrast ratio between the text and its background is at least 3:1; - or a mechanism allows the user to display the text with a contrast ratio of at least 3:1.'
+            ],
+            passWhen: 'If this is the case for each text, the test is validated.'
+          }
+        },
+        '3.2.5': {
+          title:
+            'In the mechanism for displaying a compliant contrast ratio, is the contrast ratio between the text and the background colour high enough?',
+          methodology: {
+            steps: [
+              'Find the mechanisms used to display a compliant contrast ratio in the document.',
+              'For each of these mechanisms, check that the contrast ratio between the text and the background colour is sufficiently high.'
+            ],
+            passWhen: 'If this is the case for each mechanism, the test is validated.'
+          }
+        },
+        '3.3.1': {
+          title:
+            'On each web page, does the contrast ratio between the colours of a user interface component in its various states and the adjacent background colour satisfy one of these conditions (excluding special cases)?',
+          conditions: [
+            'The contrast ratio is at least 3:1.',
+            'A mechanism allows a contrast ratio of 3:1, at least.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the user interface components that could cause contrast problems.',
+              'For each of these components, check that - either the contrast ratio between the colours of the component in its various states and the adjacent background colour is at least 3:1; - or a mechanism allows the user to display the component with a contrast ratio of at least 3:1.'
+            ],
+            passWhen: 'If this is the case for each component, the test is validated.'
+          }
+        },
+        '3.3.2': {
+          title:
+            'On each web page, does the contrast ratio between the different colours making up a graphic element, when they are necessary for its understanding, and the adjacent background colour, meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The contrast ratio is at least 3:1.',
+            'A mechanism allows a contrast ratio of 3:1, at least.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the graphic elements that could cause contrast problems.',
+              'For each of these elements, check that - either the contrast ratio between the colours of the graphic element required to understand it and the adjacent background colour is at least 3:1; - or a mechanism allows the user to display the graphic element with a contrast ratio of at least 3:1.'
+            ],
+            passWhen: 'If this is the case for each component, the test is validated.'
+          }
+        },
+        '3.3.3': {
+          title:
+            'On each web page, does the contrast ratio between the different adjacent colours of a graphic element, when they are necessary for its understanding, meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The contrast ratio is at least 3:1.',
+            'A mechanism allows a contrast ratio of at least 3:1.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the graphic elements that could cause contrast problems.',
+              'For each of these elements, check that - either the contrast ratio between the different adjacent colours of the graphic element, when they are necessary for its understanding, is at least 3:1; - a mechanism allows the user to display the graphic element with a contrast ratio of at least 3:1.'
+            ],
+            passWhen: 'If this is the case for each graphic element, the test is validated.'
+          }
+        },
+        '3.3.4': {
+          title:
+            'In the mechanism for displaying a compliant contrast ratio, are the colours of the component or of its graphic element conveying information sufficiently contrasted?',
+          methodology: {
+            steps: [
+              'Find in the document the mechanisms that enable a compliant contrast ratio to be displayed.',
+              'For each of these mechanisms, check that the contrast ratio between the colours of the component or the graphic element conveying information of which it is composed is sufficiently high.'
+            ],
+            passWhen: 'If this is the case for each mechanism, the test is validated.'
+          }
+        },
+        '4.1.1': {
+          title:
+            'Does each pre-recorded audio-only time-based media meet, if necessary, one of these conditions (excluding special cases)?',
+          conditions: [
+            'There is a transcript accessible via an adjacent link or button.',
+            'There is a clearly identifiable adjacent transcript.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the time-based media (<audio>, <video> or <object> elements) that require a transcript.',
+              'For each audio-only time-based media item, check for the presence of a transcript: - either accessible via a button or an adjacent link (a URL or an anchor); - or clearly identifiable adjacent.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.1.2': {
+          title:
+            'Does each pre-recorded video-only time-based media meet, if necessary, one of these conditions (excluding special cases)?',
+          conditions: [
+            'There is an alternative "audio only" version accessible via an adjacent link or button.',
+            'There is a clearly identifiable alternative audio only version adjacent.',
+            'There is a transcript accessible via an adjacent link or button.',
+            'There is a clearly identifiable adjacent transcript.',
+            'There is a synchronised audio description.',
+            'There is an alternative version with a synchronised audio description accessible via an adjacent link or button.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the time-based media (<video> or <object> elements) that require a transcript.',
+              'For each video-only time-based media, check for the presence of: - an alternative audio-only version accessible via an adjacent link or button (a URL or an anchor); or - an adjacent alternative audio-only version; or - a transcript accessible via an adjacent link or button (a URL or an anchor); - a clearly identifiable adjacent transcript; or - a synchronised audio description; or - an alternative version with an audio description accessible by means of an adjacent link or button (a URL or an anchor).'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.1.3': {
+          title:
+            'Does each pre-recorded synchronised time-based media meet, if necessary, one of these conditions (excluding special cases)?',
+          conditions: [
+            'There is a transcript accessible via an adjacent link or button.',
+            'There is a clearly identifiable adjacent transcript.',
+            'There is a synchronised audio description.',
+            'There is an alternative version with a synchronised audio description accessible via an adjacent link or button.'
+          ],
+          methodology: {
+            steps: [
+              'Find synchronised the time-based media (<video> or <object> elements) in the document that require a transcript.',
+              'For each synchronised time-based media, check for the presence of: - a transcript accessible via an adjacent link or button (a URL or an anchor); or - or a clearly identifiable adjacent transcript; or - a synchronised audio description; or - an alternative version with an audio description accessible by means of an adjacent link or button (a URL or an anchor).'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.2.1': {
+          title:
+            'For each pre-recorded audio-only time-based media with a transcript, is this transcript relevant (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the pre-recorded audio-only time-based media that have a transcript.',
+              'For each audio-only time-based media, check that the transcript is relevant.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.2.2': {
+          title:
+            'Does each pre-recorded video-only time-based media meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The transcript is relevant.',
+            'The synchronised audio description is relevant.',
+            'The synchronised audio description of the alternative version is relevant.',
+            'The alternative audio version only is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find the pre-recorded video-only time-based media in the document that have a transcript.',
+              'For each video-only time-based media, check the relevance of: - the transcript; or - the synchronised audio description; or - the synchronised audio description of the alternative version; or - the alternative audio version only.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.2.3': {
+          title:
+            'Does each pre-recorded synchronised time-based media meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The transcript is relevant.',
+            'The synchronised audio description is relevant.',
+            'The synchronised audio description of the alternative version is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find the synchronised pre-recorded time-based media in the document.',
+              'For each synchronised time-based media, check the relevance of: - the transcript; or - the synchronised audio description; or - the synchronised audio description of the alternative version.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.3.1': {
+          title:
+            'Does each pre-recorded synchronised time-based media meet, if necessary, one of these conditions (excluding special cases)?',
+          conditions: [
+            'The synchronised time-based media has captions.',
+            'There is an alternative version with captions accessible via an adjacent link or button.'
+          ],
+          methodology: {
+            steps: [
+              'Find the synchronised pre-recorded time-based media in the document.',
+              'For each synchronised time-based media, check for the presence of - either captions; - or an alternative version with captions accessible via a link or adjacent button.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.3.2': {
+          title:
+            'For each pre-recorded synchronised time-based media with synchronised captions broadcast via a <track> tag, does the <track> tag have a kind="captions" attribute?',
+          methodology: {
+            steps: [
+              'Find the pre-recorded synchronised time-based media with captions in the document using a <track> element.',
+              'For each synchronised time-based media, check that the <track> tag has a kind="captions" attribute.'
+            ],
+            passWhen:
+              'If this is the case for each pre-recorded synchronised time-based media, the test is validated.'
+          }
+        },
+        '4.3.3': {
+          title:
+            'Does each live synchronised time-based media have synchronised captions where necessary (except in special cases)?',
+          methodology: {
+            steps: [
+              'Find the live synchronised time-based media in the document.',
+              'For each live synchronised time-based media, check for the presence of - either captions; - or an alternative version with captions accessible via a link or adjacent button.'
+            ],
+            passWhen:
+              'If this is the case for each live synchronised time-based media, the test is validated.'
+          }
+        },
+        '4.4.1': {
+          title:
+            'For each pre-recorded synchronised time-based media with synchronised captions, does at least one caption track meet these conditions?',
+          conditions: [
+            'The captions are in the language of the video;',
+            'The captions are relevant;',
+            'The captions are correctly synchronised.'
+          ],
+          methodology: {
+            steps: [
+              'Find the pre-recorded synchronised time-based media with synchronised captions in the document.',
+              'For each pre-recorded synchronised time-based media, check that the captions are: - in the language of the video (if the spoken content is in English, the captions must be in English); - relevant (all important audio information is present, particularly dialogue); - correctly synchronised. If there is no delay between the spoken content and the appearance of the captions, the captions are correctly synchronised. The reference standard specifies that captions should appear within 100 ms of the caption time stamp.'
+            ],
+            passWhen:
+              'If this is the case for each synchronised time-based media, the test is validated.'
+          }
+        },
+        '4.4.2': {
+          title:
+            'For each live synchronised time-based media with synchronised captions, does at least one caption track meet these conditions?',
+          conditions: [
+            'The captions are in the language of the video;',
+            'The captions are relevant;',
+            'The captions are correctly synchronised.'
+          ],
+          methodology: {
+            steps: [
+              'Find the live synchronised time-based media with synchronised captions in the document.',
+              'For each live synchronised time-based media, check that the captions are: - in the language of the video (if the spoken content is in English, the captions must be in English); - relevant (all important audio information is present, particularly dialogue); - correctly synchronised. If there is no delay between the spoken content and the appearance of the captions, the captions are correctly synchronised. The reference standard specifies that captions should appear within 100 ms of the caption time stamp.'
+            ],
+            passWhen:
+              'If this is the case for each synchronised time-based media, the test is validated.'
+          }
+        },
+        '4.5.1': {
+          title:
+            'Does each pre-recorded video-only time-based media satisfy, if necessary, one of these conditions (excluding special cases)?',
+          conditions: [
+            'There is a synchronised audio description.',
+            'There is an alternative version with a synchronised audio description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the pre-recorded video-only time-based media that require an audio description.',
+              'For each video-only time-based media, check for the presence of - either an audio description; - or an alternative version with an audio description accessible via a button or an adjacent link (a URL or an anchor).'
+            ],
+            passWhen: 'If this is the case for video-only time-based media, the test is validated.'
+          }
+        },
+        '4.5.2': {
+          title:
+            'Does each pre-recorded synchronised time-based media meet, if necessary, one of these conditions (excluding special cases)?',
+          conditions: [
+            'There is a synchronised audio description.',
+            'There is an alternative version with a synchronised audio description.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the pre-recorded synchronised time-based media that require an audio description.',
+              'For each synchronised time-based media, check the presence of: - either an audio description; - or an alternative version with an audio description accessible via a button or an adjacent link (a URL or an anchor).'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.6.1': {
+          title:
+            'For each pre-recorded video-only time-based media with a synchronised audio description, is the audio description relevant?',
+          methodology: {
+            steps: [
+              'Find in the document the video-only time-based media that have an audio description.',
+              'For each time-based media, check that the synchronised audio description is relevant (all the visual information that can be vocalised in the blanks of the main soundtrack is present, in particular the inlaid texts).'
+            ],
+            passWhen:
+              'If this is the case for each video-only time-based media, the test is validated.'
+          }
+        },
+        '4.6.2': {
+          title:
+            'For each synchronised time-based media with a synchronised audio description, is it relevant?',
+          methodology: {
+            steps: [
+              'Find in the document the synchronised time-based media with an audio description.',
+              'For each time-based media, check that the audio description is relevant (all the visual information that can be vocalised in the blanks of the main soundtrack is present, including inlaid text).'
+            ],
+            passWhen:
+              'If this is the case for each synchronised time-based media, the test is validated.'
+          }
+        },
+        '4.7.1': {
+          title:
+            'For each audio only, video only or synchronised time-based media, does the adjacent text content clearly identify the time-based media (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the pre-recorded time-based media (video, audio or synchronised only).',
+              'For each time-based media, check that a passage of text (a heading or paragraph, for example) immediately preceding or following the time-based media enables it to be identified.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.8.1': {
+          title:
+            'Does each non-time-based media satisfy, if necessary, one of these conditions (excluding special cases)?',
+          conditions: [
+            'A clearly identifiable adjacent link or button leads to a page containing an alternative.',
+            'A clearly identifiable adjacent link or button leads to an alternative on the page.'
+          ],
+          methodology: {
+            steps: [
+              'Find all non-time-based media in the document.',
+              'For each non-time-based media, check that a clearly identifiable adjacent link or button - either contains the address (url) of a page containing an alternative; - or provides access to an alternative on the page.'
+            ],
+            passWhen: 'If this is the case for each non-time-based media, the test is validated.'
+          }
+        },
+        '4.8.2': {
+          title:
+            'Does each non-time-based media associated with an alternative satisfy one of these conditions (excluding special cases)?',
+          conditions: [
+            'The page referenced by the adjacent link or button is accessible.',
+            'The alternative on the page, referenced by the adjacent link or button, is accessible.'
+          ],
+          methodology: {
+            steps: [
+              'Find the non-time-based media associated with an alternative in the document.',
+              'For each non-time-based media, check that - the page referenced by the adjacent link or button is accessible; - the alternative on the page, referenced by the adjacent link or button, is accessible.'
+            ],
+            passWhen: 'If this is the case for each non-time-based media, the test is validated.'
+          }
+        },
+        '4.9.1': {
+          title:
+            'For each non-time-based media with an alternative, does this alternative provide access to the same content and similar features?',
+          methodology: {
+            steps: [
+              'Find in the document the non-time-based media associated with an alternative.',
+              'For each non-time-based media, check that the alternative is relevant (it provides access to the same content and similar functions).'
+            ],
+            passWhen: 'If this is the case for each non-time-based media, the test is validated.'
+          }
+        },
+        '4.10.1': {
+          title:
+            'Does each sound sequence automatically triggered via an <object>, <video>, <audio>, <embed>, <bgsound> tag or a JavaScript code meet one of these conditions?',
+          conditions: [
+            'The sound sequence lasts 3 seconds or less.',
+            'The sound sequence can be stopped by the user.',
+            'The volume of the sound sequence can be controlled by the user independently of the system volume control.'
+          ],
+          methodology: {
+            steps: [
+              'When the document is loaded, if a sound is triggered automatically, check that - either the sound sequence lasts 3 seconds or less; - or a device (a button, for example) on the element that triggered the sound (see note), or on the page, can be used to stop it; - or the volume of the sequence can be controlled by the user, independently of the system volume control.'
+            ],
+            passWhen: 'If this is the case, the test is validated.',
+            note: 'Note: the following elements are likely to trigger sounds when the page is loaded: <audio>, <video>, <object>, <embed>, <bgsound> elements or JavaScript code (using the Web Audio API, for example).'
+          }
+        },
+        '4.11.1': {
+          title: 'Does each time-based media have, if necessary, viewing control features?',
+          methodology: {
+            steps: [
+              'Find the time-based media in the document.',
+              'For each time-based media, check that the mandatory viewing control functions are present: - at least: play, pause or stop; - if the media has sound, it must have a sound on/off function; - if the media has subtitles or captions, it must have a function for controlling the appearance/disappearance of subtitles or captions; - if the media has audio description, it must have a function for controlling the appearance/disappearance of the audio description.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.11.2': {
+          title: 'For each time-based media, does each feature meet one of these conditions?',
+          conditions: [
+            'The feature is accessible by keyboard and any pointing device.',
+            'A feature accessible by keyboard and any pointing device to perform the same action is present on the page.'
+          ],
+          methodology: {
+            steps: [
+              'Find the time-based media with control features in the document.',
+              'For each time-based media, check that - either the feature is accessible via the keyboard and any pointing device; - or a feature accessible via the keyboard and any pointing device enabling the same action to be performed is present on the page.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.11.3': {
+          title: 'For each time-based media, does each feature meet one of these conditions?',
+          conditions: [
+            'The functionality can be activated by keyboard and any pointing device.',
+            'A feature performing the same action is present on the page. This feature can be activated by keyboard or any pointing device.'
+          ],
+          methodology: {
+            steps: [
+              'Find the time-based media with control functions in the document.',
+              'For each time-based media, check that: - either the functionality can be activated using the keyboard and any pointing device; - or the page contains a function that can be activated using the keyboard and any pointing device to perform the same action.'
+            ],
+            passWhen: 'If this is the case for each time-based media, the test is validated.'
+          }
+        },
+        '4.12.1': {
+          title: 'For each non-time-based media, does each feature meet one of these conditions?',
+          conditions: [
+            'The feature is accessible by keyboard and any pointing device.',
+            'A feature accessible by keyboard and any pointing device enabling the same action to be performed is present on the page.'
+          ],
+          methodology: {
+            steps: [
+              'Find the non-time-based media with control features in the document.',
+              'For each non-time-based media, check that - either the feature is accessible via the keyboard and any pointing device; - or a function accessible via the keyboard and any pointing device enabling the same action to be performed is present on the page.'
+            ],
+            passWhen: 'If this is the case for each non-time-based media, the test is validated.'
+          }
+        },
+        '4.12.2': {
+          title: 'For each non-time-based media, does each feature meet one of these conditions?',
+          conditions: [
+            'The feature is operable by keyboard and any pointing device.',
+            'A feature performing the same action is present on the page. This feature can be activated by keyboard or any pointing device.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the non-time-based media with control functions.',
+              'For each non-time-based media, check that - either the feature can be activated using the keyboard and any pointing device; - or a function operable via the keyboard and any pointing device enabling the same action to be performed is present on the page.'
+            ],
+            passWhen: 'If this is the case for each non-time-based media, the test is validated.'
+          }
+        },
+        '4.13.1': {
+          title:
+            'Does each time-based media and non-time-based media meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The name, role, value, settings and status changes of user interface components are accessible to assistive technologies via an accessibility API.',
+            'An alternative compatible with an accessibility API provides access to the same accessibility features.'
+          ],
+          methodology: {
+            steps: [
+              'Find the non-time-based and time-based media in the document.',
+              'For each media, check that: - either the name, role, value, settings and status changes of the user interface components are accessible to assistive technologies via an accessibility API (for example, dynamically updated zones in a video player are correctly rendered); - or an alternative compatible with an accessibility API can be used to access the same accessibility features.'
+            ],
+            passWhen:
+              'If this is the case for each time-based or non-time-based media, the test is validated.'
+          }
+        },
+        '4.13.2': {
+          title:
+            'Does each time-based media and non-time-based media that has a compatible with assistive technologies alternative meet one of these conditions?',
+          conditions: [
+            'The alternative is adjacent to time-based media or non-time-based media.',
+            'The alternative can be accessed via an adjacent link or button.',
+            'There is a mechanism for replacing time-based media or non-time-based media with its alternative.'
+          ],
+          methodology: {
+            steps: [
+              'Find the time-based and non-time-based media in the document that have an alternative compatible with assistive technologies.',
+              'For each media, check that - either the alternative is adjacent to the time-based or non-time-based media; - either the alternative is accessible via a link or an adjacent button; - or there is a mechanism for replacing the time-based or non-time-based media with its alternative.'
+            ],
+            passWhen:
+              'If this is the case for each time-based or non-time-based media, the test is validated.'
+          }
+        },
+        '4.14.1': {
+          title:
+            'For each time-based media that has a captions or audio description track, do the control features for these alternatives respect these conditions?',
+          conditions: [
+            'For each time-based media player, the feature that enables captions to be activated and deactivated is presented at the same level as the main features.',
+            'For each time-based media player, the feature that enables and disables audio description is presented at the same level as the main features.'
+          ],
+          methodology: {
+            steps: [
+              'Locate pre-recorded time-based media with a synchronised caption track or audio description.',
+              'Check that it is possible to activate and deactivate captions or audio description without any additional steps to the main features (play, pause, etc.).'
+            ],
+            passWhen: 'If this is the case, the test is validated.',
+            note: '<i>Example:</i> If the play button can be activated from the interface by a simple mouse click (without the need to activate a first component to display a drop-down menu, for example), the captions feature should be available in the same way, with a simple click. Conversely, if the captions feature is available from a drop-down menu that must first be activated (by a mouse click, for example), it will not be considered to be at the same level, as there will be an additional step to perform.'
+          }
+        },
+        '4.15.1': {
+          title:
+            'For each feature that transmits, converts or records pre-recorded synchronised time-based media that has a captions track, do the captions meet at the end of the process these conditions?',
+          conditions: [
+            'Captions are present.',
+            'Captions can be displayed.',
+            'Captions are correctly synchronised.',
+            'The key features of captions are preserved.'
+          ],
+          methodology: {
+            steps: [
+              'Identify the features that allow you to transmit (e.g. send content to another terminal or send a video by e-mail), convert (e.g. convert a video in .avi format to .mpg format) or record pre-recorded synchronised time-based media (e.g. record a video from a broadcasting platform onto your personal computer).',
+              'Perform each of the functions (transmit, convert and record).',
+              'For each function, check that the captions - are always present; - can be displayed; - are correctly synchronised; - retain their key features (for example, if the captions were coloured according to the speaker, the colours must be retained).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '4.16.1': {
+          title:
+            'For each feature that transmits, converts or records pre-recorded time-based media with audio description, at the end of the process does the audio description meet these conditions?',
+          conditions: [
+            'The audio description is present.',
+            'The audio description can be activated.',
+            'The audio description is correctly synchronised.'
+          ],
+          methodology: {
+            steps: [
+              'Identify the features for transmitting, converting or recording time-based media. For example: send content to another terminal or by email, convert an .avi format video into an .mpg format, record a video from a broadcasting platform on your personal computer.',
+              'Perform each of the features (send, convert and record).',
+              'For each feature, check whether audio description - is present - can be activated; - is correctly synchronised: - the sounds and words of the audio description do not overlap with those of the original soundtrack and do not cause perception and comprehension problems; - the information conveyed in the audio description is given at the same time as the equivalent visual information appears.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '4.17.1': {
+          title:
+            'For each pre-recorded time-based media, does the presentation of the captions respect one of these conditions?',
+          conditions: [
+            'The user-defined caption presentation system settings apply to the captions.',
+            'There is a feature on the page that allows the user to change the caption presentation settings.'
+          ],
+          methodology: {
+            steps: [
+              'Locate pre-recorded time-based media with captions.',
+              'Define one or more caption presentation parameters from the customisation options provided by the operating system, for example: caption size, colour, border style, background colour, background opacity, etc. (Note: the standard does not give a precise list of parameters that must be defined, so the ability to modify a single caption characteristic is sufficient to make the criterion compliant).',
+              'Check that the defined parameters are applied to the captions.',
+              'If not, check the page to see if there is a function that allows you to change the presentation parameters of the captions (on the page or directly from the media player).',
+              'Check that the defined parameters are applied to the captions.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '4.18.1': {
+          title:
+            'Does every pre-recorded synchronised time-based media with subtitles meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'A sound track containing a vocalisation of all the subtitles can be activated by the user.',
+            'An available feature that allows subtitles to be vocalised.',
+            'The subtitles can be vocalised by assistive technologies.',
+            'An alternative version is available, with all the subtitles vocalised, accessible via an adjacent link or button.'
+          ],
+          methodology: {
+            steps: [
+              'Locate pre-recorded synchronised time-based media with subtitles.',
+              'Check for the presence of an audio track that would be the vocalised version of the subtitles: 1. activate the sound track; 2. check that the vocalised subtitles correspond to the displayed subtitles.',
+              'If not, check that there is a feature that allows you to voice subtitles: 1. Text-to-speech. Some media players (e.g. AblePlayer or VideoJS) offer the option of adding a description track in the form of a text file (similar in construction to a subtitle file with a time stamp) that can be synthesised using the Web Speech API of browsers (this is known as text-to-speech, or TTS). By activating this feature, the browser reads the description. This feature can be used to provide a vocalised version of subtitles and would therefore be considered a compliant implementation if properly documented for the user. To test it: 1. activate the feature; 2. start playing the multimedia content; 3. check that the texts displayed by this means are vocalised. 2. Description. Some media players (for example, AblePlayer or BrightCove) offer the option of integrating description tracks in the form of a text file (similar in construction to a subtitle file with a time stamp) which is declared in the code using the <code>&lt;track&gt;</code> tag with the <code>kind="descriptions"</code> attribute and whose final implementation has sufficient properties to enable them to be played back by screen readers (presence of the <code>aria-live</code> property, for example). This feature can be used to provide a version of the subtitles that can be vocalised by screen readers and would therefore be considered a compliant implementation if it is properly documented for the user. To test it: 1. activate the functionality; 2. activate the screen reader; 3. check that the texts displayed by this means are vocalised.',
+              'If not 1. activate the subtitles; 2. activate the screen reader; 3. check that the spoken subtitles match the displayed subtitles.',
+              'Otherwise 1. check for alternative media whose soundtracks contain voice-activated subtitles; 2. check that the spoken subtitles match the displayed subtitles.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '5.1.1': {
+          title: 'For each complex data table, is a summary available?',
+          methodology: {
+            steps: [
+              'Find in the document the complex data tables (data table - <table> element or element with a WAI-ARIA role="table" attribute - containing headers which are not distributed only on the first row and/or the first column of the grid or whose scope is not valid for the whole column or row).',
+              'For each complex data table, check that there is a passage of text explaining the nature and structure of the table: - either in the <caption> element; - or in a passage of text linked to the table with the aria-describedby attribute.'
+            ],
+            passWhen: 'If this is the case for each complex data table, the test is validated.'
+          }
+        },
+        '5.2.1': {
+          title: 'For each complex data table with a summary, is the summary relevant?',
+          methodology: {
+            steps: [
+              'Find in the document the summaries of complex data tables (as determined by test 5.1.1).',
+              'For each summary, check that its content is relevant.'
+            ],
+            passWhen:
+              'If this is the case for each summary (of table) of complex data tables, the test is validated.'
+          }
+        },
+        '5.3.1': {
+          title: 'Does each layout table meet these conditions?',
+          conditions: [
+            'The linearised content remains understandable.',
+            'The <table> tag has a role="presentation" attribute.'
+          ],
+          methodology: {
+            steps: [
+              'Find the layout tables in the document.',
+              'For each layout table, check that - The order in which the cells are accessed is consistent with the content. - The <table> element has a WAI-ARIA role="presentation" attribute.'
+            ],
+            passWhen: 'If this is the case for each layout table, the test is validated.'
+          }
+        },
+        '5.4.1': {
+          title:
+            'For each data table with a title, is the title correctly associated with the data table?',
+          methodology: {
+            steps: [
+              'Find the data tables with a title in the document.',
+              'For each title, check that it is provided by means of - either a <caption> element; - or a title attribute; - or a WAI-ARIA aria-label attribute; - or a WAI-ARIA aria-labelledby attribute referencing a passage of text.'
+            ],
+            passWhen: 'If this is the case for each data table title, the test is validated.'
+          }
+        },
+        '5.5.1': {
+          title:
+            'For each data table with a title, does the title clearly and concisely identify the content of the data table?',
+          methodology: {
+            steps: [
+              'Find the data tables with a title in the document.',
+              'For each title, check that it is relevant.'
+            ],
+            passWhen: 'If this is the case for each data table title, the test is validated.'
+          }
+        },
+        '5.6.1': {
+          title:
+            'For each data table, does each column header applying to the entire column satisfy one of these conditions?',
+          conditions: [
+            'The column header is implemented using a <th> tag.',
+            'The column header is implemented using a tag with a WAI-ARIA role="columnheader" attribute.'
+          ],
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each column header that applies to the entire column, check that the column header is implemented using - either a <th> element; - or an element with a WAI-ARIA role="columnheader" attribute.'
+            ],
+            passWhen:
+              'If this is the case for each column header applying to the entire column, the test is validated.'
+          }
+        },
+        '5.6.2': {
+          title:
+            'For each data table, does each row header applying to the entire row satisfy one of these conditions?',
+          conditions: [
+            'The row header is implemented using a <th> tag.',
+            'The row header is implemented using a tag with a WAI-ARIA role="rowheader" attribute.'
+          ],
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each line header that applies to the whole line, check that the line header is implemented using - either a <th> element; - or an element with a WAI-ARIA role="rowheader" attribute.'
+            ],
+            passWhen:
+              'If this is the case for each line header applying to the entire line, the test is validated.'
+          }
+        },
+        '5.6.3': {
+          title:
+            'For each data table, is each header which does not apply to the entire row or column implemented using a <th> tag?',
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each header which does not apply to the entire row or column, check that the row header is implemented using a <th> element.'
+            ],
+            passWhen:
+              'If this is the case for each header which does not apply to the whole row or column, the test is validated.'
+          }
+        },
+        '5.6.4': {
+          title:
+            'For each data table, is each cell associated with several headers implemented using a <td> or <th> tag?',
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each cell associated with several headers, is it implemented using a <th> or <td> tag.'
+            ],
+            passWhen:
+              'If this is the case for each header that does not apply to the whole row or column, the test is validated.'
+          }
+        },
+        '5.7.1': {
+          title:
+            'For each content of the <th> tag applying to the whole row or column, does the <th> tag respect one of these conditions (excluding special cases)?',
+          conditions: [
+            'The <th> tag has a unique id attribute.',
+            'The <th> tag has a scope attribute.',
+            'The <th> tag has a WAI-ARIA role="rowheader" or role="columnheader" attribute.'
+          ],
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each header (<th> element) applying to the entire row or column, check that the <th> element has - either a unique id attribute; - or a scope attribute; - or a WAI-ARIA role="rowheader" or "columnheader" attribute.'
+            ],
+            passWhen:
+              'If this is the case for each header applying to the entire row or column, the test is validated.'
+          }
+        },
+        '5.7.2': {
+          title:
+            'For each <th> tag content that applies to the whole row or column and has a scope attribute, does the <th> tag meet one of these conditions?',
+          conditions: [
+            'The <th> tag has a scope attribute with the "row" value for row headers.',
+            'The <th> tag has a scope attribute with the "col" value for column headers.'
+          ],
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each header (<th> element) applying to the whole row or column and provided with a scope attribute, check that the scope attribute has - either a "row" value for row headers; - or a "col" value for column headers.'
+            ],
+            passWhen:
+              'If this is the case for each header which applies to the entire row or column and has an scope attribute, the test is validated.'
+          }
+        },
+        '5.7.3': {
+          title:
+            'For each content of the <th> tag that does not apply to the entire row or column, does the <th> tag meet these conditions?',
+          conditions: [
+            'The <th> tag does not have an scope attribute.',
+            'The <th> tag does not have a WAI-ARIA role="rowheader" or role="columnheader" attribute.',
+            'The <th> tag has a unique id attribute.'
+          ],
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each header (<th> element) which does not apply to the whole row or column, check that the <th> element - has a unique id attribute; - does not have a scope attribute; - does not have a WAI-ARIA role="rowheader" or "columnheader" attribute.'
+            ],
+            passWhen:
+              'If this is the case for each header that does not apply to the entire row or column, the test is validated.'
+          }
+        },
+        '5.7.4': {
+          title:
+            'For each <td> or <th> tag content associated with one or more headers with an id attribute, does the tag check these conditions?',
+          conditions: [
+            'The tag has a headers attribute.',
+            'The headers attribute has a list of id attribute values for the associated headers.'
+          ],
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each <td> or <th> element associated with one or more headers with an id attribute, check that - the <td> or <th> element has a headers attribute; - the headers attribute has the list of id attribute values for the associated headers.'
+            ],
+            passWhen:
+              'If this is the case for each <td> or <th> element associated with one or more headers with an id attribute, the test is validated.'
+          }
+        },
+        '5.7.5': {
+          title:
+            'For each tag with a WAI-ARIA role="rowheader" or role="columnheader" attribute whose content applies to the entire row or column, does the tag meet one of these conditions?',
+          conditions: [
+            'The tag has a WAI-ARIA role="rowheader" attribute for row headers.',
+            'The tag has a WAI-ARIA role="columnheader" attribute for column headers.'
+          ],
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each header that applies to the entire row or column and has a WAI-ARIA role="rowheader" or "columnheader" attribute, check that the element has - either a WAI-ARIA role="rowheader" attribute for row headers; - or a WAI-ARIA role="columnheader" attribute for column headers.'
+            ],
+            passWhen:
+              'If this is the case for each header that applies to the entire row or column and has a WAI-ARIA role="rowheader" or "columnheader" attribute, the test is validated.'
+          }
+        },
+        '5.7.6': {
+          title:
+            'For each <th> tag content that applies to a group of columns or rows and has a scope attribute, does the <th> tag meet one of these conditions?',
+          conditions: [
+            'The <th> tag has a scope attribute with the value rowgroup for groups of row headers.',
+            'The <th> tag has a scope attribute with the value colgroup for groups of column headers.'
+          ],
+          methodology: {
+            steps: [
+              'Find the data tables in the document.',
+              'For each header (<th> element) applying to a group of rows or a group of columns and provided with a scope attribute, check that the scope attribute has - either a rowgroup value for row header groups; - or a colgroup value for column header groups.'
+            ],
+            passWhen:
+              'If this is the case for each header applying to a row group or column group and provided with a scope attribute, the test is validated.'
+          }
+        },
+        '5.8.1': {
+          title: 'Does each layout table (<table> tag) meet these conditions?',
+          conditions: [
+            'The layout table (<table> tag) has no summary attribute (otherwise empty) and contains no <caption>, <th>, <thead>, <tfoot> tag or tags with a WAI-ARIA role="rowheader", role="columnheader" attribute.',
+            'The cells in the layout table (<td> tags) do not have scope, headers or axis attributes.'
+          ],
+          methodology: {
+            steps: [
+              'Find the layout tables in the document.',
+              'For each layout table, check that - The <table> element does not have a summary attribute, <caption>, <thead>, <th>, <tfoot> child elements or elements with a WAI-ARIA role="rowheader" or role="columnheader" attribute. - <td> elements do not have scope, headers or axis attributes.'
+            ],
+            passWhen: 'If this is the case for each layout table, the test is validated.'
+          }
+        },
+        '6.1.1': {
+          title: 'Does each text link meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The accessible name of a link alone makes it possible to understand its function and destination.',
+            'The accessible name of a link added to the link context enables us to understand the function and destination of the link.'
+          ],
+          methodology: {
+            steps: [
+              'Find the text links in the document.',
+              'For each text link, check that the information used to understand the function and destination of the link is - either the accessible name of the link alone; - or the link context.'
+            ],
+            passWhen: 'If this is the case for each text link, the test is validated.'
+          }
+        },
+        '6.1.2': {
+          title: 'Does each image link meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The accessible name of a link alone makes it possible to understand its function and destination.',
+            'The accessible name of a link added to the link context enables us to understand the function and destination of the link.'
+          ],
+          methodology: {
+            steps: [
+              'Find the image links in the document (link with the content of an <img> element or an element with the WAI-ARIA role="img" attribute, an <area> element with a href attribute, an <object> element, a <canvas> element or a <svg> element).',
+              'For each image link, check that the information used to understand its function and destination is - either the accessible name of the link alone, provided by the text alternative (image); - or the link context.'
+            ],
+            passWhen: 'If this is the case for each image link, the test is validated.'
+          }
+        },
+        '6.1.3': {
+          title: 'Does each composite link meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The accessible name of a link alone makes it possible to understand its function and destination.',
+            'The accessible name of a link added to the link context enables us to understand the function and destination of the link.'
+          ],
+          methodology: {
+            steps: [
+              'Find composite links in the document (links made up of both text content and image elements).',
+              'For each composite link, check that the information used to understand the function and destination of the link is - either the accessible name of the link alone, provided by the combination of the text content and the alternative text for the image; - or the link context.'
+            ],
+            passWhen: 'If this is the case for each composite link, the test is validated.'
+          }
+        },
+        '6.1.4': {
+          title: 'Does every SVG link meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The accessible name of a link alone makes it possible to understand its function and destination.',
+            'The accessible name of a link added to the link context enables us to understand its function and destination.'
+          ],
+          methodology: {
+            steps: [
+              'Find SVG links in the document (<svg> element which has an <a> element with a xlink-href attribute (SVG 1.1) or href (SVG 2)).',
+              'For each SVG link, check that what makes it possible to understand the function and destination of the link is - either the accessible name of the link alone, provided by the accessible name of the <svg> element (generally resolved from the content of a <text> element); - or the link context.'
+            ],
+            passWhen: 'If this is the case for each SVG link, the test is validated.'
+          }
+        },
+        '6.1.5': {
+          title:
+            'For each link with a visible label, does the accessible name of the link contain at least the visible label (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document links other than SVG whose content is provided both by a visible label and by the content of either a title attribute, an aria-label attribute or an aria-labelledby attribute.',
+              'For each link, check that the value of the title attribute or the aria-label attribute or the aria-labelledby attribute contains the visible label.',
+              'If this is the case for each link, the test is validated for links other than SVG.',
+              'Find in the document the SVG links whose content is provided both by a visible label and by the content of either an aria-labelledby attribute, or an aria-label attribute or a title element (direct child of the <svg> element) or an x-link:title attribute (SVG 1.1) or one or more <text> elements.',
+              'For each SVG link, check that the value of the aria-labelledby attribute or the aria-label attribute or the <title> element or the x-link:title attribute or one or more <text> elements contains the visible label.',
+              'If this is the case for each SVG link, the test is validated for the SVG links.'
+            ],
+            passWhen: 'If the test is validated ',
+            note: 'for both non-SVG links and SVG links, the test is validated overall.'
+          }
+        },
+        '6.1.6': {
+          title:
+            'Does each identical link have the same function and destination (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find links with identical accessible names in the document.',
+              'For identical links, check that they all lead to the same destination or to similar content.',
+              'If not, check that the context of each link allows them to be distinguished.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '6.2.1': {
+          title: 'On each web page, does each link have an accessible name?',
+          methodology: {
+            steps: [
+              'Find any links in the document.',
+              'For each link, check that there is an accessible name.'
+            ],
+            passWhen: 'If this is the case for each link, the test is validated.'
+          }
+        },
+        '7.1.1': {
+          title:
+            'Does each script that generates or controls a user interface component check, if necessary, one of these conditions?',
+          conditions: [
+            'The name, role, value, properties and changes of state are accessible to assistive technologies via an accessibility API.',
+            'An accessible user interface component providing access to the same feature is present on the page.',
+            'An accessible alternative provides access to the same functions.'
+          ],
+          methodology: {
+            steps: [
+              'Find all the user interface components generated or controlled using JavaScript in the document.',
+              'Check that - The component has a role consistent with its use (generally a button or a link). - The component has an explicit name. - The name of the component is consistent with the state of the feature or controlled content (for example, for a feature that displays or hides a content block).',
+              'If not, check that there is an accessible user interface component providing access to the same feature.',
+              'If not, check for the presence of an accessible alternative providing access to the same feature.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.1.2': {
+          title:
+            'Does each script that generates or controls a user interface component respect one of these conditions?',
+          conditions: [
+            'The user interface component is correctly rendered by assistive technologies.',
+            'An accessible alternative provides access to the same feature.'
+          ],
+          methodology: {
+            steps: [
+              'For each user interface component that has passed test 7.1.1, check that the user interface component is correctly rendered (by assistive technologies).',
+              'If not, check that an accessible alternative to the user interface component provides access to the same feature.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.1.3': {
+          title:
+            'Does each script that generates or controls a user interface component meet these conditions (excluding special cases)?',
+          conditions: [
+            'The component has a relevant name.',
+            'The accessible name of the component contains at least the visible label.',
+            'The component has a relevant role.'
+          ],
+          methodology: {
+            steps: [
+              'For each user interface component that has passed test 7.1.1, check that the user interface component has - a relevant name; - a relevant role.',
+              'If the user interface component has an accessible name, check that this name is relevant and contains at least the visible label.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.2.1': {
+          title:
+            'Does each script starting with the <script> tag and having an alternative meet one of these conditions?',
+          conditions: [
+            'The alternative between <noscript> and </noscript> provides access to similar content and functionality.',
+            'When JavaScript is deactivated, the page displayed provides access to similar content and functions.',
+            'The alternative page provides access to similar content and functionality.',
+            'The server-side script language is used to access similar content and functions.',
+            'The alternative page provides access to similar content and functions.'
+          ],
+          methodology: {
+            steps: [
+              'Find alternatives to JavaScript features',
+              'Search the page for available alternatives to a JavaScript component or function.',
+              'Deactivate JavaScript in the document and find the proposed alternatives.',
+              'For each of the alternatives proposed, check that it provides access to the same content and similar functions.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.2.2': {
+          title:
+            'Does each non-text element updated by a script (in the page, or in a frame) and having an alternative meet these conditions?',
+          conditions: [
+            'The alternative for the non-text element is updated.',
+            'The updated alternative is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find all non-text elements in the document that have been updated by a JavaScript function.',
+              'If the non-text element has an alternative, check that - the alternative is updated when the non-text content is updated; - the updated alternative is relevant.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.3.1': {
+          title:
+            'Does each element with an event handler controlled by a script meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The element is accessible and operable by keyboard and any pointing device.',
+            'An element accessible by keyboard and any pointing device allowing the same action to be performed is present on the page.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document all the elements on which a JavaScript event handler is implemented (for example click, focus, mouseover, blur, keydown, touch, etc.).',
+              'Check that the element can be accessed using the keyboard: - It can be reached with the tab key. - If the element manages a simple action, it can be activated using the keyboard with the default keys in the user agents (e.g. <kbd>Enter</kbd>, <kbd>Space</kbd>). - If the element handles a complex action, it can be accessed from the keyboard (generally using the arrow keys).',
+              'If not, check that the page contains an element that can be accessed from the keyboard to perform the same action.',
+              'Check that the element can be accessed using any pointing device (mouse, touch, stylus, etc.).',
+              'If not, check that the page contains an element that can be accessed using a pointing device and that performs the same action.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.3.2': {
+          title:
+            'A script must not remove the focus of an element which receives it. Is this rule respected (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Activate, one after the other, all elements capable of receiving the focus.',
+              'Check that the focus is not removed via a JavaScript function.'
+            ],
+            passWhen: 'If so, the test is validated.'
+          }
+        },
+        '7.4.1': {
+          title:
+            'Does every script that initiates a change of context meet one of these conditions?',
+          conditions: [
+            "The user is notified by text of the script's action and the type of change before it is triggered.",
+            'The change of context is initiated by an explicit button (input of type submit, button or image, or <button> tag).',
+            'The change of context is initiated by an explicit link.'
+          ],
+          methodology: {
+            steps: [
+              "Find all the JavaScript events in the document which initiate a change of context, for example - dynamic updating of form fields; - the opening of a new page when an option in a combobox is activated (<select> element); - AJAX updating of an essential part of the page; - automatic launch of a video player when a playlist is selected; - focus manipulation to change the user's current position on the page.",
+              'Check that - the user is warned by a message about the script action and the type of change before it is triggered; - or the change of context is initiated by an explicit button (input of the submit, button or image type or the button tag); - or the change of context is initiated by an explicit link.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.5.1': {
+          title:
+            'Does every status message which informs about the success, the result of an action or the state of an application use the WAI-ARIA role="status" attribute',
+          methodology: {
+            steps: [
+              'Find the messages in the document that are status messages.',
+              'For each of these messages, determine the nature of the information contained in the message:',
+              'If the message informs you of the success or result of an action, or the state of an application, check that the element containing the message - either uses the WAI-ARIA role="status" attribute; - or uses the WAI-ARIA aria-live="polite" and aria-atomic="true" attributes.',
+              'If the message presents a suggestion, or warns of the existence of an error, check that the element containing the message - either uses the WAI-ARIA role="alert" attribute; - or uses the aria-live="assertive" and aria-atomic="true" attributes.',
+              'If the message indicates the progress of a process, check that the element containing the message - either uses one of the WAI-ARIA role="log", role="progressbar" or role="status" attributes; - or use the WAI-ARIA aria-live="polite" attribute if the intention is to report the equivalent of a "log" role; - or use the WAI-ARIA aria-live="polite" and aria-atomic="true" attributes if the intention is to signal the equivalent of a "status" role.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.5.2': {
+          title:
+            'Does every status message that makes a suggestion or warns of an error use the WAI-ARIA role="alert" attribute?',
+          methodology: {
+            steps: [
+              'Find the messages in the document that are status messages.',
+              'For each of these messages, determine the nature of the information contained in the message:',
+              'If the message informs you of the success or result of an action, or the state of an application, check that the element containing the message - either uses the WAI-ARIA role="status" attribute; - or uses the WAI-ARIA aria-live="polite" and aria-atomic="true" attributes.',
+              'If the message presents a suggestion, or warns of the existence of an error, check that the element containing the message - either uses the WAI-ARIA role="alert" attribute; - or uses the aria-live="assertive" and aria-atomic="true" attributes.',
+              'If the message indicates the progress of a process, check that the element containing the message - either uses one of the WAI-ARIA role="log", role="progressbar" or role="status" attributes; - or use the WAI-ARIA aria-live="polite" attribute if the intention is to report the equivalent of a "log" role; - or use the WAI-ARIA aria-live="polite" and aria-atomic="true" attributes if the intention is to signal the equivalent of a "status" role.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '7.5.3': {
+          title:
+            'Does every status message that indicates the progress of a process use one of the WAI-ARIA role="log", role="progressbar" or role="status" attributes?',
+          methodology: {
+            steps: [
+              'Find the messages in the document that are status messages.',
+              'For each of these messages, determine the nature of the information contained in the message:',
+              'If the message informs you of the success or result of an action, or the state of an application, check that the element containing the message - either uses the WAI-ARIA role="status" attribute; - or uses the WAI-ARIA aria-live="polite" and aria-atomic="true" attributes.',
+              'If the message presents a suggestion, or warns of the existence of an error, check that the element containing the message - either uses the WAI-ARIA role="alert" attribute; - or uses the aria-live="assertive" and aria-atomic="true" attributes.',
+              'If the message indicates the progress of a process, check that the element containing the message - either uses one of the WAI-ARIA role="log", role="progressbar" or role="status" attributes; - or use the WAI-ARIA aria-live="polite" attribute if the intention is to report the equivalent of a "log" role; - or use the WAI-ARIA aria-live="polite" and aria-atomic="true" attributes if the intention is to signal the equivalent of a "status" role.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '8.1.1': {
+          title: 'Has each web page a defined document type?',
+          methodology: null
+        },
+        '8.2.1': {
+          title:
+            'For each web page, is the generated source code valid for the specified document type?',
+          methodology: null
+        },
+        '8.3.1': {
+          title: 'For each web page, does the default language meet one of these conditions?',
+          conditions: [
+            'The page language indication (lang and/or xml:lang attribute) is given for the html element.',
+            'The language of the page (lang and/or xml:lang attribute) is given for each text element or for one of the parent elements.'
+          ],
+          methodology: {
+            steps: [
+              'Find the default language indication in the document.',
+              'Check for the presence of a language indication - either using the lang attribute on the html tag if the code is HTML5 or HTML4; - or using the lang and xml:lang attributes on the html tag if the code is XHTML 1.0; - or using the xml:lang attribute on the html tag if the code is XHTML 1.1; - otherwise, check for the presence of a language indication on each text element or one of its parents.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '8.4.1': {
+          title:
+            'For each web page with a default language, does the language code check these conditions?',
+          conditions: ['The language code is valid.', 'The language code is relevant.'],
+          methodology: {
+            steps: [
+              'The default language is indicated in the document.',
+              'Check that the language code is - valid (compliant with ISO 639-1 or ISO 639-2 and subsequent standards); - relevant (indicating the main language of the document).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '8.5.1': {
+          title: 'Does every web page have a page title (<title> tag)?',
+          methodology: {
+            steps: ['Find in the document the title implemented using a <title> element.'],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '8.6.1': {
+          title:
+            'For each web page with a page title (<title> tag), is the content of this tag relevant?',
+          methodology: {
+            steps: [
+              'Find in the document the title implemented using a <title> element.',
+              'Check whether the content of the <title> element is sufficiently relevant (it allows the page to be found in the browsing history or the list of tabs).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '8.7.1': {
+          title:
+            'On each web page, does each text written in a language other than the default language meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The language indication is given on the element containing the text (lang and/or xml:lang attribute).',
+            'The language indication is given on one of the parent elements (lang and/or xml:lang attribute)'
+          ],
+          methodology: {
+            steps: [
+              'Find passages of text in a foreign language, with the exception of - proper names; - words of foreign origin, present in the dictionary of the language of the document; - words of foreign origin in common usage whose pronunciation does not cause misunderstanding.',
+              'Check that each passage of text selected has a language indication (lang and/or xml:lang attribute on the element itself or one of its parents).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '8.8.1': {
+          title:
+            'For each web page, does the language code for each language change meet these conditions?',
+          conditions: ['The language code is valid.', 'The language code is relevant.'],
+          methodology: {
+            steps: [
+              'For each passage of text validated in test 8.7.1, check that - The language code is valid. - The language indication is relevant.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '8.9.1': {
+          title:
+            'In every web page, tags (with the exception of <div>, <span> and <table>) must not be used only for layout purposes. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find in the document all the semantic elements used for presentation purposes',
+              'For each of these elements, check that - The element has a role="presentation" attribute. - The use of this element for presentation purposes remains justified.'
+            ],
+            passWhen: 'If this is the case, the test is validated.',
+            note: 'Note: Here are a few non-exhaustive examples of markup misuse: a <div> element used as a paragraph, a heading used as a legend, a <blockquote> element or empty paragraphs or even spaces used to create margin effects. The use of a role="presentation" is formally discouraged, but may be justified in rare cases. This may be acceptable on a <blockquote> element or an empty paragraph, but will be considered non-compliant on a heading. Tables: note that this test deals with presentation tables, which should not appear in the Tables theme.'
+          }
+        },
+        '8.10.1': {
+          title:
+            'On every web page, every text whose reading direction is different from the default reading direction is contained in a tag with a dir attribute',
+          methodology: {
+            steps: [
+              'Find in the document passages of text that use a language that is read in the opposite direction to the document language (such as Arabic or Hebrew for French, for example).',
+              'For each passage of text, check that the passage of text is contained in a tag which has a dir attribute.'
+            ],
+            passWhen: 'If this is the case for each passage of text, the test is validated.'
+          }
+        },
+        '8.10.2': {
+          title:
+            'On each web page, does each change of reading direction (dir attribute) check these conditions?',
+          conditions: [
+            'The value of the dir attribute conforms (rtl or ltr)',
+            'The value of the dir attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'For each passage of text validated in test 8.10.1, check that - The reading direction is correct (ltr, for the direction "left to right" and rtl for the direction "right to left") - The reading direction is relevant.'
+            ],
+            passWhen: 'If this is the case for each passage of text, the test is validated.'
+          }
+        },
+        '9.1.1': {
+          title:
+            'On each web page, is the hierarchy between headings (<hx> tag or tag with a WAI-ARIA role="heading" attribute associated with a WAI-ARIA aria-level attribute) relevant?',
+          methodology: {
+            steps: [
+              'Find the headings in the document (<hx> tag or tag with a WAI-ARIA role="heading" attribute associated with a WAI-ARIA aria-level attribute).',
+              'Check that the hierarchy between the headings is appropriate.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '9.1.2': {
+          title:
+            'On each web page, is the content of each heading (<hx> tag or tag with a WAI-ARIA role="heading" attribute associated with a WAI-ARIA aria-level attribute) relevant?',
+          methodology: {
+            steps: [
+              'For each heading identified in test 9.1.1, check that its content is relevant.'
+            ],
+            passWhen: 'If this is the case for each heading, the test is validated.'
+          }
+        },
+        '9.1.3': {
+          title:
+            'On each web page, is each passage of text making up a heading implemented using a <hx> tag or a tag with a WAI-ARIA role="heading" attribute associated with a WAI-ARIA aria-level attribute?',
+          methodology: {
+            steps: [
+              'For each passage of text making up a heading, check that - either it is implemented using a <hx> tag ("x" designating a numerical value between 1 and 6); - or it is implemented using a tag with a WAI-ARIA role="heading" attribute and a WAI-ARIA aria-level=x attribute ("x" designating a numerical value).'
+            ],
+            passWhen: 'If this is the case for each heading, the test is validated.'
+          }
+        },
+        '9.2.1': {
+          title:
+            'On each web page, do the key regions of the page that make up the document structure meet these conditions?',
+          conditions: [
+            'The element containing the page header region has a computed role of banner.',
+            'The elements containing the primary and secondary navigation regions have a computed role of navigation.',
+            'The element containing the search engine region has a computed role of search.',
+            'The element containing the main content region has a computed role of main.',
+            'The element containing the footer region has a computed role of contentinfo.'
+          ],
+          methodology: {
+            steps: [
+              'Check that the header region is structured using a <header> element or that it has a WAI-ARIA role="banner" attribute.',
+              'Check that the main and secondary navigation areas are implemented using a <nav> element or that they have a WAI-ARIA role="navigation" attribute.',
+              'Check that the search engine region is structured using a <search> element or that it has a WAI-ARIA role="search" attribute.',
+              'Check that the main content region is structured using a <main> element or that it has a WAI-ARIA role="main" attribute.',
+              'Check that the footer region is structured using a <footer> element or that it has a WAI-ARIA role="contentinfo" attribute.'
+            ],
+            passWhen: 'If this is the case for each content region, the test is validated.'
+          }
+        },
+        '9.2.2': {
+          title: 'On each web page, do the document structure meet these conditions?',
+          conditions: [
+            'The document structure uses a single visible element with the computed role of main.',
+            'The document structure uses a single visible element with the computed role of banner.',
+            'The document structure uses a single visible element with the computed role of contentinfo.',
+            'Elements that have a computed role of navigation are reserved for structuring primary and secondary navigation regions.'
+          ],
+          methodology: {
+            steps: [
+              'Check that elements with a computed role of navigation are not used to structure regions that have a function other than primary or secondary navigation.',
+              'If the document has multiple elements with a computed role of main, ensure that only one of these elements is visible (the other occurrences are provided with a hidden attribute, for example).',
+              'If the document has multiple elements with a computed role of banner, ensure that only one of these elements is visible (the other occurrences are provided with a hidden attribute, for example).',
+              'If the document has multiple elements with a computed role of contentinfo, ensure that only one of these elements is visible (the other occurrences are provided with a hidden attribute, for example).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '9.2.3': {
+          title:
+            'The <header> element, without the WAI-ARIA role attribute, used to structure the header region of the page, is nested within an element with a computed role other than article, complementary, main, navigation, and section. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Check that the <header> element, without the WAI-ARIA role attribute, used to structure the header region of the page, is nested within an element with a computed role other than: - article - complementary - main - navigation - section'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '9.2.4': {
+          title:
+            'The <footer> element, without the WAI-ARIA role attribute, used to structure the footer region of the page, is nested within an element with a computed role other than article, complementary, main, navigation, and section. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Check that the <footer> element, without the WAI-ARIA role attribute, used to structure the footer region of the page, is nested within an element with a computed role other than: - article - complementary - main - navigation - section'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '9.3.1': {
+          title:
+            'On each web page, does the information visually grouped in the form of an unordered list meet one of these conditions?',
+          conditions: [
+            'The list uses the HTML tags <ul> and <li>.',
+            'The list uses the WAI-ARIA attributes role="list" and role="listitem".'
+          ],
+          methodology: {
+            steps: [
+              'Find elements in the document that are visually grouped together in the form of an unordered list.',
+              'For each list, check that the list is structured - either using the elements <ul> and <li>; - or using elements with WAI-ARIA attributes role="list" and role="listitem".'
+            ],
+            passWhen: 'If this is the case for each unordered list, the test is validated.'
+          }
+        },
+        '9.3.2': {
+          title:
+            'On each web page, does the information visually grouped in the form of an ordered list meet one of these conditions?',
+          conditions: [
+            'The list uses the HTML tags <ol> and <li>.',
+            'The list uses the WAI-ARIA attributes role="list" and role="listitem".'
+          ],
+          methodology: {
+            steps: [
+              'Find elements in the document that are visually grouped together in the form of an ordered list.',
+              'For each list, check that the list is structured - either using the elements <ol> and <li>; - or using elements with WAI-ARIA attributes role="list" and role="listitem".'
+            ],
+            passWhen: 'If this is the case for each ordered list, the test is validated.'
+          }
+        },
+        '9.3.3': {
+          title:
+            'On each web page, does the information grouped in the form of description lists use the tags <dl> and <dt>/<dd>?',
+          methodology: {
+            steps: [
+              'Find the elements in the document that are visually grouped together in the form of a description list.',
+              'For each list, check that the list is implemented using the elements <dl>, <dt> and <dd>.'
+            ],
+            passWhen: 'If this is the case for each description list, the test is validated.'
+          }
+        },
+        '9.4.1': {
+          title: 'Does every short quotation on every web page use a <q> tag?',
+          methodology: {
+            steps: [
+              'Find the short (or inline) quotations in the document.',
+              'For each quotation, check that the quotation is implemented using a <q> element.'
+            ],
+            passWhen: 'If this is the case for each short quotation, the test is validated.'
+          }
+        },
+        '9.4.2': {
+          title: 'On each web page, does each quotation block use a <blockquote> tag?',
+          methodology: {
+            steps: [
+              'Find the quotation blocks in the document.',
+              'For each quotation block, check that the quotation block is implemented using a <blockquote> element.'
+            ],
+            passWhen: 'If this is the case for each quotation block, the test is validated.'
+          }
+        },
+        '10.1.1': {
+          title:
+            'On each web page, the tags used for the presentation of information must not be present in the generated source code of the pages. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Check that the <basefont>, <big>, <blink>, <center>, <font>, <marquee>, <s>, <strike>, <tt> presentation elements are not present.',
+              'Check for the absence of the <u> element only if the DOCTYPE of the document does not correspond to HTML 5.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.1.2': {
+          title:
+            'On each web page, the attributes used for the presentation of information must not be present in the generated source code of the pages. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Check that these presentation attributes are not present: align, alink, background, bgcolor, border, cellpadding, cellspacing, char, charoff, clear, color, compact, frameborder, hspace, link, marginheight, marginwidth, text, valign, vlink, vspace, size (with the exception of the <select> element).',
+              'Check that the width and height attributes, if used, are only present on the <canvas>, <embed>, <iframe>,<img>, <object>, <source>, <svg> elements (or the children of the <svg> elements).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.1.3': {
+          title: 'On each web page, does the use of spaces meet these conditions?',
+          conditions: [
+            'Spaces are not used to separate letters in a word.',
+            'Spaces are not used to simulate tables.',
+            'Spaces are not used to simulate columns of text.'
+          ],
+          methodology: {
+            steps: [
+              'Disable styles (CSS) in the document.',
+              'Check that no spaces are used: - between the letters of a word; - to create margin or alignment effects; - to simulate tables or columns.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.2.1': {
+          title:
+            'On each web page, is the visible content conveying information accessible to assistive technologies?',
+          methodology: {
+            steps: [
+              'Identify the elements conveying information that may not be accessible to assistive technologies, for example, background images inserted by CSS.',
+              'Check that there is on the page an alternative that is accessible to assistive technologies (for example, visually hidden text that provides the same information).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.3.1': {
+          title:
+            'On each web page, does the information remain understandable when the style sheets are deactivated?',
+          methodology: {
+            steps: [
+              'Deactivate the styles (CSS) in the document.',
+              'Check that the order in which the content is implemented does not raise understanding issues.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.4.1': {
+          title:
+            'On each web page, increasing the font size by at least 200% must not cause any loss of information. Is this rule respected under any of these conditions (excluding special cases)?',
+          conditions: [
+            "When using the browser's text enlargement function.",
+            "When using the browser's graphical zoom functions.",
+            'When using a user interface component specific to the site which allows text to be enlarged or zoomed.'
+          ],
+          methodology: {
+            steps: [
+              "Check in the document whether the text remains present and legible - When the browser's text zoom is set to 200%. - Or when the browser's graphical zoom is set to 200%. - Or when the personalised zoom functions offered by the document are used."
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.4.2': {
+          title:
+            'On each web page, it must be possible to increase the font size by at least 200% for all the text on the page. Is this rule respected under any of these conditions (excluding special cases)?',
+          conditions: [
+            "When using the browser's text enlargement function.",
+            "When using the browser's graphical zoom functions.",
+            'When using a user interface component specific to the site which allows the text to be enlarged or zoomed.'
+          ],
+          methodology: {
+            steps: [
+              "Check in the document whether the text remains present and legible - When the browser's text zoom is set to 200%. - Or when the browser's graphical zoom is set to 200%. - Or when the personalised zoom functions offered by the document are used."
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.5.1': {
+          title:
+            'On each web page, is each CSS declaration of font colour (color), of an element likely to contain text, accompanied by at least one declaration of background colour (background, background-color), inherited from a parent?',
+          methodology: {
+            steps: [
+              'Find coloured text in the document, with the exception of default colours (e.g. links, etc.).',
+              "Identify the element containing the text and check that there is a computed value for the element's background-color property."
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.5.2': {
+          title:
+            'On each web page, is each declaration of background colour (background, background-color), of an element likely to contain text, accompanied by at least one declaration of font colour (color), inherited from a parent?',
+          methodology: {
+            steps: [
+              'Find coloured text in the document, with the exception of default colours (e.g. links, etc.).',
+              "Identify the element containing the text and check that there is a computed value for the element's color property."
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.5.3': {
+          title:
+            'On every web page, is every use of an image to create a background colour for an element likely to contain text, via CSS (background, background-image), accompanied by a background colour declaration (background, background-color), at least, inherited from a parent?',
+          methodology: {
+            steps: [
+              'Find text in the document whose background is an image (background-image property).',
+              'Identify the element containing the text and check that if the background image is missing, the text is still legible.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.6.1': {
+          title:
+            'On each web page, does every text link indicated only by colour, and whose nature is not obvious, meet these conditions?',
+          conditions: [
+            'The colour of the link has a contrast ratio greater than or equal to 3:1 in relation to the surrounding text.',
+            'The link has a visual hover indication other than a colour change.',
+            'The link has a visual indication on focus other than a colour change.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document link type elements (<a> element or element with a WAI-ARIA role="link" attribute).',
+              'For each link element, if it can be confused with normal text when indicated by colour alone, check that the contrast between the font colour of the link and the font colour of the surrounding text is at least 3:1.',
+              'This check must be carried out for the different states of the link if they are presented using a different colour: the unvisited state, the visited state, the activated state, the hover state and the state when focused.'
+            ],
+            passWhen:
+              'If this is the case for each element of the link type, the test is validated.'
+          }
+        },
+        '10.7.1': {
+          title:
+            'For each element receiving keyboard focus, does the focus meet one of these conditions?',
+          conditions: [
+            "The browser's native focus style is not removed or degraded.",
+            'An author-defined focus style is visible.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the elements which are likely to receive keyboard focus (interface elements such as links or form controls, as well as any element with a tabindex attribute with a value equal to or greater than 1).',
+              'For each element likely to receive keyboard focus, check that the visual indication of when the focus is taken is present (by acting on the outline or background or both) and is sufficiently contrasted (contrast ratio equal to or greater than 3:1).'
+            ],
+            passWhen:
+              'If this is the case for each element likely to receive the focus, the test is validated.'
+          }
+        },
+        '10.8.1': {
+          title: 'On each web page, does each hidden content meet one of these conditions?',
+          conditions: [
+            'The hidden content is intended to be ignored by assistive technologies.',
+            'The hidden content is not intended to be ignored by assistive technologies and is made renderable by assistive technologies following an action by the user using the keyboard or any pointing device on an element preceding the hidden content or following a repositioning of the focus on it.'
+          ],
+          methodology: {
+            steps: [
+              'Find hidden content (elements with the hidden attribute or the WAI-ARIA aria-hidden attribute, or a class or set of CSS styles likely to hide the content).',
+              'For each hidden content, check that - Either the hidden content is intended to be ignored by assistive technologies (a web analytics tracker for example). - Or the hidden content is not intended to be ignored by the assistive technologies, in which case it is made renderable by the assistive technologies by means of - Either an action performed by the user via the keyboard or any other pointing device on an element preceding the hidden content. - Or a programming function that repositions the focus on the content.'
+            ],
+            passWhen: 'If this is the case for each hidden content item, the test is validated.'
+          }
+        },
+        '10.9.1': {
+          title:
+            'On each web page, for each text or set of texts, information must not be conveyed solely by shape, size or location. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find in the document the information for a text given by its shape, size or position.',
+              'For each piece of information given by shape, size or position, check that there is another way of retrieving this information.'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '10.9.2': {
+          title:
+            'On each web page, for each image or set of images, information must not be conveyed solely by shape, size or location. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find in the document the information for an image given by its shape, size or position.',
+              'For each piece of information given by shape, size or position, check that there is another way of retrieving this information.'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '10.9.3': {
+          title:
+            'On each web page, for each time-based media, information must not be conveyed solely by shape, size or location. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find in the document the information for a time-based media given by its shape, size or position.',
+              'For each item of information given by shape, size or position, check that there is another way of retrieving this information.'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '10.9.4': {
+          title:
+            'On each web page, for each non-time-based media, information must not be conveyed solely by shape, size or location. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find in the document the information for a non-time-based media given by its shape, size or position.',
+              'For each item of information given by shape, size or position, check that there is another way of retrieving this information.'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '10.10.1': {
+          title:
+            'On each web page, for each text or set of texts, information must not be conveyed solely by shape, size or location. Is this rule implemented appropriately?',
+          methodology: {
+            steps: [
+              'Find in the document the information for a text given by its shape, size or position.',
+              'For each piece of information given by shape, size or position, check that the alternative means of retrieving this information is relevant, i.e. that it allows the information to be transmitted in all viewing contexts and for all users.'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '10.10.2': {
+          title:
+            'On each web page, for each image or set of images, information must not be conveyed solely by shape, size or location. Is this rule implemented appropriately?',
+          methodology: {
+            steps: [
+              'Find in the document the information for an image given by its shape, size or position.',
+              'For each piece of information given by its shape, size or position, check that the alternative means of retrieving this information is relevant, i.e. that it allows the information to be transmitted in all viewing contexts and for all users.'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '10.10.3': {
+          title:
+            'On each web page, for each time-based media, information must not be conveyed solely by shape, size or location. Is this rule implemented appropriately?',
+          methodology: {
+            steps: [
+              'Find in the document the information for a time-based media given by its shape, size or position.',
+              'For each item of information given by shape, size or position, check that the alternative means of retrieving this information is relevant, i.e. that it allows the information to be transmitted in all viewing contexts and for all users.'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '10.10.4': {
+          title:
+            'On each web page, for each non-time-based media, information must not be conveyed solely by shape, size or location. Is this rule implemented appropriately?',
+          methodology: {
+            steps: [
+              'Find in the document the information for a non-time-based media given by its shape, size or position.',
+              'For each item of information given by shape, size or position, check that the alternative means of retrieving this information is relevant, i.e. that it allows the information to be transmitted in all viewing contexts and for all users.'
+            ],
+            passWhen: 'If this is the case for each piece of information, the test is validated.'
+          }
+        },
+        '10.11.1': {
+          title:
+            'For each web page, when the content with a horizontal reading direction is displayed in a window reduced to a width of 320 px, is all the information and functions available without any horizontal scrolling (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find the information and functions in the document if its content is designed to scroll vertically (the text reading direction is horizontal).',
+              'Reduce the display window to a width of 320 px and check that the information and functions remain available without any horizontal scrolling.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.11.2': {
+          title:
+            'For each web page, when content with a vertical reading direction is displayed in a window reduced to a height of 256 px, is all the information and functions available without any vertical scrolling (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find the information and functions in the document if its content is designed to scroll horizontally (the text reading direction is vertical).',
+              'Reduce the display window to a height of 256 px and check that the information and functions remain available without any vertical scrolling.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '10.12.1': {
+          title:
+            'On each web page, does the text remain legible when the display is modified according to these conditions (excluding special cases)?',
+          conditions: [
+            'The spacing between lines (line-height) is set to at least 1.5 times the font size.',
+            'The spacing between paragraphs (<p> tag) is set to at least 2 times the font size.',
+            'Letter spacing (letter-spacing) is set to at least 0.12 times the font size.',
+            'Word-spacing is set to at least 0.16 times the font size.'
+          ],
+          methodology: {
+            steps: [
+              'Modify the document styles by giving - a value of 1.5 to the line-height property of all document elements; - a value of 2em to the margin-bottom property of the <p> elements; - a value of 0.12em for the letter-spacing property of all the elements in the document; - a value of 0.16em for the word-spacing property of all the elements in the document.',
+              'For each passage of text, check that it remains legible, with the exception of - subtitles or captions directly integrated into a video; - images of text; - text within a <canvas> tag.'
+            ],
+            passWhen: 'If this is the case for each passage of text, the test is validated.',
+            note: 'Note: an implementation of these modification rules is available in the WCAG 1.4.12 success criteria resources (https://github.com/alastc/adaptation-scripts/blob/master/scripts/text-adaptation.js).'
+          }
+        },
+        '10.13.1': {
+          title:
+            'Can any additional content that becomes visible when focused or hovering over a user interface component be hidden by a user action without moving the focus or mouse pointer (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document any additional content that becomes visible when the user focuses or hovers over a user interface component, with the exception of - Additional content controlled by the user agent (for example, tooltips associated with the title attribute or the native validation of a form. - Additional content that becomes visible when activated by the user (for example, a dialog window).',
+              'For each additional content item, check that - Either the additional content is positioned in such a way that it does not interfere with the viewing of other information content on which it is superimposed (including the user interface component that triggered its appearance), whatever the viewing conditions (including when using a zoom mechanism). - Or a mechanism (on the keyboard) can be used to make the additional content disappear (for example, the Escape key).'
+            ],
+            passWhen: 'If this is the case for each additional content item, the test is validated.'
+          }
+        },
+        '10.13.2': {
+          title:
+            'Can any additional content that appears when hovering over a user interface component be hovered over with the mouse pointer without disappearing (except in special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the additional content that becomes visible when a user interface component is hovered over, with the exception of - additional content controlled by the user agent (for example, tooltips associated with the title attribute or the native validation of a form); - additional content that becomes visible when activated by the user (for example, a dialog window).',
+              'For each additional content item, check that it can be hovered over with the mouse pointer without disappearing.'
+            ],
+            passWhen: 'If this is the case for each additional content item, the test is validated.'
+          }
+        },
+        '10.13.3': {
+          title:
+            'Does each additional content that appears when focused or when hovering over a user interface component meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The additional content remains visible until the user removes the mouse pointer or the focus from the additional content and from the user interface component that triggered its appearance.',
+            'The additional content remains visible until the user triggers an action that hides this content without moving the focus or mouse pointer of the user interface component that triggered its appearance.',
+            'The additional content remains visible until it is no longer valid.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document additional content which becomes visible when the focus is set or when a user interface component is hovered over, with the exception of - additional content controlled by the user agent (for example, tooltips associated with the title attribute or the native validation of a form); - additional content that becomes visible when activated by the user (for example, a dialog window).',
+              'For each additional content item, check that it remains visible - until the user removes the mouse pointer or focus from the additional content or user interface component that triggered its appearance; - until the user triggers the mechanism provided to make the additional content disappear; - until the information provided by the additional content is no longer valid (for example, additional content indicating the "busy" state of the user interface component that the user wishes to activate, or an error message in the form of additional content until the user rectifies their input).'
+            ],
+            passWhen: 'If this is the case for each additional content item, the test is validated.'
+          }
+        },
+        '10.14.1': {
+          title:
+            'On each web page, does the additional content appearing on hovering over a user interface component via CSS styles respect one of these conditions, if necessary?',
+          conditions: [
+            'The additional content also appears when the component is activated via the keyboard and any pointing device.',
+            'Additional content also appears when the component is focused.',
+            'Additional content also appears when the focus of another component is activated or focused.'
+          ],
+          methodology: {
+            steps: [
+              'Find additional content in the document that becomes visible when a user interface component is hovered using a CSS mechanism (pseudo-class :hover).',
+              'For each additional content, check that the additional content also appears - When the component is activated using the keyboard or any other pointing device. - When the component is focused. - When another component is activated or focused.'
+            ],
+            passWhen: 'If this is the case for each additional content item, the test is validated.'
+          }
+        },
+        '10.14.2': {
+          title:
+            'On each web page, does the additional content appearing in the focus of a user interface component via CSS styles respect one of these conditions if necessary?',
+          conditions: [
+            'Additional content also appears when the component is activated using the keyboard and any pointing device.',
+            'Additional content also appears when the component is hovered over.',
+            'Additional content also appears when another component is activated or hovered over.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the additional content that becomes visible when the focus of a user interface component is activated using a CSS mechanism (pseudo-class :focus).',
+              'For each additional content item, check that the additional content also appears: - When the component is activated using the keyboard or any other pointing device. - When the component is hovered over. - When another component is activated or hovered over.'
+            ],
+            passWhen: 'If this is the case for each additional content item, the test is validated.'
+          }
+        },
+        '11.1.1': {
+          title: 'Does each form input field meet one of these conditions?',
+          conditions: [
+            'The form input field has a WAI-ARIA aria-labelledby attribute referencing an identified passage of text.',
+            'The form input field has a WAI-ARIA aria-label attribute.',
+            'A <label> tag with a for attribute is associated with the form input field.',
+            'The form input field has a title attribute.',
+            'A button adjacent to the form input field provides it with a visible label, and a visually hidden <label> element or a WAI-ARIA aria-label, aria-labelledby or title attribute provides it with an accessible name.'
+          ],
+          methodology: {
+            steps: [
+              'Find form fields in the document.',
+              'For each form field, check that the form field - has a WAI-ARIA aria-labelledby attribute referencing an identified passage of text; - has a WAI-ARIA aria-label attribute; - is associated with a <label> element having a for attribute; - has a title attribute; - a button adjacent to the form field provides it with a visible label and a visually hidden <label> element or a WAI-ARIA aria-label, aria-labelledby or title attribute provides it with an accessible name.'
+            ],
+            passWhen: 'If this is the case for a form field, the test is validated.'
+          }
+        },
+        '11.1.2': {
+          title:
+            'Does each form input field associated with a <label> tag having a for attribute, meet these conditions?',
+          conditions: [
+            'The form input field has an id attribute.',
+            'The value of the for attribute is equal to the value of the id attribute of the associated form input field.'
+          ],
+          methodology: {
+            steps: [
+              'Find the form fields associated with a <label> element in the document.',
+              'For each form field, check that - The form field has an id attribute. - The value of the for attribute of the <label> element is equal to the value of the id attribute.'
+            ],
+            passWhen: 'If this is the case for the form field, the test is validated.'
+          }
+        },
+        '11.1.3': {
+          title:
+            'Does every form input field with a label whose content is not visible or nearby (hidden, aria-label) or which is not located next to the field (aria-labelledby), meet one of these conditions?',
+          conditions: [
+            'The form input field has a title attribute, the content of which makes it possible to understand the nature of the expected input.',
+            'The form input field is accompanied by a passage of text attached to the field, which becomes visible when the focus is taken, allowing the nature of the expected input to be understood.',
+            'The form input field is accompanied by a visible passage of text attached to the field so that the nature of the expected input can be understood.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document form fields whose label is not visible or nearby (hidden, using the aria-label attribute) or is not attached to the field (using the aria-labelledby attribute).',
+              'For each form field, check that the form field - either has a title attribute, the content of which makes it possible to understand the nature of the expected input; - is accompanied by a passage of text next to the field which becomes visible when the focus is taken, so that the nature of the expected input can be understood; - is accompanied by a passage of visible text next to the field, enabling the nature of the expected input to be understood.'
+            ]
+          }
+        },
+        '11.2.1': {
+          title:
+            'Does each <label> tag identify the exact function of the form input field to which it is associated?',
+          methodology: {
+            steps: [
+              'Find the form fields in the document whose label is provided by a <label> element.',
+              'For each form field, check that the content of the element is relevant.'
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.2.2': {
+          title:
+            'Does each title attribute identify the exact function of the form input field to which it is associated?',
+          methodology: {
+            steps: [
+              'Find in the document the form fields whose label is provided by a title attribute.',
+              'For each form field, check that the content of the attribute is relevant.'
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.2.3': {
+          title:
+            'Does each label implemented via the WAI-ARIA aria-label attribute identify the exact function of the form input field with which it is associated?',
+          methodology: {
+            steps: [
+              'Find in the document the form fields whose label is provided by a WAI-ARIA aria-label attribute.',
+              'For each form field, check that the content of the attribute is relevant.'
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.2.4': {
+          title:
+            'Does each passage of text associated via the WAI-ARIA aria-labelledby attribute reveal the exact function of the form input field with which it is associated?',
+          methodology: {
+            steps: [
+              'Find in the document the form fields whose label is provided by a WAI-ARIA aria-labelledby attribute.',
+              'For each form field, check that the content of the referenced passage of text is relevant.'
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.2.5': {
+          title:
+            'Does every form input field with a visible label meet these conditions (excluding special cases)?',
+          conditions: [
+            'If present, the value of the WAI-ARIA aria-label attribute of the form input field contains at least the visible label.',
+            'If present, the passage of text linked to the form input field via a WAI-ARIA aria-labelledby attribute contains at least the visible label.',
+            'If present, the value of the title attribute of the form input field contains at least the visible label.',
+            'If present, the content of the <label> tag associated with the form input field contains at least the visible label.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the form fields whose label is provided both by a visible label and by the content of either a <label> element, or a title attribute or an aria-label attribute or an aria-labelledby attribute.',
+              'For each form field, check that the content of the <label> element or the title attribute or the aria-label attribute or the aria-labelledby attribute contains the visible label.'
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.2.6': {
+          title:
+            'Does each button adjacent to the form input field that provides a visible label identify the exact function of the form input field with which it is associated?',
+          methodology: {
+            steps: [
+              'Find the form fields in the document whose visible label is provided by an adjacent button.',
+              'For each form field, check that the visible content of the button is relevant.'
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.3.1': {
+          title:
+            'Is each label associated with a form field having the same function and repeated several times in the same page consistent?',
+          methodology: {
+            steps: [
+              'Find in the document the form fields with the same function (for example, several address fields).',
+              'For each form input field, check that the labels are consistent (they make it clear that the inputs are identical).'
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.3.2': {
+          title:
+            'Is every label associated with a form field having the same function and repeated in a set of web pages consistent?',
+          methodology: {
+            steps: [
+              'Find the form input fields with the same function in the set of web pages under consideration (for example the search engine input field or the newsletter registration input field).',
+              'For each form input field, check that the labels are consistent (they make it clear that the inputs are identical).'
+            ],
+            passWhen:
+              'If this is the case for each form field on all the pages in question, the test is validated.'
+          }
+        },
+        '11.4.1': {
+          title: 'Are each field label and its associated field located next to each other?',
+          methodology: {
+            steps: [
+              'Find the form fields in the document.',
+              'For each form field, check that it is adjacent to its label.'
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.4.2': {
+          title:
+            'Does each label located next to a field (except for checkboxes, radio buttons or tags with a WAI-ARIA role="checkbox", role="radio" or role="switch" attribute), check these conditions (except special cases)?',
+          conditions: [
+            'The label is visually located immediately above or to the left of the form field when the reading direction of the label language is left to right.',
+            "The label is visually located immediately above or to the right of the form field when the label's language reading direction is right to left."
+          ],
+          methodology: {
+            steps: [
+              'Find in the document form fields which are not <input> elements of type checkbox or radio or elements with a WAI-ARIA role="checkbox", role="radio" or role="switch" attribute.',
+              "For each form field, check that the label is visually attached: - Immediately above or to the left of the form field when the reading direction for the label language is left to right. - Immediately above or to the right of the form field when the label's language reading direction is from right to left."
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.4.3': {
+          title:
+            'Does each label next to a field of type checkbox or radio or next to a tag with a WAI-ARIA role="checkbox", role="radio" or role="switch" attribute, check these conditions (except special cases)?',
+          conditions: [
+            'The label is visually located immediately below or to the right of the form field when the reading direction of the label language is left to right.',
+            "The label is visually located immediately below or to the left of the form field when the label's language reading direction is right to left."
+          ],
+          methodology: {
+            steps: [
+              'Find in the document form fields that are <input> of type checkbox or radio or elements with a WAI-ARIA role="checkbox", role="radio" or role="switch" attribute.',
+              "For each form field, check that the label is visually attached: - Immediately below or to the right of the form field when the reading direction of the label language is from left to right. - Immediately below or to the left of the form field when the label's language reading direction is from right to left."
+            ],
+            passWhen: 'If this is the case for each form field, the test is validated.'
+          }
+        },
+        '11.5.1': {
+          title: 'Do related form controls meet any of these conditions, if necessary?',
+          conditions: [
+            'The related form controls are grouped together in a <fieldset> tag.',
+            'The related form controls are grouped together in a tag with a WAI-ARIA role="group" attribute.',
+            'The related form controls of radio type (<input type="radio">) or tags with a WAI-ARIA role="radio" attribute) are grouped together in a tag with a WAI-ARIA role="radiogroup" or role="group" attribute.'
+          ],
+          methodology: {
+            steps: [
+              'Find the related form controls in the document (for example, a group of identity information entries, a series of tick boxes, a date entry in several successive fields, etc.).',
+              'For each group of form related form controls, check that these related form controls are grouped together: - either in a <fieldset> element; - or in an element with a WAI-ARIA role="group" attribute; - or in an element with a WAI-ARIA role="radiogroup" or "group" attribute, in the case of <input> elements of type radio (or elements with a WAI-ARIA role="radio" attribute).'
+            ],
+            passWhen:
+              'If this is the case for each group of form related form controls, the test is validated.'
+          }
+        },
+        '11.6.1': {
+          title: 'Does each group of related form controls have a legend?',
+          methodology: {
+            steps: [
+              'Find the groups of related form controls in the document.',
+              'For each group of related form controls, check that - If the grouping uses a <fieldset> element, the <fieldset> element has a <legend> element. - If the grouping element uses a WAI-ARIA role="group" or "radiogroup" attribute, it has a WAI-ARIA aria-label or aria-labelledby attribute.',
+              'Otherwise, for each of the related form controls, check for the presence of - either a title attribute to determine whether the field belongs to the field grouping; - or an aria-label attribute to determine whether the field belongs to the field grouping; - or an aria-labelledby attribute which references a passage of text used to determine whether the field belongs to the field grouping; - or an aria-describedby attribute which references a passage of text used to determine whether the field belongs to the field grouping;'
+            ],
+            passWhen:
+              'If this is the case for each group of form fields or for each of the related form controls, the test is validated.'
+          }
+        },
+        '11.7.1': {
+          title: 'Is each legend associated with a group of related form controls relevant?',
+          methodology: {
+            steps: [
+              'Find groups of related form controls in the document.',
+              'For each group of related form controls in the form, or for each related form control that has a legend, check that the text in the legend is relevant.'
+            ],
+            passWhen:
+              'If this is the case for each group of form fields or for each of the related form controls, the test is validated.'
+          }
+        },
+        '11.8.1': {
+          title:
+            'For each <select> tag, are items of the same type in a combobox grouped together with an <optgroup> tag, if necessary?',
+          methodology: {
+            steps: [
+              'Find the comboboxes in the document (element <select>).',
+              'For each combobox offering groups of items of the same type, check that these items are grouped together using <optgroup> elements.'
+            ],
+            passWhen:
+              'If this is the case for each combobox offering groups of similar items, the test is validated.'
+          }
+        },
+        '11.8.2': {
+          title: 'In each <select> tag, does each <optgroup> tag have a label attribute?',
+          methodology: {
+            steps: [
+              'In the document, find the combobox (<select> element) which have elements <optgroup>.',
+              'For each <optgroup> element, check that it has a label attribute.'
+            ],
+            passWhen: 'If this is the case for each <optgroup> element, the test is validated.'
+          }
+        },
+        '11.8.3': {
+          title:
+            'For each <optgroup> tag with a label attribute, is the value of the label attribute relevant?',
+          methodology: {
+            steps: [
+              'In the document, find the comboboxes (<select> element) which have elements <optgroup> with a label attribute.',
+              'For each label attribute, check that its content is relevant.'
+            ],
+            passWhen: 'If this is the case for each label attribute, the test is validated.'
+          }
+        },
+        '11.9.1': {
+          title: 'Does the label of each button meet these conditions (excluding special cases)?',
+          conditions: [
+            'If present, the value of the WAI-ARIA aria-label attribute is relevant.',
+            'If present, the passage of text linked to the button via a WAI-ARIA aria-labelledby attribute is relevant.',
+            'If present, the value of the value attribute of an <input> tag of type submit, reset or button is relevant.',
+            'If present, the content of the <button> tag is relevant.',
+            'If present, the value of the alt attribute of an <input> tag of type image is relevant.',
+            'If present, the value of the title attribute is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find the buttons in a form in the document.',
+              'For each button, check that its visible text and accessible name are relevant.'
+            ],
+            passWhen: 'If this is the case for each button, the test is validated.'
+          }
+        },
+        '11.9.2': {
+          title:
+            'Does each button displaying a visible label meet these conditions (excluding special cases)?',
+          conditions: [
+            'If present, the value of the WAI-ARIA aria-label attribute contains at least the visible label.',
+            'If present, the passage of text bound to the button via a WAI-ARIA aria-labelledby attribute contains at least the visible label.',
+            'If present, the value of the value attribute of an <input> tag of type submit, reset or button contains at least the visible label.',
+            'If present, the content of the <button> tag contains at least the visible label.',
+            'If present, the value of the alt attribute of an <input> tag of type image contains at least the visible label.',
+            'If present, the value of the title attribute contains at least the visible label.'
+          ],
+          methodology: {
+            steps: [
+              'Find the buttons in a form in the document.',
+              'For each button, check that its accessible name contains at least its visible label.'
+            ],
+            passWhen: 'If this is the case for each button, the test is validated.'
+          }
+        },
+        '11.10.1': {
+          title:
+            'Do the indications of mandatory or optional field entries meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'A mandatory field indication is visible and allows the relevant field to be identified by name before entering data.',
+            'The mandatory field has the aria-required="true" or required attribute before entering data.',
+            'An optional field indication is visible and allows the relevant field to be identified by name before entering data.'
+          ],
+          methodology: {
+            steps: [
+              'Find the mandatory form fields in the document.',
+              'For each form field, check that before data is entered: - either a mandatory field indication is visible and allows the field in question to be identified by name; - or a mandatory field indication is given by the presence of the aria-required="true" or required attribute on the field before data is entered; - or an optional field indication is visible and allows the field in question to be identified by name.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '11.10.2': {
+          title:
+            'Do required fields with the aria-required="true" or required attribute meet one of these conditions?',
+          conditions: [
+            'A mandatory field indication is visible and allows the relevant field to be identified by name before data is entered.',
+            'A mandatory field indication is visible and located in the label associated with the field before data is entered.',
+            'A mandatory field indication is visible and located in the passage of text associated with the field before data is entered.',
+            'A mandatory field indication is visible and located in the legend associated with the group of fields before data is entered.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the mandatory form fields that have an aria-required="true" or required attribute.',
+              'For each form field, check that before entering data: - either a mandatory field indication is visible and allows the relevant field to be identified by name; - or a mandatory field indication is visible and located in the label associated with the field; - or a mandatory field indicator is visible and located in the passage of text associated with the field; - or a mandatory field indicator is visible and located in the legend associated with the group of fields.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '11.10.3': {
+          title:
+            'Do error messages indicating that a mandatory field has not been entered meet one of these conditions?',
+          conditions: [
+            'The error message indicating that a mandatory field has not been entered is visible and allows the field in question to be identified by name.',
+            'The mandatory field has the aria-invalid="true" attribute.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the error messages indicating that a mandatory field has not been entered.',
+              'For each error message, check that - either the error message is visible and allows the field concerned to be identified by name; - or the mandatory field associated with the error message has an aria-invalid="true" attribute.'
+            ],
+            passWhen:
+              'If this is the case for each error message indicating that a mandatory field has not been entered, the test is validated.'
+          }
+        },
+        '11.10.4': {
+          title: 'Do fields with the aria-invalid="true" attribute meet any of these conditions?',
+          conditions: [
+            'The error message indicating that the input is invalid is visible and located in the label associated with the field.',
+            'The error message indicating that the input is invalid is visible and located in the passage of text associated with the field.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the form fields which have an aria-invalid="true" attribute.',
+              'For each form field, check that - either the error message indicating that the input is invalid is visible and located in the label associated with the field; - or the error message indicating that the input is invalid is visible and located in the passage of text associated with the field.'
+            ],
+            passWhen:
+              'If this is the case for each form field which has an aria-invalid="true" attribute, the test is validated.'
+          }
+        },
+        '11.10.5': {
+          title:
+            'Do the instructions and indications of mandatory data type and/or format meet any of these conditions?',
+          conditions: [
+            'An instruction or indication of mandatory data type and/or format is visible and enables the relevant field to be identified by name before entering data.',
+            'An instruction or indication of mandatory data type and/or format is visible in the label or passage of text associated with the field before entering data.'
+          ],
+          methodology: {
+            steps: [
+              'Fill in the form fields with values that are likely to cause input errors (e.g. enter an invalid email address).',
+              'Validate the form.',
+              'For each form field that has a format check, verify that the instruction or indication of the required data type and/or format: - is indicated before input; - is clearly visible; - allows the relevant field to be identified by name or is included in the label or passage of text associated with the field.'
+            ],
+            passWhen:
+              'If this is the case for each form field associated with an instruction or indication of the mandatory data type and/or format, the test is validated.'
+          }
+        },
+        '11.10.6': {
+          title:
+            'Do error messages providing an instruction or indication of data type and/or mandatory field indication meet any of these conditions?',
+          conditions: [
+            'The error message providing an instruction or indication of mandatory data type and/or format is visible and identifies the field concerned.',
+            'The field has the aria-invalid="true" attribute.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document error messages that provide an instruction or indication of data type and/or mandatory format for a field.',
+              'For each error message, check that - either the error message is visible and allows the field concerned to be identified; - or the field associated with the error message has an aria-invalid="true" attribute.'
+            ],
+            passWhen:
+              'If this is the case for each error message indicating that a mandatory field has not been entered, the test is validated.'
+          }
+        },
+        '11.10.7': {
+          title:
+            'Do fields with the aria-invalid="true" attribute that require a mandatory data type and/or format meet one of these conditions?',
+          conditions: [
+            'An instruction or indication of data type and/or mandatory format is visible and located in the <label> tag associated with the field.',
+            'An instruction or indication of data type and/or mandatory format is visible and located in the passage of text associated with the field.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the form fields which have an aria-invalid="true" attribute.',
+              'For each form field, check that - either an instruction or indication of data type and/or mandatory format is visible and located in the <label> element associated with the field; - or an instruction or indication of data type and/or mandatory format is visible and located in the passage of text associated with the field.'
+            ],
+            passWhen:
+              'If this is the case for each form field which has an aria-invalid="true" attribute, the test is validated.'
+          }
+        },
+        '11.11.1': {
+          title: 'For each input error, are data types and formats suggested, if necessary?',
+          methodology: {
+            steps: [
+              'Find the error messages in the document.',
+              'For each error message, check that the expected data types and formats are suggested.'
+            ],
+            passWhen: 'If this is the case for each error message, the test is validated.'
+          }
+        },
+        '11.11.2': {
+          title: 'For each input error, are examples of expected values suggested, if necessary?',
+          methodology: {
+            steps: [
+              'Find the error messages in the document.',
+              'For each error message, check that examples of expected values are suggested.'
+            ],
+            passWhen: 'If this is the case for each error message, the test is validated.'
+          }
+        },
+        '11.12.1': {
+          title:
+            'For each form that modifies or deletes data, or transmits answers to a test or exam, or whose validation has financial or legal consequences, does the data capture meet one of these conditions?',
+          conditions: [
+            'The user can modify or cancel data and carried out actions on this data after the form has been validated.',
+            'The user can check and correct data before validating a form in several stages.',
+            'An explicit confirmation mechanism, via a checkbox (<input> tag of the checkbox type or tag with a WAI-ARIA role="checkbox" attribute) or an additional step, is present.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document forms which modify or delete data, or which transmit answers to a test or examination, or whose validation has financial or legal consequences.',
+              'For each form, check that the user can - either modify or cancel data and carried out actions on this data after validation of the form; - or check and correct the data before validating a form in several stages; or - or have an explicit confirmation mechanism (for example, a checkbox or an additional step).'
+            ],
+            passWhen: 'If this is the case for each form found, the test is validated.'
+          }
+        },
+        '11.12.2': {
+          title:
+            'Does each form whose validation modifies or deletes financial, legal or personal data meet one of these conditions?',
+          conditions: [
+            'There is a mechanism for recovering data deleted or modified by the user.',
+            'A mechanism for requesting explicit confirmation of the deletion or modification, via a form input field or an additional step, is proposed.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the forms that modify or delete financial, legal or personal data.',
+              'For each form, check that the user has - either a mechanism for recovering deleted or modified data; - or a mechanism for requesting explicit confirmation of the deletion or modification (for example, a tick box or an additional step).'
+            ],
+            passWhen: 'If this is the case for each form recovered, the test is validated.'
+          }
+        },
+        '11.13.1': {
+          title:
+            'Does each form input field whose object relates to information about the user meet these conditions?',
+          conditions: [
+            'The form input field has an autocomplete attribute;',
+            'The autocomplete attribute has a value in the list of possible values for the autocomplete attribute associated with a form input field.',
+            'The value indicated for the autocomplete attribute is relevant to the type of information expected.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the form fields which relate to information about the user (surname, first name, telephone number, etc.).',
+              'For each form field, check that - The form field has an autocomplete attribute. - The autocomplete attribute has a value from the list of possible values. - The value indicated for the autocomplete attribute is relevant to the type of information expected.'
+            ],
+            passWhen: 'If this is the case for each form field found, the test is validated.'
+          }
+        },
+        '12.1.1': {
+          title:
+            'Does each set of web pages satisfy one of these conditions (excluding special cases)?',
+          conditions: [
+            'A navigation menu and a site map are present.',
+            'A navigation menu and a search engine are present.',
+            'A search engine and a site map are present.'
+          ],
+          methodology: {
+            steps: [
+              'For each set of web pages on the site, check the presence of - either a navigation menu and a site map; - or a navigation menu and a search engine; - or a search engine and a site map.'
+            ],
+            passWhen:
+              'If this is the case for each set of web pages on the site, the test is validated.'
+          }
+        },
+        '12.2.1': {
+          title:
+            'In each set of web pages, does each page with a menu and navigation bars meet these conditions (excluding special cases)?',
+          conditions: [
+            'The menu and navigation bars are always at the same place in the presentation.',
+            'The menu and navigation bars are always in the same relative order in the source code.'
+          ],
+          methodology: {
+            steps: [
+              'Select a sample page from the same set of web pages as the page being audited.',
+              'Visually compare the two pages and check that the menu and navigation bars are always at the same place in the layout.',
+              'Compare the source code (generated on the client side) of the two pages and check that the menu and navigation bars are always in the same relative order in the structure.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.3.1': {
+          title: 'Is the site map page representative of the overall architecture of the site?',
+          methodology: {
+            steps: [
+              'Check that the site map is representative of the general architecture of the site (see note).'
+            ],
+            passWhen: 'If this is the case, the test is validated.',
+            note: 'Note: A site map that is too complex or too deep is not recommended as an aid to navigation. Not all pages need to be included in the site map if they can be reached, for example, from the home page of a section or catalogue.'
+          }
+        },
+        '12.3.2': {
+          title: 'Are the site map links working?',
+          methodology: {
+            steps: ['Check that all the links in the site map are working.'],
+            passWhen: 'If they are, the test is validated.'
+          }
+        },
+        '12.3.3': {
+          title: 'Do the links in the site map lead to the pages indicated by their text?',
+          methodology: {
+            steps: [
+              'For all the links in the site map, check that they are up to date (neither out of date nor in error) and lead to the page indicated by their text.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.4.1': {
+          title:
+            'In each set of web pages, is the site map page accessible from an identical functionality?',
+          methodology: {
+            steps: [
+              'Select a page from the sample belonging to the same set of web pages as the page being audited.',
+              'Compare the source code (generated on the client side) of the two pages and check that the means of access to the site map is always the same (a link or a button, for example).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.4.2': {
+          title:
+            'In each set of web pages, is the functionality to the site map page located at the same place in the presentation?',
+          methodology: {
+            steps: [
+              'Select a page from the sample belonging to the same set of web pages as the page being audited.',
+              'Visually compare the two pages and check that the means of access to the site map is always at the same place in the presentation.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.4.3': {
+          title:
+            'In each set of web pages, is the functionality to the site map page always in the same relative order in the source code?',
+          methodology: {
+            steps: [
+              'Choose a page from the sample that belongs to the same set of web pages as the page being audited.',
+              'Compare the source code (generated on the client side) of the two pages and check that the means of access to the site map is always at the same place in the structure (in relation to the relative order of the page elements, for example it is always at the top of the page).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.5.1': {
+          title:
+            'In each set of web pages, can the search engine be accessed from an identical functionality?',
+          methodology: {
+            steps: [
+              'Choose a page from the sample that belongs to the same set of web pages as the page being audited.',
+              'Compare the source code (generated on the client side) of the two pages and check that the means of access to the search engine is always the same (a form field, for example).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.5.2': {
+          title:
+            'In each set of web pages, is the functionality leading to the search engine located at the same place in the presentation?',
+          methodology: {
+            steps: [
+              'Choose a page from the sample that belongs to the same set of web pages as the page being audited.',
+              'Visually compare the two pages and check that the means of access to the search engine is always at the same place in the presentation.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.5.3': {
+          title:
+            'In each set of web pages, is the functionality leading to the search engine always in the same relative order in the source code?',
+          methodology: {
+            steps: [
+              'Choose a page from the sample that belongs to the same set of web pages as the page being audited.',
+              'Compare the source code (generated on the client side) of the two pages and check that the means of access to the search engine is always at the same place in the structure (in relation to the relative order of the page elements, for example it is always at the top of the page).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.6.1': {
+          title:
+            'Do the content grouping blocks present on several web pages (with the exception of the main regions composing the document structure) meet at least one of these conditions, if necessary?',
+          conditions: [
+            'The block has a WAI-ARIA role of type landmark corresponding to its nature.',
+            "The block has a heading whose content makes it possible to understand the nature of the block's content.",
+            'The block can be hidden by means of a button directly preceding the block in the order of the source code.',
+            'The block can be avoided by means of a skip link directly preceding the block in the order of the source code.',
+            'The block can be reached by means of a bypass link visible or, failing that, visible when focused.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the content grouping blocks (with the exception of the main regions composing the document structure).',
+              'For each block, check that the block - either has a WAI-ARIA landmark role corresponding to its nature; - or has a heading whose content makes it possible to understand the nature of the block content; - or can be hidden by means of a button directly preceding the block in the order of the source code; - or can be avoided by means of a skip link directly preceding the block in the order of the source code; - or can be reached using a bypass link, either visible by default, or visible when focused during tabbing.'
+            ],
+            passWhen: 'If this is the case for each content grouping block, the test is validated.'
+          }
+        },
+        '12.7.1': {
+          title:
+            'On each web page, is there a link to avoid the main content region or to access it (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the main content region (indicated by the visible main content element).',
+              'Check that the region - either can be avoided using a skip link directly preceding the region in the source code order; - or can be reached by means of a quick access link visible when focused by tabbing.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.7.2': {
+          title:
+            'In each set of web pages, does the bypass or skip link to the main content region meet these conditions (excluding special cases)?',
+          conditions: [
+            'The link is located at the same place in the presentation.',
+            'The link is always in the same relative order in the source code.',
+            'The link is visible or, failing that, visible when focused.',
+            'The link is functional.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the main content region (indicated by the visible main element).',
+              'Check that the bypass or skip link to the region is - located at the same place in the presentation; - always present in the same relative order in the source code (generated on the client side); - visible when focused during tabbing; - functional.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.8.1': {
+          title: 'On each web page, is the navigation sequence in the content consistent?',
+          methodology: {
+            steps: [
+              'Tab forward (Tab key) and backward (Shift+Tab key) through all the content in the document.',
+              'Check that the order in which the focus is moved is consistent with the content in question (for example, the navigation sequence in a modal window should only consider the interface elements present in this window).'
+            ],
+            passWhen: 'If this is the case, the test is validated.',
+            note: 'Note: the navigation sequence does not have to follow the natural reading order (left to right and top to bottom, for example) as long as the elements are accessible in a coherent order.'
+          }
+        },
+        '12.8.2': {
+          title:
+            'For each script that updates or inserts content, does the navigation sequence remain consistent?',
+          methodology: {
+            steps: [
+              'Find all the content inserted in the document using a script (display hidden elements, update content using AJAX for example).',
+              'Position the tab on the trigger element and activate it.',
+              'After displaying the updated content, check that the navigation sequence remains consistent (correct repositioning of the focus).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '12.9.1': {
+          title:
+            'On each web page, does each element receiving focus meet one of these conditions?',
+          conditions: [
+            'It is possible to reach the next or previous element that can receive the focus with the tab key.',
+            'The user is informed of a functional mechanism enabling the next or previous element to be reached using the keyboard.'
+          ],
+          methodology: {
+            steps: [
+              'Find all the interface elements in the document that can receive focus (using the tab key or a script).',
+              'For each interface element, check that the user can move to the next or previous element that can receive focus - either using the tab key (<kbd>Tab</kbd> or <kbd>Shift+Tab</kbd>); - or by means of another keyboard interaction of which the user is aware (for example, the arrow keys).'
+            ],
+            passWhen: 'If this is the case for each interface element, the test is validated.',
+            note: 'Note: some complex interface elements, such as a group of radio buttons, a listbox and all the components developed with WAI-ARIA call for optimised navigations which generally use the arrow keys to move from one part of the component to another. For example, in a group of radio buttons, the options can be navigated using the arrow keys. Similarly, in a tabbed system, the user activates the tabs using the arrow keys. The test on the keyboard trap is then limited to checking that the component is reached with the tab key and that it is possible to move on to the next component or return to the previous component.'
+          }
+        },
+        '12.10.1': {
+          title:
+            'On each web page, does each keyboard shortcut using only one key (upper or lower case letter, punctuation, number or symbol) meet one of these conditions?',
+          conditions: [
+            'A mechanism is available to disable the keyboard shortcut.',
+            'A mechanism is available for configuring the keyboard shortcut using the modifier keys (<kbd>Ctrl</kbd>, <kbd>Alt</kbd>, <kbd>Shift</kbd>, etc.).',
+            'In the case of a user interface component, the associated keyboard shortcut can only be activated if the keyboard focus is on this component.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document all the keyboard shortcuts available to the user',
+              'For each keyboard shortcut, check that - either a mechanism is available to deactivate the keyboard shortcut; - or a mechanism is available for configuring the keyboard shortcut using the modifier keys (Ctrl, Alt, Shift, etc.); - or, in the case of a user interface component, the associated keyboard shortcut can only be activated if the keyboard focus is on this component.'
+            ],
+            passWhen: 'If this is the case for each keyboard shortcut, the test is validated.'
+          }
+        },
+        '12.11.1': {
+          title:
+            'On each web page, is the additional content that appears when hovering, focusing or activating a user interface component accessible by keyboard if necessary?',
+          methodology: {
+            steps: [
+              'Find in the document all the additional content that appears when hovering, focusing or activating a user interface component.',
+              'For each additional content item, if it contains user interface components that the user can interact with using the keyboard (for example, a customised tooltip with a link in its content), check that these user interface components can be reached using the keyboard.'
+            ],
+            passWhen: 'If this is the case for each additional content item, the test is validated.'
+          }
+        },
+        '13.1.1': {
+          title:
+            'For each web page, does each refresh process (<object> tag, <embed> tag, <svg> tag, <canvas> tag, <meta> tag) meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The user can stop or restart the refresh.',
+            'The user can increase the time limit between two refreshes by at least ten times.',
+            'The user is warned that a refresh is imminent and has at least twenty seconds to increase the time limit before the next refresh.',
+            'The time limit between two refreshes is at least twenty hours.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the refreshes initiated in the content by an <object>, <embed>, <svg>, <canvas> element or by a <meta http-equiv="refresh" content="[timer]"> element (in the <head> element of the page).',
+              'For each refresh, check that - either there is a mechanism allowing the user to stop and restart the refresh; - or a mechanism is present which allows the user to increase the time limit between two refreshes by at least ten times; - or the presence of a mechanism which warns the user of the imminence of the refreshment, allows the user at least 20 seconds to increase the time limit before the next refreshment; - or the time limit between two refreshes is at least twenty hours.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '13.1.2': {
+          title:
+            'For each web page, is every redirect procedure carried out using a <meta> tag immediate (excluding special cases)?',
+          methodology: {
+            steps: [
+              'In the document, find an automatic redirect initiated by a <meta http-equiv="refresh" /> element.',
+              'If a redirection process exists, check: - either that the redirection is immediate (the content property must have the value 0, for example content="0; URL=\'https://url.com\'") - or that the time limit before redirection is at least twenty hours (the content property then has a value greater than or equal to 72000, for example content="80000; URL=\'https://url.com\'").'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '13.1.3': {
+          title:
+            'For each web page, does each redirect carried out via a script satisfy one of these conditions (excluding special cases)?',
+          conditions: [
+            'The user can stop or restart the redirect.',
+            'The user can increase the time limit before the redirect by at least ten times.',
+            'The user is warned that a redirect is imminent and has at least twenty seconds to increase the time limit before the next redirect.',
+            'The time limit before the redirect is at least twenty hours.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the automatic redirects initiated by a script (in the form of a countdown for example).',
+              'For each automatic redirect, check that - Either there is a mechanism enabling the user to stop and restart the redirect. - Or the presence of a mechanism allows the user to increase the time limit before refreshment by at least ten times. - Or the presence of a mechanism, that warns the user of the imminence of the refreshment, gives the user at least 20 seconds to increase the time limit before the next refreshment. - Or the time limit before the redirect is at least twenty hours.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '13.1.4': {
+          title:
+            'For each web page, does each procedure limiting the time of a session meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The user can remove the time limit.',
+            'The user can increase the time limit.',
+            'The time limit before the end of the session is at least twenty hours.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the procedures for limiting the time of a session (for example, after authentication).',
+              'For each process, check that - either the presence of a mechanism allows the user to remove the time limit; - or the presence of a mechanism allows the user to increase the time limit; - or the time limit is at least twenty hours.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '13.2.1': {
+          title:
+            'On each web page, the opening of a new window must not be triggered without user action. Is this rule respected?',
+          methodology: {
+            steps: [
+              'When viewing a page, ensure that no new windows (browser windows or new tabs) are opened without user action.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '13.3.1': {
+          title:
+            'On each web page, does each function for downloading an office document meet one of these conditions?',
+          conditions: [
+            'The document to be downloaded is compatible with accessibility;',
+            'An alternative version, compatible with accessibility, can be downloaded;',
+            'There is an alternative version in HTML format that is compatible with accessibility.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the links and form controls (a form button or download form, for example) allowing to you to download a file in office format.',
+              'For each file in office format, check the presence of an alternative version presented as accessible: - For documents in .pdf format, check compliance with the PDF accessibility assessment framework (RAPDF). - For documents in .doc or .docx format, analyse the file with the Microsoft Office accessibility checker (from version 2010) and check that there are no accessibility errors (see note). - For documents in .odt format, analyse the document with the LibreOffice accessibility checker (from version 7.0). - For documents in EPUB/DAISY format, analyse the document with an EPUB/DAISY editor. - For documents in .html format, analyse the accessibility of the document.'
+            ],
+            passWhen: 'If this is the case for each file in office format, the test is validated.',
+            note: 'Note on Microsoft Office: the software offers an accessibility checker as standard (accessible via the "File &gt; Information &gt; Check for problems &gt; Check accessibility" menu). Note on LibreOffice: the software offers an accessibility checker as standard, accessible via the "Tools &gt; Accessibility Check" menu. Note on the EPUB format: the Ace by DAISY App tool enables you to validate an EPUB 3 file efficiently.'
+          }
+        },
+        '13.4.1': {
+          title:
+            'Does every office document with an accessible version meet one of these conditions?',
+          conditions: [
+            'The accessible version offers the same information.',
+            'The alternative HTML version is relevant and provides the same information.'
+          ],
+          methodology: {
+            steps: [
+              'In the document, find the files available to download in office format, together with their alternative accessible version.',
+              'For each pair of files, open both documents (the original document and the accessible document) and check that both documents provide the same information.'
+            ],
+            passWhen: 'If this is the case for each pair of files, the test is validated.'
+          }
+        },
+        '13.5.1': {
+          title:
+            'On each web page, does each cryptic content conveying information meet one of these conditions?',
+          conditions: [
+            'The meaning of the content is provided in the adjacent context.',
+            'The meaning of the content is provided by a method that is compatible with accessibility.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the cryptic content conveying information.',
+              'For each cryptic content, check that - Either its meaning is given in the adjacent context (immediately before or after). - Or its meaning is made available by a method compatible with accessibility, for example, the cryptic content is included in a link whose accessible name is defined by the aria-label property, which contains the meaning of the cryptic content.'
+            ],
+            passWhen: 'If this is the case for each cryptic content, the test is validated.'
+          }
+        },
+        '13.5.2': {
+          title:
+            'On each web page, is each cryptic content correctly ignored by assistive technologies using a WAI-ARIA aria-hidden="true" attribute?',
+          methodology: {
+            steps: [
+              'Find in the document the cryptic content.',
+              'For each cryptic content, check that - Either the cryptic content is embedded in a tag that has a WAI-ARIA aria-hidden="true" attribute. - Or a parent tag of the cryptic content has a WAI-ARIA aria-hidden="true" attribute.'
+            ],
+            passWhen: 'If this is the case for each cryptic content, the test is validated.'
+          }
+        },
+        '13.6.1': {
+          title: 'On each web page, does each cryptic content meet one of these conditions?',
+          conditions: [
+            'The meaning given in the adjacent context is relevant.',
+            'The meaning provided by a method compatible with accessibility is relevant.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the cryptic content conveying information.',
+              'For each cryptic content, check that the meaning given is relevant.'
+            ],
+            passWhen: 'If this is the case for each cryptic content, the test is validated.'
+          }
+        },
+        '13.7.1': {
+          title:
+            'On each web page, does every image or multimedia element (<video> tag, <img> tag, <svg> tag, <canvas> tag, <embed> tag or <object> tag) that causes a sudden change in brightness or blinking meet one of these conditions?',
+          conditions: [
+            'The frequency of the effect is less than or equal to 3 per second.',
+            'The total cumulative area of the effects is less than or equal to 21824 pixels.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document content which flashes or causes flash effects of the animated image, video (see note) or animation type (<img>, <svg>, <canvas>, <embed>, <object> or <video> elements).',
+              'For all content that flashes or causes flash effects, check that - either the frequency of the effect is less than or equal to 3 per second; - or the total surface area is less than or equal to 21824 pixels.'
+            ],
+            passWhen:
+              'If this is the case for each content item that flashes or causes flash effects, the test is validated.',
+            note: 'Note: assessing this criterion can be complex. When the effect is managed by a script or using CSS, analysis of the code is sufficient. The PEAT tool can be used to analyse videos in .avi format, for example. An example of a video that caused epileptic seizures can be found here: London 2012 Olympics Seizure.'
+          }
+        },
+        '13.7.2': {
+          title:
+            'On each web page, does each script that causes a sudden change in brightness or blinking meet one of these conditions?',
+          conditions: [
+            'The effect frequency is less than or equal to 3 per second.',
+            'The total cumulative area of the effects is less than or equal to 21824 pixels.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the content that flashes or causes flash effects using a script.',
+              'For each content item that flashes or causes flash effects, check that - either the frequency of the effect is less than or equal to 3 per second; - or the total surface area is less than or equal to 21824 pixels.'
+            ],
+            passWhen:
+              'If this is the case for each content item that flashes or causes flash effects, the test is validated.'
+          }
+        },
+        '13.7.3': {
+          title:
+            'On each web page, does each CSS layout that causes a sudden change in brightness or blinking meet one of these conditions?',
+          conditions: [
+            'The effect frequency is less than or equal to 3 per second.',
+            'The total cumulative area of the effects is less than or equal to 21824 pixels.'
+          ],
+          methodology: {
+            steps: [
+              'Find content in the document that flashes or causes flash effects using CSS animation.',
+              'For each piece of content that flashes or causes flash effects, check that - either the frequency of the effect is less than or equal to 3 per second; - or the total surface area is less than or equal to 21824 pixels.'
+            ],
+            passWhen:
+              'If this is the case for each content item that flashes or causes flash effects, the test is validated.'
+          }
+        },
+        '13.8.1': {
+          title:
+            'On each web page, does each automatically-triggered moving content meet one of these conditions?',
+          conditions: [
+            'The duration of the movement is less than or equal to 5 seconds.',
+            'The user can stop and restart the movement.',
+            'The user can show and hide the moving content.',
+            'The user can display all the information without the movement.'
+          ],
+          methodology: {
+            steps: [
+              'Find moving content in the document (obtained using an image, script or CSS effect) triggered automatically when the page is loaded or when content is displayed (see note).',
+              'For each content item, check that - either the duration of the movement is less than 5 seconds; - or there is a mechanism (a button, for example) to stop and restart the movement; - or either the presence of a mechanism (such as a button) means that the moving content can be hidden and displayed again; - or the presence of a mechanism (e.g. a button) enables the entire content to be displayed without movement.'
+            ],
+            passWhen: 'If this is the case for each piece of moving content, the test is validated.'
+          }
+        },
+        '13.8.2': {
+          title:
+            'On each web page, does each automatically triggered blinking content meet one of these conditions?',
+          conditions: [
+            'The blinking duration is less than or equal to 5 seconds.',
+            'The user can stop and restart the blinking.',
+            'The user can show and hide the blinking content.',
+            'The user can display all the information without the blinking.'
+          ],
+          methodology: {
+            steps: [
+              'Find blinking content in the document (obtained using an image, a script or a CSS effect) triggered automatically when the page is loaded or when content is displayed (see note).',
+              'For each content item, check that - either the blinking time is less than 5 seconds; - there is a mechanism (a button, for example) to stop and restart the blinking; - or the presence of a mechanism (a button, for example) means that the blinking content can be hidden and displayed again; - or a mechanism (such as a button) can be used to display all the blinking content.'
+            ],
+            passWhen: 'If this is the case for each blinking content item, the test is validated.',
+            note: 'Note: Stopping or pausing moving or blinking content by means of when focused (for example, the effect is only suspended when focused) is not considered a compliant process. In some cases, movement cannot be stopped, for example in the case of a progress bar, in which case the criterion is not applicable.'
+          }
+        },
+        '13.9.1': {
+          title:
+            'On each web page, does all content meet these conditions (excluding special cases)?',
+          conditions: [
+            'Consultation is possible regardless of the screen orientation mode.',
+            'The displayed content remains the same regardless of the screen orientation used, even if its presentation and the means of accessing it may differ.'
+          ],
+          methodology: {
+            steps: [
+              'View the document in portrait mode and then in landscape mode.',
+              'Check that - the document can be viewed in any screen orientation; - the displayed content remains the same whatever the screen orientation mode used, even though its presentation and the means of accessing it may differ.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '13.10.1': {
+          title:
+            'On each web page, is each function that is usable or available through multi-touch also usable or available through a single point operation on the screen (excluding special cases).',
+          methodology: {
+            steps: [
+              'Find in the document the features that can be used or made available by means of a multi-point touch interaction.',
+              'For each function, check that it is still available using touch interaction at a single point on the screen (for example, the ability to consult the items in a list using a horizontal right or left swipe should also be available using the "previous" and "next" buttons, or a pinch and zoom gesture that can be performed alternately using the "plus" and "minus" buttons).'
+            ],
+            passWhen:
+              'If this is the case for each function that can be used or is available by means of multi-touch interactions, the test is validated.'
+          }
+        },
+        '13.10.2': {
+          title:
+            'On each web page, is each function that is usable or available thanks to a path-based gesture on the screen also usable or available through a single point operation on the screen (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the features that are usable or available by means of a touch interaction that involves following a particular path on the screen.',
+              'For each feature, check that it is still available by means of touch-type interaction at a single point on the screen (for example, the ability to enter a password by following a path on a virtual keyboard should also be available by means of successive presses on the keyboard keys).'
+            ],
+            passWhen:
+              'If this is the case for each functionality that can be used or is available by means of touch interaction that involves following a particular path on the screen, the test is validated.'
+          }
+        },
+        '13.11.1': {
+          title:
+            'On each web page, do the actions triggered by a pointing device on a single point on the screen meet one of these conditions (excluding special cases)?',
+          conditions: [
+            'The action is triggered when the pointing device is released.',
+            'The action is triggered when the pointing device is pressed then cancelled when the pointing device is released.',
+            'A mechanism is available to abort (before completion of the action) or cancel (after completion) the execution of the action.'
+          ],
+          methodology: {
+            steps: [
+              'Find in the document the actions triggered by a pointing device on a single point on the screen.',
+              'For each action, check that - either the action is triggered when the pointing device is released; - or the action is triggered when the pointing device is pressed or put down and then cancelled when the pointing device is released; - or there is a mechanism for aborting (before completion of the action) or cancelling (after completion) the execution of the action. For example, during a drag-and-drop interaction, releasing the pointing device should allow the current interaction to be aborted, and once the drop zone has been reached, the user should still be able to cancel the drop operation by means of a confirmation dialogue (choice of confirming or cancelling the drop) or by being able to return the dropped item to its initial position.'
+            ],
+            passWhen:
+              'If this is the case for each action triggered by a pointing device on a single point on the screen, the test is validated.'
+          }
+        },
+        '13.12.1': {
+          title:
+            'On each web page, can the features available by moving the device be achieved with user interface components (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find the functions available by moving the device in the document.',
+              'For each function, check that it can be achieved using user interface components.'
+            ],
+            passWhen:
+              'If this is the case for each function available by moving the device, the test is validated.'
+          }
+        },
+        '13.12.2': {
+          title:
+            'On each web page, can the features available by gesturing towards the device be performed with user interface components (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the features available by gesturing towards the device.',
+              'For each function, check that it can be performed using user interface components.'
+            ],
+            passWhen:
+              'If this is the case for each feature available by gesturing towards the device, the test is validated.'
+          }
+        },
+        '13.12.3': {
+          title:
+            'Can the user deactivate motion detection to avoid accidental activation of the feature (except in special cases)?',
+          methodology: {
+            steps: [
+              'Find in the document the features available by moving the device.',
+              'Check whether the user can disable motion detection.',
+              'If so, for each feature, check that it cannot be triggered.'
+            ],
+            passWhen:
+              'If this is the case for each feature available by setting the device in motion, the test is validated.'
+          }
+        },
+        '13.13.1': {
+          title:
+            'For each document conversion feature, is the accessibility information available in the source document kept in the destination document (excluding special cases)?',
+          methodology: {
+            steps: [
+              'This applies to all digital formats such as text, audio and video.',
+              'Locate the document conversion functions on the page (export to PDF, .odt, HTML, etc.).',
+              'Identify accessibility information in the original content (alternative graphic elements, heading levels, table of contents, etc.).',
+              'Check that the accessibility information is still present in the converted document (unless the conversion format chosen does not support the accessibility information in the source document).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '13.14.1': {
+          title:
+            'Does each identification or control feature that relies on the use of biological characteristics of the user comply with one of these conditions?',
+          conditions: [
+            'There is an alternative that does not rely on a biological characteristic of the user.',
+            'An alternative exists that is based on a biological characteristic of the user that is sufficiently different from the biological characteristic initially requested.'
+          ],
+          methodology: {
+            steps: [
+              'Find the identification (authentication) and control functions on the page that use biological characteristics (voice recognition, fingerprint, facial recognition, etc.).',
+              'Check that there is an alternative method of performing the action: - For an authentication feature that uses fingerprint recognition, a button is available on the login page to access password entry. - For an authentication function that uses voice recognition, the website also offers fingerprint recognition.'
+            ],
+            passWhen: 'If this is the case, the test is validated.',
+            note: 'If the alternative method also relies on a biological characteristic, it is essential that it does not use a similar biological characteristic. For example, if the initial method is based on voice, the alternative method must not use voice.'
+          }
+        },
+        '14.1.1': {
+          title: "Does the website's documentation include at least the following elements?",
+          conditions: [
+            'A description of the accessibility features provided by the website.',
+            'A user guide for the accessibility features provided by the website.',
+            'A list of non-compliances or a description of non-compliant items.',
+            'A description of the components that are not compatible with assistive technologies.'
+          ],
+          methodology: {
+            steps: [
+              'Identify the presence of documentation.',
+              'Check for the presence of accessibility features.',
+              'Check that the documentation contains - a description of the accessibility features provided by the website; - explanations of how to use these features (where they are located, how to activate them); - a description of the complex components for which special management has been set up according to assistive technologies; - a list of non-compliances or the description of non-compliant elements, and the availability of alternatives where applicable; - the description of components that are incompatible with assistive technologies.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '14.2.1': {
+          title:
+            'For each accessibility feature described in the documentation, the mechanism for enabling an accessibility feature meets the accessibility needs of the users concerned. Is this rule respected (excluding special cases)?',
+          methodology: {
+            steps: [
+              'Identify the accessibility features described in the documentation. For example, you can - access a version of the content in simplified language; - enlarge text size.',
+              'Check that the users concerned by each accessibility feature are able to access it. For example: - Alternative version in simplified language: the mechanism or set of mechanisms that enable the feature to be activated must be understandable and identifiable by a person who benefits from simplified language (for example, using the "Easy to read" logo to identify the mechanism is a compliant solution). - Larger font size: if the mechanism contains text, then the text must be displayed by default with a font size equivalent to 200% of the initial font size.',
+              'Check that it is possible to activate this feature.'
+            ],
+            passWhen: 'If so, the test is validated.'
+          }
+        },
+        '14.3.1': {
+          title: 'Does the documentation provided in web format (HTML, CSS) comply with the RAWeb',
+          methodology: {
+            steps: [
+              'Identify the presence of documentation in web format (HTML, CSS).',
+              'Check that each piece of documentation conforms to the RAWeb.'
+            ],
+            passWhen: 'If it does, the test is validated.'
+          }
+        },
+        '14.3.2': {
+          title: 'Does the documentation made available in PDF format comply with the RAPDF',
+          methodology: {
+            steps: [
+              'Identify the presence of documentation in PDF format.',
+              'Check that each item of documentation complies with the RAPDF.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '14.3.3': {
+          title:
+            'Does the documentation made available in a non-web format (excluding PDF) comply with the criteria of section 10 Non-web documents of European standard EN 301 549 v3.2.1?',
+          methodology: {
+            steps: [
+              'Identify the presence of documentation in non-web format (other than PDF).',
+              'Check that each item of documentation complies with the criteria in section 10 Non-web documents of European standard EN 301 549 v3.2.1.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.1.1': {
+          title:
+            'Does each editing tool that creates content in web format (HTML, CSS) allow you to define the accessibility information needed to create content that complies with the RAWeb?',
+          methodology: {
+            steps: [
+              'Identify the editing functions in the tool (for example, a text editor, but it could also be a media library or any other interface making it possible to enter text or define properties) that allow you to create content in web format (HTML, CSS).',
+              'Check that it is possible to define the accessibility information needed to make the content compliant with RAWeb. For example - defining the text alternative for an image from the text editor or a media library; - defining the accessible name of a link; - etc.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.1.2': {
+          title:
+            'Does each editing tool that creates content in PDF format have the ability to define the accessibility information needed to create RAPDF-compliant content?',
+          methodology: {
+            steps: [
+              'Identify the editing functions in the tool (for example, a text editor, but it could also be a media library or any other interface making it possible to enter text or define properties) that allow you to create content in PDF format.',
+              'Check that it is possible to define the accessibility information needed to make the content compliant with RAPDF. For example - defining the text alternative for an image from the text editor or a media library; - defining the accessible name of a link; - etc.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.1.3': {
+          title:
+            'Does each editing tool that creates content in non-web format (except PDF) allow the definition of the accessibility information necessary to create content that complies with the criteria of section 10 Non-web documents of the European standard EN 301 549 v3.2.1?',
+          methodology: {
+            steps: [
+              'Identify the editing features in the tool (for example, a text editor, but it could also be a media library or any other interface making it possible to enter text or define properties) that allow you to create content in non-web format (other than PDF).',
+              'Check that it is possible to define the accessibility information required to make the content compliant with the criteria of section 10 Non-web documents of European standard EN 301 549 v3.2.1. For example - defining the text alternative for an image from the text editor or a media library; - defining the accessible name of a link; - etc.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.1.4': {
+          title:
+            'Does each editing tool that creates content distributed in a mobile application allow you to define the accessibility information needed to create content that complies with the RAAM?',
+          methodology: {
+            steps: [
+              'Identify the editing functions in the tool (for example, a text editor, but it could also be a media library or any other interface making it possible to enter text or define properties) that allow you to create content for distribution in a mobile application.',
+              'Check that it is possible to define the accessibility information needed to make the content compliant with RAAM criteria. For example - defining the text alternative for an image from the text editor or a media library; - defining the accessible name of a link; - etc.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.2.1': {
+          title:
+            'Does each editing tool provide help with creating accessible content that complies with the digital accessibility rules?',
+          methodology: {
+            steps: [
+              'Identify in the tool the presence of aids for creating accessible content. This could be - automatic or semi-automatic tests available from the editing functions; - other automatic tools (a chatbot, for example); - documentation that explains how to define accessibility properties for each content item; - manual tests available from the editing functions to guide authors in detecting errors.',
+              'Check that the help with creating accessible content is relevant, i.e. that the results or indications it gives can be used to create accessible content.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.3.1': {
+          title:
+            'Does the content generated by each transformation comply with the digital accessibility rules (excluding special cases)?',
+          methodology: {
+            steps: [
+              'From the editing functions (a text editor, but it can also be a media library or any other interface that lets you enter text or define properties), enter the types of content proposed by the editor (heading, list, table, image, etc.). Also use the various parameters for defining accessibility information (enter the text alternative for an image, add a description to a link, etc.)',
+              'Save your entries.',
+              'View the generated content - in the editing functionality (for example, in the text editor); - and in the content publication interface (for example, the publication web page).',
+              'For each content in web format (HTML, CSS), check - that the information required for it to comply with the RAWeb (e.g. alternative image, heading levels) is preserved in the generated content. - that the information, if restructured, remains compatible with assistive technologies (for example, if the author enters an HTML table and, after saving, the tool linearises the table, the restructured information must be understandable to users of assistive technologies as it would have been in its original form).',
+              'For each content in PDF format, check - that the information required for it to comply with the RAPDF (e.g. alternative image, heading levels) is preserved in the generated content. - that the information, if restructured, remains compatible with assistive technologies (for example, if the author enters a table and, after saving, the tool linearises the table, the restructured information must be understandable to users of assistive technologies as it would have been in its initial form).',
+              'For each content in non-web format that is not PDF, check - the information required to comply with section 10 Non-web documents of European standard EN 301 549 v3.2.1 is preserved in the generated content. - that the information, if restructured, remains compatible with assistive technologies (for example, if the author enters a table and, after saving, the tool linearises the table, the restructured information must be understandable to users of assistive technologies as it would have been in its initial form).',
+              'For each content published in a mobile application, check - that the information necessary for it to comply with RAAM (e.g., image alternatives, heading levels) is preserved in the generated content. - that the information, if restructured, remains compatible with assistive technologies (for example, if the author enters a table and after saving, the tool linearises the table, the restructured information must be understandable to users of assistive technologies, as it would have been in its original form).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.4.1': {
+          title:
+            'For each accessibility issue identified by an automatic or semi-automatic accessibility test, does the editing tool provide suggestions for repair?',
+          methodology: {
+            steps: [
+              'Identify the presence of automatic or semi-automatic test functions in the tool.',
+              'Generate content (web and non-web) with the editing tool with accessibility errors.',
+              'Activate the test functions.',
+              'Check - that the tool automatically repairs the error (automatic test); - or that the tool provides the author with repair suggestions (semi-automatic test).',
+              'In the case of a semi-automatic test, check - that the tool provides decision support and repair suggestions; - or that the tool provides the author with explanations on how to carry out the repair.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.5.1': {
+          title:
+            'For each set of templates in web format (HTML, CSS), at least one template conforms to the RAWeb. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Check for the presence of templates in web format (HTML, CSS) provided by the editing tool.',
+              'Check that at least one template meets all the RAWeb criteria.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.5.2': {
+          title:
+            'For each set of templates in PDF format, at least one template complies with the RAPDF. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Check for the presence of templates in PDF format provided by the editing tool.',
+              'Check that at least one template meets all the RAPDF criteria.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.5.3': {
+          title:
+            'For each set of templates in non-web format (excluding PDF), at least one template complies with the criteria of section 10 Non-web documents of European standard EN 301 549 v3.2.1. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Identify the presence of templates in non-web format (excluding PDF) made available by the editing tool.',
+              'Check that at least one template meets all the criteria of section 10 Non-web documents of European standard EN 301 549 v3.2.1.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.5.4': {
+          title:
+            'For each set of templates used to distribute content in a mobile application, at least one template complies with the RAAM criteria. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Check for the presence of templates for distribution in a mobile application provided by the editing tool.',
+              'Check that at least one template meets all the RAAM criteria.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '15.6.1': {
+          title:
+            'Is each template that makes it possible to comply with the digital accessibility rules clearly identifiable?',
+          methodology: {
+            steps: [
+              'Identify the presence of templates that fully comply with the digital accessibility rules provided by the editing tool.',
+              'Check that they are clearly marked so that they can be identified. For example, in the list of templates, compliant templates will have an "accessible template" label.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '16.1.1': {
+          title:
+            'Does each support service provide information about the accessibility features and accessibility compatibility described in the documentation of the website?',
+          methodology: {
+            steps: [
+              'Find out whether a support service is available on the website.',
+              'If so, check the website for documentation.',
+              'Check the documentation for - a description of the accessibility features offered by the website; - a description of the complex components for which special management has been set up according to assistive technologies; - explanations of how to use these features (where they are located, how to activate them); - a description of elements that do not comply or are not compatible with certain assistive technologies, and the presence of alternatives where appropriate.',
+              'Check that the help desk provides information about these features.'
+            ],
+            passWhen: 'If so, the test is validated.'
+          }
+        },
+        '16.2.1': {
+          title:
+            'Each support service meets the communication needs of people with disabilities directly or through a relay service. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Find the support services in the document.',
+              'For each service, check that it can be used by all people with disabilities. It may be useful to search the website documentation to find this information. For example, if the support service is available from a telephone number, check that there are alternative means for users who have little or no access to spoken language (people who are deaf or hard of hearing) or who cannot use verbal language (people with aphasia). For example - an e-mail address or an online form; - instant messaging; - the provision of simultaneous written or visual translation of oral or audio information, or the provision of a sign language interpreter (use of a relay service).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '16.3.1': {
+          title:
+            'Does the documentation provided by the support service comply with the digital accessibility rules?',
+          methodology: {
+            steps: [
+              'Identify the presence of documentation provided by the help desk.',
+              'For each item of documentation, check - if it is a web page (HTML, CSS), that it complies with the RAWeb; - if it is an office document in PDF format, that it complies with the PDF accessibility assessment framework (RAPDF); - in the case of a non-web document that is not in PDF format, that it complies with the criteria of section 10 Non-web documents of European standard EN 301 549 v3.2.1.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.1.1': {
+          title:
+            'For each two-way voice communication web application, is the application capable of encoding and decoding this communication with a frequency range whose upper limit is at least 7,000 Hz?',
+          methodology: {
+            steps: [
+              'Activate the web application and launch a call between the two devices.',
+              'Check that the quality of oral activity with the web application is at least equivalent to the quality of oral activity during a call with a landline telephone.',
+              'If the test is unsatisfactory (e.g. poor understanding of certain words spoken by the caller, presence of extraneous noise, etc.), check the application documentation to ensure 1. the presence of a reference to the implementation of ITU-T Recommendation G.722; 2. or the presence of a reference to the use of the WebRTC API opus codec; 3. or the presence of a reference to the use of encoding and decoding with a frequency greater than or equal to 7,000 Hz.',
+              'Otherwise, it is recommended that you ask the application publisher to provide these technical details, in particular by asking whether the web application implements, for example, ITU-T Recommendation G.722 or uses the WebRTC API opus codec.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.2.1': {
+          title:
+            'Does each web application that enables two-way voice communication meet one of these conditions?',
+          conditions: [
+            'The web application has built-in real-time text communication functionality;',
+            'The web application can be connected to a terminal with integrated real-time text communication functionality.'
+          ],
+          methodology: {
+            steps: [
+              'Check that the web application allows two-way voice communication.',
+              'If this is the case, check that a real-time text (RTT) function is available (it may sometimes be necessary to activate a dedicated parameter in the application to enable real-time text (RTT)).',
+              'If not, check whether the web application can connect to a terminal with real-time text (RTT) functionality. This assessment can be complex to carry out without the availability of a real-time communication terminal or if the network used by the terminal does not support real-time text protocols. A first step may be to search the documentation or ask the application editor directly.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.3.1': {
+          title:
+            'For each web application that enables two-way voice communication and real-time text, can both modes be used simultaneously?',
+          methodology: {
+            steps: [
+              'Check that the web application allows two-way voice communication.',
+              'If so, check that real-time text (RTT) communication is available.',
+              'If this is the case, check that it is possible to use both modes of communication at the same time, i.e. that it is possible for the same user to speak and use the real-time text (RTT) system simultaneously.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.4.1': {
+          title:
+            'For each real-time text (RTT) functionality, do the messages respect these conditions?',
+          conditions: [
+            'Received and sent messages are separated in the presentation;',
+            'The presentation identifies the nature of the message (received or sent);',
+            'The nature of the message (received or sent) is accessible to assistive technologies.'
+          ],
+          methodology: {
+            steps: [
+              "Activate the web application and the application's real-time text (RTT) functionality on two terminals and connect them to the same session.",
+              'Send a text message from both terminals to obtain messages with different statuses (sent and received).',
+              'Check that - sent and received messages are visually separated (for example, sent messages are in one window and received messages in another, or there is a line break between each received and sent message if they are presented in the same window); - it is visually possible to distinguish between messages sent and messages received. For example, by a layout or colour that differentiates them or by a visible text annotation (look for the words "Sent" near a message that has been sent or "Received" near a message that has been received); - information about the nature of the message (received or sent) is accessible to assistive technologies (text information is available to provide this information).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.4.2': {
+          title:
+            'For each real-time text communication functionality used with a two-way voice communication functionality that identifies the speakers, do the messages respect these conditions?',
+          conditions: [
+            'The presentation enables the authors of the messages to be identified;',
+            'The identification of the author of the message is accessible to assistive technologies.'
+          ],
+          methodology: {
+            steps: [
+              "Activate the web application and the application's real-time text (RTT) functionality on two terminals and connect them to the same session.",
+              'Send a written message from both terminals to get messages from different authors.',
+              'Check that the authors of the text messages are identified (for example, the presence of a name or identifier preceding the message).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.5.1': {
+          title:
+            'For each two-way voice and real-time text communication web application, is there a visual indicator of oral activity?',
+          methodology: {
+            steps: [
+              'Check that the web application allows two-way voice communication and real-time text (RTT) communication.',
+              'If this is the case, activate the web application on two terminals and connect them to the same session.',
+              'Have a user speak from one of the terminals.',
+              'Check that a visual indicator appears on the interface to identify that a person is speaking. It is not necessary for this criterion to identify who is speaking, but simply to identify that there is a person speaking. For example, a halo around or an icon near the avatar of the person speaking.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.5.2': {
+          title:
+            'For each two-way voice communication web application that has real-time video, is there a visual indicator of speaking activity?',
+          methodology: {
+            steps: [
+              'Check that the web application allows two-way voice communication and real-time video streaming.',
+              'If this is the case, activate the application on two devices and connect them to the same session.',
+              'Have a user speak from one of the devices.',
+              'Check that a visual indicator appears on the interface to identify that a person is speaking. It is not necessary for this criterion to identify who is speaking, but simply to identify that there is a person speaking. For example, a halo around or an icon near the avatar of the person speaking.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.6.1': {
+          title:
+            'Does each real-time text communication web application that can interact with other real-time text communication applications comply with the interoperability rules in force?',
+          methodology: {
+            steps: [
+              'This criterion is very complex to assess and requires a certain mastery of all interoperability concepts and standards. We recommend asking the application publisher to check that all the requirements described in criterion 6.2.3 Interoperability of European standard EN 301 549 are met.'
+            ]
+          }
+        },
+        '17.7.1': {
+          title:
+            'For each real-time-text-communication web application, the transmission time for each input unit is 500ms or less. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Check that the web application allows real-time text (RTT) communication.',
+              'If it does, activate the web application and the written communication functionality on two separate terminals and connect them to the same session.',
+              'Enter text on the first terminal and observe its appearance on the second terminal. The appearance on the second terminal must be instantaneous (less than half a second). Depending on how the functionality is set up, each character is not sent individually. In fact, if the real-time text (RTT) communication functionality implements word prediction, it is when the desired word is selected that it is sent, and not when the first characters used to trigger the suggestion display are entered. A simple observation test may be sufficient to observe the instantaneous appearance on the terminal receiving the written message.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.8.1': {
+          title:
+            'For each telecommunication web application that provides caller identification, does the identification comply with these conditions?',
+          conditions: [
+            'The caller ID is presented in text form;',
+            'The caller identification is accessible to assistive technologies.'
+          ],
+          methodology: {
+            steps: [
+              'Activate the web application from a terminal.',
+              'From a second terminal, launch a call to the first terminal.',
+              'When the incoming call appears, check - that the caller identification is visually available in the form of text of an understandable nature (for example, a name or telephone number); - that this identification is compatible with assistive technologies: for example, by using a relevant status message.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.9.1': {
+          title:
+            'For each two-way voice communication web application which makes it possible to identify the activity of a speaker, it is possible to identify the activity of a signer. Is this rule respected?',
+          methodology: {
+            steps: [
+              'Activate the web application and launch a video call between the two devices.',
+              'Initiate a spoken activity, and check that the second device has information to identify this activity (for example, the presence of a coloured halo around the thumbnail of the person being spoken to).',
+              'If this is the case - look for the presence of a manual mechanism (e.g. a button) that would allow the person signing to indicate that they are signing; - if not, perform gestures in front of the camera (see note) and check that information is automatically displayed to identify this visual activity.'
+            ],
+            passWhen: 'If this is the case, the test is validated.',
+            note: 'Note: In communication applications, the identification of an oral activity is not based on the identification of an intelligible verbal message (a word or sentence, for example) but solely on the identification of a sound (a noise, for example). In this way, visual activity, even if it does not correspond to an element that can be understood in sign language, could be automatically detected by this application and would therefore serve as a mechanism for identifying the activity of a person who signs. It is therefore possible to test by performing gestures even if they do not correspond to an element of meaning in sign language.'
+          }
+        },
+        '17.10.1': {
+          title:
+            'For each two-way voice communication web application that has voice-based services, can these be used without the need to listen or speak?',
+          methodology: {
+            steps: [
+              'Identify the functions available in the web application (apart from the oral communication function) that are based on listening to information or issuing commands, for example - voicemail; - an automatic switchboard (e.g. one that requires you to say a number between 1 and 4 to be redirected to a service); - or any other interactive voice server.',
+              'Check that: - the information is available without having to listen or speak (e.g. using a transcript or chat system); - the actions can be carried out without having to listen or speak, or that there is an alternative to the functionality that can be used without having to listen or speak.'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        },
+        '17.11.1': {
+          title:
+            'For each two-way voice communication web application that has real-time video, are the following conditions met?',
+          conditions: [
+            'The video resolution is at least QVGA;',
+            'The frame rate is at least 20 frames per second;',
+            'The time lag between the video and the spoken words must not exceed 100 ms.'
+          ],
+          methodology: {
+            steps: [
+              'For the conditions concerning resolution and frame rate, the most reliable way of assessing this criterion is to search either the interface or the application documentation for this information. It is also recommended to ask the application publisher to provide these technical details. For the last condition concerning the time lag between video and audio, the test can be established by simple observation:',
+              'Activate the web application on two devices.',
+              'Establish a video call connection between the two devices.',
+              'Check that speech and video are synchronised (lip-sync, lip movement).'
+            ],
+            passWhen: 'If this is the case, the test is validated.'
+          }
+        }
+      }
+    }
+  }
+};
+
+module.exports = { RAWEB_VERSIONS, RAWEB_THEMES, RAWEB_CRITERIA, RAWEB_TESTS, RAWEB_TRANSLATIONS };

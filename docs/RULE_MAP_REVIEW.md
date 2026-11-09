@@ -4,6 +4,7 @@ pack-raweb takes `@surea11y/pack-rgaa`'s rule map for RGAA 4.1.2 and keeps, chan
 
 1. The 47 links on the 29 tests RAWeb rewords.
 2. The links on tests whose wording RAWeb keeps but whose methodology, particular cases, technical notes or glossary it changes.
+3. The 8 tests RAWeb adds under RGAA's criteria.
 
 The other links carry over as they are.
 
@@ -16,16 +17,19 @@ The other links carry over as they are.
 
 ## Summary
 
-|                                                      |  Links |
-| ---------------------------------------------------- | -----: |
-| **Part 1: reworded tests**                           | **47** |
-| Kept as they are                                     |     34 |
-| Kept for some findings, or as questions              |      4 |
-| Dropped                                              |      9 |
-| **Part 2: tests with the same wording**              |        |
-| Made questions where RAWeb now allows what they fail |      1 |
-| Dropped                                              |      1 |
-| **Added:** rules that check what RAWeb now asks      |      3 |
+|                                                                   |  Links |
+| ----------------------------------------------------------------- | -----: |
+| **Part 1: reworded tests**                                        | **47** |
+| Kept as they are                                                  |     34 |
+| Kept for some findings, or as questions                           |      4 |
+| Dropped                                                           |      9 |
+| **Part 2: tests with the same wording**                           |        |
+| Made questions where RAWeb now allows what they fail              |      2 |
+| Dropped                                                           |      1 |
+| **Part 3: tests RAWeb adds**                                      |        |
+| Moved to a new test                                               |      1 |
+| Linked to a new test                                              |      3 |
+| **Added** to reworded tests: rules that check what RAWeb now asks |      3 |
 
 # Part 1: reworded tests
 
@@ -79,11 +83,12 @@ The other links carry over as they are.
 
 RAWeb changes the methodology of 43 tests that have rules, the particular cases or technical notes of 20 criteria, and 30 glossary entries ([`RGAA_COMPARISON.md`](./RGAA_COMPARISON.md)). Most changes are editorial: wording, Flash and Internet Explorer notes removed, French references replaced by Luxembourg's. The ones below change what a rule may report.
 
-## Made questions where RAWeb now allows what they fail (1)
+## Made questions where RAWeb now allows what they fail (2)
 
-| Test   | Rule                                    | Decision                                                                                        | Why                                                                                                                                                                                                                                                                                                                                                                               |
-| ------ | --------------------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 10.1.2 | `rgaa-presentational-attributes-absent` | A finding on an `<iframe>` or a `<source>` becomes a question. Every other finding still fails. | RAWeb's methodology allows `width` and `height` on `<iframe>` and on any `<source>`, where RGAA allows neither. So the rule would fail every embedded player that sets its size. RAWeb still forbids `frameborder` or `align` on those elements, and the rule reports all of an element's attributes in one finding. So the finding becomes a question rather than being dropped. |
+| Test         | Rule                                    | Decision                                                                                                         | Why                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------ | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 10.1.2       | `rgaa-presentational-attributes-absent` | A finding on an `<iframe>` or a `<source>` becomes a question. Every other finding still fails.                  | RAWeb's methodology allows `width` and `height` on `<iframe>` and on any `<source>`, where RGAA allows neither. So the rule would fail every embedded player that sets its size. RAWeb still forbids `frameborder` or `align` on those elements, and the rule reports all of an element's attributes in one finding. So the finding becomes a question rather than being dropped. |
+| 5.7.2, 5.7.3 | `rgaa-th-scope-row-col`                 | `scope="rowgroup"` or `"colgroup"` becomes a question under 5.7.2, 5.7.3 and 5.7.6. Any other value still fails. | RAWeb adds test 5.7.6, which accepts `scope="rowgroup"` and `"colgroup"` on a header over a group of rows or columns. RGAA accepts only `row` and `col`. Whether a header covers a group is for a person: if it does, it passes 5.7.6; if it doesn't, it fails 5.7.2 or 5.7.3.                                                                                                    |
 
 ## Dropped (1)
 
@@ -93,7 +98,6 @@ RAWeb changes the methodology of 43 tests that have rules, the particular cases 
 
 ## Kept, and why the change doesn't affect them
 
-- **Links, 6.1.1 to 6.1.4:** `identical-links-same-purpose` asks about links with the same name and different destinations, citing note 3 of the glossary entry, which RAWeb removes. It stays. 6.1 still asks whether a link's name, with its context, says where it goes, and RAWeb's new entry "Lien identique" (identical link) treats links with the same name in different contexts as different links. The rule only asks.
 - **Tables, 5.1.1 and 5.2.1:** RAWeb words the complex-table definition differently: headers "over several rows and/or columns" rather than "not only in the first row and/or column". The rules only ask whether a table is complex.
 - **Redirects, 13.1.2:** RAWeb's methodology accepts a redirect after 20 hours or more, where RGAA's doesn't. `rgaa-meta-redirect-immediate` only asks about a delayed redirect.
 - **Moving content, 13.8:** the glossary now says pausing on hover isn't control. The rule only asks.
@@ -101,11 +105,33 @@ RAWeb changes the methodology of 43 tests that have rules, the particular cases 
 - **Documents, 13.3.1:** a PDF is now judged against RAWeb's PDF framework (RAPDF). The rule only lists the documents.
 - **SVG, 1.1.5:** RAWeb adds the `<title>` element to the sources of an alternative. `rgaa-svg-role-img` and `svg-text-alternative-present` already count it.
 
+# Part 3: tests RAWeb adds
+
+RAWeb adds 8 tests under RGAA's criteria: 4.3.3 and 4.4.2 (live media), 5.7.6 (group headers), 6.1.6 (identical links), 9.2.2 to 9.2.4 (the document structure) and 13.5.2 (cryptic content hidden from assistive technologies). A rule is linked to one only where it checks what the test asks.
+
+## Moved to a new test (1)
+
+| Test  | Rule                           | Why                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 6.1.6 | `identical-links-same-purpose` | It asks whether links with the same name and different destinations serve the same purpose, which is exactly 6.1.6: "Does each identical link have the same function and destination?" Under RGAA it was linked to 6.1.1 to 6.1.4 through note 3 of the glossary entry for a link's name, which RAWeb removes; RAWeb's new glossary entry "Lien identique" (identical link) takes its place. Core files the rule under WCAG 2.4.9, which RAWeb doesn't relate to criterion 6.1; the row says why it is linked all the same. |
+
+## Linked to a new test (3)
+
+| Test  | Rule                                                                                              | Why                                                                                                                                                                                                                                                                                 |
+| ----- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 9.2.2 | `landmark-no-duplicate-main`, `landmark-no-duplicate-banner`, `landmark-no-duplicate-contentinfo` | 9.2.2 asks for a single visible element with each of the computed roles `main`, `banner` and `contentinfo` (conditions 1 to 3). Each rule asks about a page exposing more than one landmark of its role. They count only landmarks exposed to assistive technologies, and only ask. |
+
+5.7.6 is under Part 2, with `rgaa-th-scope-row-col`. No rule checks 4.3.3, 4.4.2, 9.2.3, 9.2.4 or 13.5.2.
+
+## Two tests without RAWeb's methodology
+
+RAWeb 1.1 publishes no methodology for 8.1.1 and 8.2.1, in either language. A person still needs steps, so the pack gives each two of its own, drawn from the test's question and the glossary entry "Type de document" (document type). The criterion's note says they are the pack's.
+
 ## Gaps (what no rule checks yet)
 
 These are recorded and not filled now. Each would need a rule or a change to one.
 
-- **9.2.1:** the computed roles of the header, navigation, search and footer zones. Only the main zone is checked. RAWeb's new tests 9.2.2 to 9.2.4 have no rule either.
+- **9.2.1:** the computed roles of the header, navigation, search and footer zones. Only the main zone is checked. 9.2.2's fourth condition, 9.2.3 and 9.2.4 have no rule.
 - **9.2.1 on a page whose doctype isn't HTML5:** `rgaa-main-element-structure` doesn't apply there, though RAWeb removed that special case. The result is no finding, never a false one.
 - **12.6.1:** no rule. Which blocks are grouping zones present on several pages is a person's call.
 - **1.9.1 to 1.9.5:** no rule checks that a captioned image and its caption sit in a `<figure>` with a `<figcaption>`.

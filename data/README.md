@@ -34,7 +34,7 @@ The repository's README states, and this notice is kept as it is:
 
 ## What this pack does with it
 
-The files here are unchanged. The pack's generator (`scripts/generate-map.js`) builds its tables from them (`map.js`, `glossary.js`), and those tables are an adaptation, as article 3(b) of the licence calls it: **the original work has been modified**. Its Markdown and HTML markup are removed, and its criteria, tests, methodology and glossary are restructured as data; their wording is RAWeb's own, neither reworded nor translated. Every file that holds RAWeb's text says so.
+The files here are unchanged. The pack's generator (`scripts/generate-map.js`) builds its tables from them (`map.js`, `glossary.js`), with the French files as the text and the English ones as its English, and the standard (`standard-data.js`) is built from those tables. They are an adaptation, as article 3(b) of the licence calls it: **the original work has been modified**. Its Markdown and HTML markup are removed, and its criteria, tests, methodology and glossary are restructured as data; their wording is RAWeb's own, neither reworded nor translated. Every file that holds RAWeb's text says so.
 
 What the pack adds is its own and not RAWeb's: which rules check which RAWeb test (the rule map), the rules it uses from `@surea11y/pack-rgaa` and `@surea11y/core`, and how results are combined.
 
