@@ -14,15 +14,21 @@
  * and spacing are set aside: such a change can't change what a test asks.
  * Anything else is "reworded", with the words RAWeb removes and adds, for a
  * person to judge; this script decides nothing.
+ *
+ * A rule can be affected where a test's question stays the same, so the
+ * document also shows, in the same way, the methodology of each test that
+ * has rules, the particular cases and technical notes of each criterion, and
+ * the glossary entries, wherever RAWeb changes their words.
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const { RGAA_TESTS } = require('@surea11y/pack-rgaa/public');
+const { RGAA_TESTS, RGAA_CRITERIA, RGAA_GLOSSARY } = require('@surea11y/pack-rgaa/public');
 const { standardDataOf } = require('@surea11y/core/pack');
 const rgaaPack = require('@surea11y/pack-rgaa');
-const { RAWEB_TESTS } = require('../map');
+const { RAWEB_TESTS, RAWEB_CRITERIA } = require('../map');
+const { RAWEB_GLOSSARY } = require('../glossary');
 
 const OUTPUT = path.join(__dirname, '..', 'docs', 'RGAA_COMPARISON.md');
 const RGAA = '4.1.2';
@@ -75,6 +81,27 @@ function wordDiff(a, b) {
   while (j < m) push('+', b[j++]);
   return out;
 }
+
+// Text that is markup rather than words: entities, emphasis tags and the
+// language marks of RAWeb's Markdown.
+const clean = (text) =>
+  String(text)
+    .replace(/&[a-z]+;/g, ' ')
+    .replace(/<\/?em[^>]*>/g, '')
+    .replace(/\{lang="[a-z-]+"\}/g, '');
+
+// A changed passage, as compared words and their diff, or null when only its
+// form changes.
+function changed(a, b) {
+  const wa = wordsOf(clean(a));
+  const wb = wordsOf(clean(b));
+  return wa.join(' ') === wb.join(' ') ? null : wordDiff(wa, wb);
+}
+
+const methodologyOf = (t) =>
+  t && t.methodology
+    ? [...(t.methodology.steps || []), t.methodology.passWhen || ''].join(' ')
+    : '';
 
 // The rules pack-rgaa links to each RGAA test: by the row's tests, its asks,
 // and the routes of its reason codes and findings.
@@ -134,10 +161,58 @@ function compare() {
   const added = Object.keys(raweb)
     .filter((id) => !rgaa[id] && sharedCriteria.has(raweb[id].criterion))
     .sort(byId);
-  return { rows, added };
+  const methodology = rows
+    .filter((r) => r.rules.length && r.kind !== 'removed')
+    .map((r) => ({
+      id: r.id,
+      rules: r.rules,
+      diff: changed(methodologyOf(rgaa[r.id]), methodologyOf(raweb[r.id]))
+    }))
+    .filter((r) => r.diff);
+
+  const ca = RGAA_CRITERIA[RGAA];
+  const cb = RAWEB_CRITERIA[RAWEB];
+  const criteria = [];
+  for (const id of Object.keys(ca).sort(byId)) {
+    if (!cb[id]) continue;
+    for (const [field, label] of [
+      ['particularCases', 'particular cases'],
+      ['technicalNotes', 'technical notes']
+    ]) {
+      const diff = changed((ca[id][field] || []).join(' '), (cb[id][field] || []).join(' '));
+      if (diff) criteria.push({ id, label, diff });
+    }
+  }
+
+  const ga = RGAA_GLOSSARY[RGAA];
+  const gb = RAWEB_GLOSSARY[RAWEB];
+  const glossary = Object.keys(ga)
+    .filter((k) => gb[k])
+    .sort()
+    .map((k) => ({ id: k, diff: changed(ga[k].definition.join(' '), gb[k].definition.join(' ')) }))
+    .filter((g) => g.diff);
+  const glossaryAdded = Object.keys(gb)
+    .filter((k) => !ga[k])
+    .sort();
+  const glossaryRemoved = Object.keys(ga)
+    .filter((k) => !gb[k])
+    .sort();
+
+  return { rows, added, methodology, criteria, glossary, glossaryAdded, glossaryRemoved };
 }
 
-function render({ rows, added }) {
+const showDiff = (diff) =>
+  diff
+    .map((p) =>
+      p.op === '='
+        ? p.words.join(' ')
+        : p.op === '-'
+          ? `~~${p.words.join(' ')}~~`
+          : `**${p.words.join(' ')}**`
+    )
+    .join(' ');
+
+function render({ rows, added, methodology, criteria, glossary, glossaryAdded, glossaryRemoved }) {
   const count = (kind, linked) =>
     rows.filter((r) => r.kind === kind && (linked === undefined || r.rules.length > 0 === linked))
       .length;
@@ -173,17 +248,7 @@ function render({ rows, added }) {
     out.push('');
     out.push(`Rules: ${r.rules.map((x) => `\`${x}\``).join(', ')}`);
     out.push('');
-    out.push(
-      r.diff
-        .map((p) =>
-          p.op === '='
-            ? p.words.join(' ')
-            : p.op === '-'
-              ? `~~${p.words.join(' ')}~~`
-              : `**${p.words.join(' ')}**`
-        )
-        .join(' ')
-    );
+    out.push(showDiff(r.diff));
     out.push('');
   }
   out.push('## Removed tests');
@@ -211,6 +276,39 @@ function render({ rows, added }) {
       .join(', ')}`
   );
   out.push('');
+  out.push('## Methodology changed, on tests with rules');
+  out.push('');
+  out.push(
+    "A test's question can stay the same while its methodology says differently what to check; each such test with rules, with RAWeb's changes to its steps."
+  );
+  out.push('');
+  for (const r of methodology) {
+    out.push(`### ${r.id}`);
+    out.push('');
+    out.push(`Rules: ${r.rules.map((x) => `\`${x}\``).join(', ')}`);
+    out.push('');
+    out.push(showDiff(r.diff));
+    out.push('');
+  }
+  out.push('## Particular cases and technical notes changed');
+  out.push('');
+  for (const c of criteria) {
+    out.push(`### ${c.id}, ${c.label}`);
+    out.push('');
+    out.push(showDiff(c.diff));
+    out.push('');
+  }
+  out.push('## Glossary changed');
+  out.push('');
+  out.push(`- Entries RAWeb adds: ${glossaryAdded.join(', ')}`);
+  out.push(`- Entries RAWeb removes: ${glossaryRemoved.join(', ')}`);
+  out.push('');
+  for (const g of glossary) {
+    out.push(`### ${g.id}`);
+    out.push('');
+    out.push(showDiff(g.diff));
+    out.push('');
+  }
   return out.join('\n');
 }
 
