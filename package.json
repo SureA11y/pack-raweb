@@ -50,7 +50,9 @@
     "lint": "eslint .",
     "map": "node scripts/generate-map.js",
     "map:check": "node scripts/generate-map.js --check",
-    "test": "npm run format:check && npm run lint && npm run map:check && node --test"
+    "test": "npm run format:check && npm run lint && npm run map:check && npm run compare:check && node --test",
+    "compare": "node scripts/compare-rgaa.js",
+    "compare:check": "node scripts/compare-rgaa.js --check"
   },
   "dependencies": {
     "@surea11y/pack-rgaa": "~1.1.0"
