@@ -127,14 +127,19 @@ RAWeb adds 8 tests under RGAA's criteria: 4.3.3 and 4.4.2 (live media), 5.7.6 (g
 
 RAWeb 1.1 publishes no methodology for 8.1.1 and 8.2.1, in either language. A person still needs steps, so the pack gives each two of its own, drawn from the test's question and the glossary entry "Type de document" (document type). The criterion's note says they are the pack's.
 
-## Gaps (what no rule checks yet)
+## Gaps, and how two of them were filled
 
-These are recorded and not filled now. Each would need a rule or a change to one.
+Two gaps found by this review were filled with rules of the packs this one builds on, rather than of its own:
 
-- **9.2.1:** the computed roles of the header, navigation, search and footer zones. Only the main zone is checked. 9.2.2's fourth condition, 9.2.3 and 9.2.4 have no rule.
+- **9.2.1, 9.2.3 and 9.2.4:** core's `page-zones-landmark` (core 1.17) asks about a block named as the page header, a navigation or the footer, or a search form, that has no computed role of its nature, and about a page header or footer nested in a section, where it loses its role. Its codes are linked to 9.2.1, and `HEADER_NESTED` and `FOOTER_NESTED` to 9.2.3 and 9.2.4. It only asks.
+- **13.5.1:** pack-rgaa's `rgaa-cryptic-content-review` reports cryptic content with a `title` under a code of its own, `titleOnly`, which RGAA counts toward no test and RAWeb links to 13.5.1 as a question.
+
+What no rule checks yet:
+
+- **9.2.2's fourth condition:** navigation landmarks used only for navigation zones.
 - **9.2.1 on a page whose doctype isn't HTML5:** `rgaa-main-element-structure` doesn't apply there, though RAWeb removed that special case. The result is no finding, never a false one.
 - **12.6.1:** no rule. Which blocks are grouping zones present on several pages is a person's call.
-- **1.9.1 to 1.9.5:** no rule checks that a captioned image and its caption sit in a `<figure>` with a `<figcaption>`.
-- **13.5.1:** cryptic content with a `title` isn't asked about, though RAWeb no longer accepts a `title`.
+- **1.9.1 to 1.9.5:** no rule checks that a captioned image and its caption sit in a `<figure>` with a `<figcaption>`: which text is an image's caption can't be told reliably.
+- **13.5.2:** cryptic content hidden from assistive technologies.
 - **11.10.1 and 11.10.2:** `rgaa-required-field-indication` leaves out a form that marks its optional fields, which RGAA made a particular case and RAWeb doesn't. It also looks only at a `<form>` or `role="form"`, where RAWeb's glossary entry "Formulaire" (form) adds that a form needn't be in one.
 - **5.1.1:** a `summary` attribute before HTML5, which RAWeb no longer accepts, isn't asked about.

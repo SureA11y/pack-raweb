@@ -179,6 +179,21 @@ test('9.2: a computed role is enough, and a page with no main zone fails', () =>
   assert.equal(by(two, 'landmark-no-duplicate-main').outcome, 'cantTell');
 });
 
+test('9.2.1, 9.2.3, 9.2.4: zones with no computed role are asked about', () => {
+  const named = criterion(
+    scan(
+      '<div class="site-header">Site</div><div class="menu"><a href="/a">A</a><a href="/b">B</a></div><main><p>Texte</p></main><div class="footer">(c)</div>'
+    ),
+    '9.2'
+  );
+  assert.deepEqual(by(named, 'page-zones-landmark').requirements, ['9.2.1']);
+  const nested = criterion(
+    scan('<main><header>Site</header><p>Texte</p><footer>(c)</footer></main>'),
+    '9.2'
+  );
+  assert.deepEqual(by(nested, 'page-zones-landmark').requirements, ['9.2.3', '9.2.4']);
+});
+
 test('10.1.2: width and height on an <iframe> are a question, a <font> still fails', () => {
   const frame = criterion(
     scan(
@@ -200,6 +215,12 @@ test('11.10: a login form is not failed, its fields asked about under 11.10.2', 
   );
   assert.notEqual(c.outcome, 'fail');
   assert.deepEqual(by(c, 'rgaa-required-field-indication').requirements, ['11.10.2']);
+});
+
+test('13.5.1: a title doesn’t give cryptic content its meaning', () => {
+  const c = criterion(scan('<main><p>Bravo <abbr title="sourire">:-)</abbr></p></main>'), '13.5');
+  assert.equal(c.outcome, 'cantTell');
+  assert.deepEqual(by(c, 'rgaa-cryptic-content-review').requirements, ['13.5.1']);
 });
 
 test('RGAA’s profile gives what it gives alone when RAWeb is in the scan', () => {

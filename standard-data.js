@@ -218,6 +218,16 @@ const OWN_ROWS = {
     requirements: ['9.2.2'],
     note: 'Asks about a page exposing more than one contentinfo landmark: RAWeb 9.2.2, condition 3, « un seul élément visible avec le rôle calculé de contentinfo ».'
   },
+  // 9.2.1, 9.2.3, 9.2.4: the zones' computed roles, and a page header or
+  // footer nested where it loses its role.
+  'page-zones-landmark': {
+    requirements: ['9.2.1'],
+    reasonCodes: {
+      HEADER_NESTED: { requirements: ['9.2.3'] },
+      FOOTER_NESTED: { requirements: ['9.2.4'] }
+    },
+    note: 'Asks about a block named as the page header, a navigation or the footer, or a search form, that has no computed role of its nature (RAWeb 9.2.1), and about a page header or footer nested in a section, where it loses its role, on a page with none at the top (9.2.3, 9.2.4). It only asks: which block is a zone of the page is for a person.'
+  },
   // 10.1.2: width and height are allowed on <iframe> and <source>.
   'rgaa-presentational-attributes-absent': rgaaRow(
     'rgaa-presentational-attributes-absent',
@@ -245,7 +255,14 @@ const OWN_ROWS = {
     note: 'Asks about a required field whose label and linked passages show no indication, and about a sign explained after its first use or never: RAWeb’s particular case of 11.10 leaves out a form of only an identifier and a password field, which only a person can tell, so its findings are questions. A field with required or aria-required="true" meets condition 2 of 11.10.1, so what is found on such a field counts toward 11.10.2 only.'
   })),
   // 12.6.1 leaves out the main zones this rule looks for.
-  'rgaa-page-zones-reachable': null
+  'rgaa-page-zones-reachable': null,
+  // 13.5.1: RAWeb no longer accepts a title as the meaning of cryptic
+  // content, which RGAA does.
+  'rgaa-cryptic-content-review': rgaaRow('rgaa-cryptic-content-review', (row) => ({
+    ...row,
+    reasonCodes: { ...row.reasonCodes, titleOnly: { requirements: ['13.5.1'] } },
+    note: 'Asks about text emoticons, emoji and ASCII art whose meaning the text next to them may not give: RAWeb 13.5.1 asks that the meaning of cryptic content « porteur d’information » be given « dans le contexte adjacent » or « par une méthode compatible avec l’accessibilité ». Content with a title is asked about too (titleOnly): RAWeb’s technical note on 13.5 says a title or <abbr> does not make the criterion compliant.'
+  }))
 };
 
 const criteria = RAWEB_CRITERIA[VERSION];
