@@ -1,0 +1,67 @@
+{
+  "name": "@surea11y/pack-raweb",
+  "version": "1.0.0",
+  "description": "RAWeb 1.1, Luxembourg's Web Accessibility Assessment Framework, as a pack for @surea11y/core: its criteria and tests, one result per criterion and the raweb-1.1 profile, built on @surea11y/pack-rgaa.",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "accessibility-testing",
+    "raweb",
+    "luxembourg",
+    "rgaa",
+    "en301549",
+    "wcag",
+    "surea11y",
+    "surea11y-pack"
+  ],
+  "license": "MPL-2.0 AND LicenseRef-CC-BY-3.0-LU",
+  "author": "Jorge Rumoroso",
+  "homepage": "https://github.com/SureA11y/pack-raweb#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SureA11y/pack-raweb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SureA11y/pack-raweb/issues"
+  },
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "map.js",
+    "glossary.js",
+    "data",
+    "docs/*.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "format": "prettier --write \"*.js\" \"scripts/**/*.js\" \"tests/**/*.js\"",
+    "format:check": "prettier --check \"*.js\" \"scripts/**/*.js\" \"tests/**/*.js\"",
+    "lint": "eslint .",
+    "map": "node scripts/generate-map.js",
+    "map:check": "node scripts/generate-map.js --check",
+    "test": "npm run format:check && npm run lint && npm run map:check && node --test"
+  },
+  "dependencies": {
+    "@surea11y/pack-rgaa": "~1.1.0"
+  },
+  "peerDependencies": {
+    "@surea11y/core": "~1.17.0"
+  },
+  "devDependencies": {
+    "@surea11y/core": "~1.17.0",
+    "eslint": "^10.12.0",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.9.6"
+  }
+}
