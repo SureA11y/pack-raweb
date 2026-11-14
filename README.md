@@ -6,6 +6,12 @@ RAWeb is an adapted copy of RGAA 4.1.2: it keeps RGAA's 106 criteria and their n
 
 ## Use
 
+```sh
+npm install @surea11y/core @surea11y/pack-raweb
+```
+
+pack-rgaa comes with it, at the version it was made with.
+
 ```js
 const rgaa = require('@surea11y/pack-rgaa');
 const raweb = require('@surea11y/pack-raweb');
