@@ -4,8 +4,6 @@ RAWeb 1.1 (Référentiel d’évaluation de l’accessibilité web, Luxembourg's
 
 RAWeb is an adapted copy of RGAA 4.1.2: it keeps RGAA's 106 criteria and their numbers, rewords many of their tests, and adds 30 criteria of its own, from EN 301 549 V3.2.1. The pack is built the same way: its standard is derived from [`@surea11y/pack-rgaa`](https://www.npmjs.com/package/@surea11y/pack-rgaa)'s data, and it uses pack-rgaa's rules (core's `uses`) instead of copying them, so a scan passes both packs.
 
-**In development.** It needs `@surea11y/core` 1.17, and a `@surea11y/pack-rgaa` release for it, neither of which is out yet.
-
 ## Use
 
 ```js

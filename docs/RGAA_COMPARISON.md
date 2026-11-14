@@ -114,7 +114,7 @@ pour chaque ~~déclaration de type de document~~ **page web** le code source gé
 
 ### 9.2.1
 
-Rules: `rgaa-main-element-structure`
+Rules: `page-zones-landmark`, `rgaa-main-element-structure`
 
 dans chaque page web **les zones principales de** la **page constituant la** structure du document ~~vérifie-t-elle~~ **vérifient-elles** ces conditions ~~hors cas particuliers~~ **l'élément contenant** la zone d'en-tête de la page ~~est structurée via une balise <header>~~ **a un rôle calculé de banner** les **éléments contenant les** zones de navigation principales et secondaires ~~sont structurées via une balise <nav> la balise <nav> est réservée à la structuration des zones~~ **ont un rôle calculé** de navigation ~~principales et secondaires~~ **l'élément contenant** la zone de **moteur de recherche a un rôle calculé de search l'élément contenant la zone de** contenu principal ~~est structurée via une balise <main> la structure du document utilise une balise <main> visible unique~~ **a un rôle calculé de main l'élément contenant** la zone de pied de page ~~est structurée via une balise <footer>~~ **a un rôle calculé de contentinfo**
 
@@ -379,7 +379,7 @@ pour chaque **passage de texte constituant un** titre ~~identifié au test 9 1 1
 
 ### 9.2.1
 
-Rules: `rgaa-main-element-structure`
+Rules: `page-zones-landmark`, `rgaa-main-element-structure`
 
 vérifier que la zone d'en-tête est structurée au moyen d'un élément <header> **ou qu'elle est pourvue d'un attribut wai-aria role= banner** vérifier que les zones de navigation principales et secondaires sont structurées au moyen d'un élément <nav> **ou qu'elles sont pourvues d'un attribut wai-aria role= navigation** vérifier que ~~l'élément <nav> n'est pas utilisé en dehors de~~ la ~~structuration des zones~~ **zone** de ~~navigation principales et secondaires~~ **moteur de recherche est structurée au moyen d'un élément <search> ou qu'elle est pourvue d'un attribut wai-aria role= search** vérifier que la zone de contenu principal est structurée au moyen d'un élément <main> ~~si le document possède plusieurs éléments <main> vérifier qu'un seul de ces éléments~~ **ou qu'elle** est ~~visible les autres occurrences de l'élément sont pourvues~~ **pourvue** d'un attribut ~~hidden~~ **wai-aria role= main** vérifier que la zone de pied de page est structurée au moyen d'un élément <footer> **ou qu'elle est pourvue d'un attribut wai-aria role= contentinfo** si c'est le cas pour chaque zone de contenu le test est validé
 
