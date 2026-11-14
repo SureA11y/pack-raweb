@@ -114,7 +114,7 @@ pour chaque ~~déclaration de type de document~~ **page web** le code source gé
 
 ### 9.2.1
 
-Rules: `rgaa-main-element-structure`
+Rules: `page-zones-landmark`, `rgaa-main-element-structure`
 
 dans chaque page web **les zones principales de** la **page constituant la** structure du document ~~vérifie-t-elle~~ **vérifient-elles** ces conditions ~~hors cas particuliers~~ **l'élément contenant** la zone d'en-tête de la page ~~est structurée via une balise <header>~~ **a un rôle calculé de banner** les **éléments contenant les** zones de navigation principales et secondaires ~~sont structurées via une balise <nav> la balise <nav> est réservée à la structuration des zones~~ **ont un rôle calculé** de navigation ~~principales et secondaires~~ **l'élément contenant** la zone de **moteur de recherche a un rôle calculé de search l'élément contenant la zone de** contenu principal ~~est structurée via une balise <main> la structure du document utilise une balise <main> visible unique~~ **a un rôle calculé de main l'élément contenant** la zone de pied de page ~~est structurée via une balise <footer>~~ **a un rôle calculé de contentinfo**
 
@@ -210,3 +210,472 @@ dans chaque page web chaque contenu vérifie-t-il ces conditions hors cas partic
 
 - Form only: 1.2.3, 1.2.5, 1.2.6, 1.3.2, 1.3.3, 1.3.4, 1.3.5, 1.3.6, 1.3.7, 1.4.1, 1.4.2, 1.4.3, 1.5.1, 1.5.2, 1.6.5, 1.6.7, 1.6.10, 1.7.2, 1.7.3, 1.7.4, 1.7.5, 1.7.6, 3.2.1, 3.2.2, 3.2.3, 3.2.4, 3.3.1, 3.3.2, 3.3.3, 4.1.1, 4.1.2, 4.1.3, 4.2.2, 4.2.3, 4.3.1, 4.5.1, 4.5.2, 4.8.1, 4.8.2, 4.10.1, 4.11.2, 4.11.3, 4.12.1, 4.12.2, 4.13.1, 4.13.2, 5.3.1, 5.6.1, 5.6.2, 5.7.1, 5.7.2, 5.7.3, 5.7.4, 5.7.5, 5.8.1, 6.1.1, 6.1.2, 6.1.3, 6.1.4, 7.1.1, 7.1.2, 7.1.3, 7.2.1, 7.2.2, 7.3.1, 7.4.1, 8.3.1, 8.4.1, 8.7.1, 8.8.1, 8.10.2, 9.3.1, 9.3.2, 10.1.3, 10.4.1, 10.4.2, 10.6.1, 10.8.1, 10.13.3, 10.14.1, 10.14.2, 11.1.1, 11.1.2, 11.2.5, 11.4.2, 11.4.3, 11.5.1, 11.9.1, 11.9.2, 11.10.3, 11.10.7, 11.12.1, 11.12.2, 11.13.1, 12.1.1, 12.2.1, 12.7.2, 12.9.1, 13.1.1, 13.1.3, 13.1.4, 13.3.1, 13.4.1, 13.11.1
 - Reworded, no rule: 1.2.2, 1.6.1, 1.6.2, 1.6.3, 1.6.4, 1.7.1, 10.2.1, 11.10.5, 11.10.6, 12.5.2, 12.5.3, 12.10.1, 13.6.1, 13.7.1, 13.7.2, 13.7.3
+
+## Methodology changed, on tests with rules
+
+A test's question can stay the same while its methodology says differently what to check; each such test with rules, with RAWeb's changes to its steps.
+
+### 1.1.6
+
+Rules: `rgaa-object-embed-decorative-aria-hidden`, `rgaa-object-image-role-img`
+
+retrouver dans le document les balises ouvrantes <object> pourvues de l'attribut type= image/… pour chaque balise ouvrante <object> pourvue de l'attribut type= image/… déterminer si l'image utilisée est porteuse d'information vérifier que l'élément <object> est pourvu d'un attribut wai-aria role= img vérifier que l'élément <object> est pourvu au moins d'une alternative textuelle parmi les suivantes - passage de texte associé via l'attribut wai-aria aria-labelledby - contenu de l'attribut wai-aria aria-label - contenu de l'attribut title si au moins une alternative textuelle est trouvée le test est validé sinon vérifier que **- soit** l'élément <object> est ~~- soit~~ immédiatement suivi d'un lien ou bouton adjacent permettant d'accéder à un contenu alternatif - soit un mécanisme permet à l'utilisateur de remplacer l'élément <object> par un contenu alternatif si c'est le cas le test est validé
+
+### 1.1.7
+
+Rules: `rgaa-embed-image-role-img`
+
+pour chaque élément pourvu de l'attribut type= image/… déterminer si l'image utilisée est porteuse d'information vérifier que l'élément est pourvu d'un attribut wai-aria role= img vérifier que l'élément est pourvu au moins d'une alternative textuelle parmi les suivantes - passage de texte associé via l'attribut wai-aria aria-labelledby - contenu de l'attribut wai-aria aria-label - contenu de l'attribut title si au moins une alternative textuelle est trouvée le test est validé sinon vérifier que ~~l'élément est~~ - soit **l'élément <object> est** immédiatement suivi d'un lien ou bouton adjacent permettant d'accéder à un contenu alternatif - soit un mécanisme permet à l'utilisateur de remplacer l'élément **<object>** par un contenu alternatif si c'est le cas le test est validé
+
+### 1.1.8
+
+Rules: `img-alt-decorative`, `rgaa-canvas-role-img`
+
+retrouver dans le document les éléments <canvas> pour chaque élément <canvas> déterminer si l'image utilisée est porteuse d'information vérifier que l'élément <canvas> est pourvu d'un attribut wai-aria role= img vérifier que la balise ouvrante <canvas> est pourvue au moins d'une alternative textuelle parmi les suivantes - passage de texte associé via l'attribut wai-aria aria-labelledby - contenu de l'attribut wai-aria aria-label si au moins une alternative textuelle est trouvée le test est validé si les étapes 3 et 4 ne sont pas satisfaites vérifier que **-** l'élément <canvas> est ~~- soit~~ pourvu d'un contenu alternatif présent entre les balises <canvas> et </canvas> - ~~soit~~ **ou que l'élément <canvas> est** immédiatement suivi d'un lien ou bouton adjacent permettant d'accéder à un contenu alternatif - ~~soit un~~ **ou qu'un** mécanisme permet à l'utilisateur de remplacer l'élément <canvas> par un contenu alternatif si c'est le cas le test est validé
+
+### 1.2.1
+
+Rules: `image-redundant-alt`, `rgaa-img-decorative-no-alternative`, `rgaa-img-no-alt-decorative`
+
+retrouver dans le document les images décoratives dépourvues de légende structurées au moyen d'un élément <img> pour chaque image vérifier que l'image ~~ne~~ possède ~~pas d'attributs aria-labelledby aria-label~~ **un attribut aria-hidden= true sinon vérifier que l'image possède un attribut role= presentation** ou ~~title~~ **un role= none** et qu'elle **est dépourvue des attributs aria-labelledby aria-label et title sinon vérifier que l'image** possède ~~- soit~~ un ~~attribut~~ alt vide alt= ~~- soit un attribut wai-aria aria-hidden= true ou role= presentation~~ **et qu'elle est dépourvue des attributs aria-labelledby aria-label et title** si c'est le cas pour chaque image le test est validé
+
+### 1.2.4
+
+Rules: `rgaa-svg-decorative-aria-hidden`, `rgaa-svg-hidden-no-alternative`, `svg-text-alternative-quality`
+
+retrouver dans le document les images décoratives dépourvues de légende structurées au moyen d'un élément <svg> pour chaque image vérifier que l'élément <svg> ~~ne~~ possède ~~pas d'attributs aria-labelledby ou aria-label et qu'il - possède~~ un attribut wai-aria aria-hidden= true ~~- et est dépourvu d'alternative textuelle ainsi que ses éléments enfants - et ne contient pas d'éléments <title> et <desc> à moins que vides de contenu - et est dépourvu d'attribut title ainsi que ses éléments enfants~~ si c'est le cas pour chaque image le test est validé
+
+### 1.9.1
+
+Rules: `rgaa-figure-caption-structure`
+
+retrouver dans le document les images pourvues d'une légende structurées au moyen d'élément <img> d'un élément <input> avec l'attribut type= image ou d'un élément possédant l'attribut wai-aria role= img pour chaque image vérifier que - l'image et sa légende sont contenues dans une balise <figure> - la ~~balise <figure> possède une propriété wai-aria role= figure ou role= group - la balise <figure> possède un attribut wai-aria aria-label dont le contenu est identique au contenu de la~~ légende ~~- la légende~~ est contenue dans une balise <figcaption> si c'est le cas pour chaque image le test est validé
+
+### 1.9.2
+
+Rules: `rgaa-figure-caption-structure`
+
+retrouver dans le document les images objet pourvues d'une légende élément <object> avec l'attribut type= image/… pour chaque image vérifier que - l'image et sa légende sont contenues dans une balise <figure> - la ~~balise <figure> possède une propriété wai-aria role= figure ou role= group - la balise <figure> possède un attribut wai-aria aria-label dont le contenu est identique au contenu de la~~ légende ~~- la légende~~ est contenue dans une balise <figcaption> si c'est le cas pour chaque image le test est validé
+
+### 1.9.3
+
+Rules: `rgaa-figure-caption-structure`
+
+retrouver dans le document les images embarquées pourvues d'une légende élément avec l'attribut type= image/… pour chaque image vérifier que - l'image et sa légende sont contenues dans une balise <figure> - la ~~balise <figure> possède une propriété wai-aria role= figure ou role= group - la balise <figure> possède un attribut wai-aria aria-label dont le contenu est identique au contenu de la~~ légende ~~- la légende~~ est contenue dans une balise <figcaption> si c'est le cas pour chaque image le test est validé
+
+### 1.9.4
+
+Rules: `rgaa-figure-caption-structure`
+
+retrouver dans le document les images vectorielles pourvues d'une légende élément <svg> pour chaque image vérifier que - l'image et sa légende sont contenues dans une balise <figure> - la ~~balise <figure> possède une propriété wai-aria role= figure ou role= group - la balise <figure> possède un attribut wai-aria aria-label dont le contenu est identique au contenu de la~~ légende ~~- la légende~~ est contenue dans une balise <figcaption> si c'est le cas pour chaque image le test est validé
+
+### 1.9.5
+
+Rules: `rgaa-figure-caption-structure`
+
+retrouver dans le document les images bitmap élément <canvas> pour chaque image vérifier que - l'image et sa légende sont contenues dans une balise <figure> - la ~~balise <figure> possède une propriété wai-aria role= figure ou role= group - la balise <figure> possède un attribut wai-aria aria-label dont le contenu est identique au contenu de la~~ légende ~~- la légende~~ est contenue dans une balise <figcaption> si c'est le cas pour chaque image le test est validé
+
+### 3.1.2
+
+Rules: `rgaa-color-reference-review`
+
+retrouver dans le document les informations données par la couleur dans un texte pour chacune de ces informations vérifier ~~qu'il existe un autre moyen de récupérer cette information~~ **la** présence **-** d'un ~~attribut~~ **complément au niveau du code** title **aria-label texte visuellement masqué aria-current etc - et** d'une **information visuelle complémentaire à la couleur** icône ~~ou d'un~~ effet graphique de forme ou de position un effet typographique… si c'est le cas pour chaque information le test est validé
+
+### 4.3.2
+
+Rules: `rgaa-video-captions-track-kind`
+
+retrouver dans le document les médias temporels synchronisés **pré-enregistrés** possédant des sous-titres synchronisés au moyen d'un élément <track> pour chaque média temporel synchronisé vérifier que la balise <track> possède un attribut kind= ~~caption~~ **captions** si c'est le cas pour chaque média temporel synchronisé **pré-enregistré** le test est validé
+
+### 4.4.1
+
+Rules: `video-caption`
+
+retrouver dans le document les médias temporels synchronisés **pré-enregistrés** possédant des sous-titres synchronisés pour chaque média temporel synchronisé **pré-enregistrés** vérifier que les sous-titres sont - **dans la langue de la vidéo si le contenu oralisé est en anglais les sous-titres doivent être en anglais -** pertinents toutes les informations sonores importantes sont présentes les dialogues notamment - **correctement synchronisés si vous n'observez pas de décalage entre le discours oralisé** et **l'apparition des sous-titres les sous-titres sont** correctement synchronisés **la norme de référence spécifie que les sous-titres doivent apparaître dans les 100 ms suivant l'horodatage du sous-titre** si c'est le cas pour chaque média temporel synchronisé le test est validé
+
+### 4.7.1
+
+Rules: `rgaa-embedded-player-review`
+
+retrouver dans le document les médias temporels pré-enregistrés seulement vidéo audio ou synchronisés pour chaque média temporel vérifier ~~que - un~~ **qu'un** passage de texte un titre ou un paragraphe par exemple qui précède ou suit immédiatement le média temporel permet de l'identifier ~~- et le passage de texte est situé à l'extérieur du lecteur de contenu multimédia~~ si ~~ce dernier fait appel à la technologie flash si~~ c'est le cas pour chaque média temporel le test est validé
+
+### 5.1.1
+
+Rules: `rgaa-complex-table-summary`
+
+retrouver dans le document les tableaux de données complexes tableau de données - élément <table> ou élément pourvu d'un attribut wai-aria role= table - contenant des en-têtes qui ne sont pas répartis uniquement sur la première ligne et/ou la première colonne de la grille ou dont la portée n'est pas valable pour l'ensemble de la colonne ou de la ligne pour chaque tableau de données complexe vérifier qu'un passage de texte permettant de comprendre la nature et la structure du tableau est présent - soit dans l'élément <caption> - soit dans ~~l'attribut summary de l'élément <table> dans les versions de html et de xhtml antérieures à html 5 - soit dans~~ un passage de texte lié au tableau avec l'attribut aria-describedby si c'est le cas pour chaque tableau de données complexe le test est validé
+
+### 5.7.1
+
+Rules: `rgaa-th-association-present`
+
+retrouver dans le document les tableaux de données pour chaque en-tête élément <th> s'appliquant à la totalité de la ligne ou de la colonne vérifier que l'élément <th> possède - soit un attribut id unique - soit un attribut scope - soit un attribut wai-aria role= rowheader ou **role=** columnheader si c'est le cas pour chaque en-tête s'appliquant à la totalité de la ligne ou de la colonne le test est validé
+
+### 5.7.3
+
+Rules: `rgaa-th-scope-row-col`
+
+retrouver dans le document les tableaux de données pour chaque en-tête élément <th> ne s'appliquant pas à la totalité de la ligne ou de la colonne vérifier que l'élément <th> - possède un attribut id unique - ~~et~~ ne possède pas d'attribut scope - ~~et~~ ne possède pas d'attribut wai-aria role= rowheader ou **role=** columnheader si c'est le cas pour chaque en-tête ne s'appliquant pas à la totalité de la ligne ou de la colonne le test est validé
+
+### 5.7.4
+
+Rules: `table-headers-attr-valid`
+
+retrouver dans le document les tableaux de données pour chaque élément <td> ou <th> associé à un ou plusieurs en-têtes possédant un attribut id vérifier que - l'élément <td> ou <th> possède un attribut headers - ~~et~~ l'attribut headers possède la liste des valeurs d'attribut id des en-têtes associés si c'est le cas pour chaque élément <td> ou <th> associé à un ou plusieurs en-têtes possédant un attribut id le test est validé
+
+### 6.2.1
+
+Rules: `rgaa-link-content-label-present`
+
+retrouver dans le document les liens quels qu'ils soient pour chaque lien vérifier ~~que le contenu de l'élément <a> ou d'un élément pourvu~~ **la présence** d'un ~~attribut wai-aria role=link contient un~~ intitulé ~~texte ou alternative~~ **de lien** si c'est le cas pour chaque lien le test est validé
+
+### 7.1.3
+
+Rules: `rgaa-script-button-name-present`, `rgaa-scripted-components-review`, `rgaa-widget-label-in-name`
+
+pour chacun des composants d'interface ayant validé le test 7 1 1 vérifier que le composant d'interface possède - un nom pertinent ~~intitulé visible~~ - un rôle pertinent si le composant d'interface possède un nom accessible vérifier que ce nom est pertinent et contient au moins l'intitulé visible si c'est le cas le test est validé
+
+### 7.3.1
+
+Rules: `click-handler-keyboard-operable`, `mouse-only-event-handlers`, `rgaa-keyboard-only-event-handlers`, `widget-keyboard-focusable`
+
+retrouver dans le document tous les éléments sur lesquels est implémenté un gestionnaire d'événements javascript par exemple click focus mouseover blur keydown touch… vérifier que l'élément est accessible au moyen du clavier - il est atteignable avec la touche de tabulation ~~tab~~ **<kbd>tab</kbd>** - si l'élément gère une action simple il est activable au clavier avec la ~~touche entrée entrée~~ **ou les touches prévues par défaut dans les agents utilisateurs par exemple <kbd>entrée</kbd> <kbd>espace</kbd>** - si l'élément gère une action complexe il est utilisable avec le clavier généralement avec les touches de direction sinon vérifier qu'un élément accessible par le clavier permettant de réaliser la même action est présent dans la page vérifier que l'élément est accessible par tout dispositif de pointage souris toucher stylet… sinon vérifier qu'un élément accessible au moyen d'un dispositif de pointage et permettant de réaliser la même action est présent dans la page si c'est le cas le test est validé
+
+### 8.1.1
+
+Rules: `rgaa-doctype-present`
+
+~~retrouver dans le document la balise doctype par exemple < doctype html> vérifier que - la balise doctype est placée avant la balise <html> - le type de document est valide si c'est le cas le test est validé~~
+
+### 8.2.1
+
+Rules: `duplicate-id`, `rgaa-aria-attribute-conformance`, `rgaa-aria-role-conformance`, `rgaa-html-elements-attributes-valid`, `rgaa-html-nesting-valid`, `rgaa-markup-validation-review`
+
+~~dans le menu check activer l'option w3c nu markup checker all frames dans la page de résultats vérifier que - les balises attributs et valeurs d'attributs respectent les règles d'écriture - l'imbrication des balises est conforme - l'ouverture et la fermeture des balises sont conformes - les valeurs d'attribut id sont uniques dans la page - les attributs ne sont pas doublés sur un même élément si c'est le cas le test est validé~~
+
+### 8.4.1
+
+Rules: `html-xml-lang-mismatch`, `rgaa-default-language-review`, `rgaa-html-lang-code-valid`, `rgaa-valid-lang`
+
+retrouver dans le document l'indication de langue par défaut vérifier la présence d'un code de langue - valide conforme à la norme iso 639-1 ou iso 639-2 et suivantes - ~~et~~ pertinent qui indique la langue principale du document si c'est le cas le test est validé
+
+### 8.7.1
+
+Rules: `rgaa-language-change-review`
+
+retrouver les passages de texte en langue étrangère à l'exception - des noms propres - des mots d'origine étrangère présents dans le dictionnaire de la langue du document - des mots d'origine étrangère et d'usage courant dont la prononciation ne provoque pas d'incompréhension ~~-~~ vérifier que chaque passage de texte retenu possède une indication de langue attribut lang et/ou xml lang sur l'élément lui-même ou l'un de ses parents si c'est le cas le test est validé
+
+### 8.9.1
+
+Rules: `rgaa-markup-for-presentation`
+
+retrouver dans le document l'ensemble des éléments sémantiques utilisés à des fins de présentation pour chacun de ces éléments vérifier que - l'élément est pourvu d'un attribut role= presentation - l'utilisation de cet élément à des fins de présentation reste ~~justifée~~ **justifiée** si c'est le cas le test est validé
+
+### 9.1.3
+
+Rules: `p-as-heading`, `rgaa-heading-role-level-present`, `rgaa-headings-absent-review`
+
+pour chaque **passage de texte constituant un** titre ~~identifié au test 9 1 1~~ vérifier que - soit il est structuré au moyen d'une balise <hx> x désignant une valeur numérique comprise entre 1 et 6 - soit il est structuré au moyen d'une balise possédant un attribut wai-aria role= heading et un attribut wai-aria aria-level=x x désignant une valeur numérique si c'est le cas pour chaque titre le test est validé
+
+### 9.2.1
+
+Rules: `page-zones-landmark`, `rgaa-main-element-structure`
+
+vérifier que la zone d'en-tête est structurée au moyen d'un élément <header> **ou qu'elle est pourvue d'un attribut wai-aria role= banner** vérifier que les zones de navigation principales et secondaires sont structurées au moyen d'un élément <nav> **ou qu'elles sont pourvues d'un attribut wai-aria role= navigation** vérifier que ~~l'élément <nav> n'est pas utilisé en dehors de~~ la ~~structuration des zones~~ **zone** de ~~navigation principales et secondaires~~ **moteur de recherche est structurée au moyen d'un élément <search> ou qu'elle est pourvue d'un attribut wai-aria role= search** vérifier que la zone de contenu principal est structurée au moyen d'un élément <main> ~~si le document possède plusieurs éléments <main> vérifier qu'un seul de ces éléments~~ **ou qu'elle** est ~~visible les autres occurrences de l'élément sont pourvues~~ **pourvue** d'un attribut ~~hidden~~ **wai-aria role= main** vérifier que la zone de pied de page est structurée au moyen d'un élément <footer> **ou qu'elle est pourvue d'un attribut wai-aria role= contentinfo** si c'est le cas pour chaque zone de contenu le test est validé
+
+### 10.1.2
+
+Rules: `rgaa-presentational-attributes-absent`
+
+vérifier l'absence des attributs de présentation align alink background bgcolor border cellpadding cellspacing char charoff clear color compact frameborder hspace link marginheight marginwidth text valign vlink vspace size exception faite de l'élément <select> **vérifier que les attributs** width ~~exception faite des éléments <img> <object> <canvas> et <svg>~~ **ou** height ~~exception faite des~~ **s'ils sont utilisés sont uniquement présents sur les** éléments **<canvas> <iframe>** <img> <object> ~~<canvas> et~~ **<source>** <svg> **ou l'un de ses enfants** si c'est le cas le test est validé
+
+### 10.4.2
+
+Rules: `rgaa-viewport-zoom-review`
+
+vérifier dans le document si les textes sont effectivement agrandis ~~lorsque~~ - **soit lorsque** le zoom texte du navigateur est réglé à 200 % - **soit lorsque** le zoom graphique du navigateur est réglé à 200 % - **soit lorsque** les fonctionnalités de zoom ~~personnalisées proposé~~ **personnalisé proposées** par le document sont ~~utilisés~~ **utilisées** si c'est le cas le test est validé
+
+### 10.7.1
+
+Rules: `css-focus-indicator-suppressed`, `css-hidden-focus`, `manual-review`, `rgaa-focus-indicator-contrast`
+
+retrouver dans le document les éléments susceptibles de recevoir le focus **du clavier** les éléments d'interface tels que les liens ou les contrôles de formulaire ainsi que tout élément pourvu d'un attribut tabindex d'une valeur égale ou supérieure à 1 pour chaque élément susceptible de recevoir le focus **du clavier** vérifier que l'indication visuelle de la prise de focus est présente en agissant sur le contour ou le fond ou les deux et est suffisamment contrastée ratio de contraste égal ou supérieur à 3 1 si c'est le cas pour chaque élément susceptible de recevoir le focus le test est validé
+
+### 10.13.1
+
+Rules: `rgaa-tooltip-review`
+
+retrouver dans le document les contenus additionnels devenant ~~visible~~ **visibles** à la prise de focus ou au survol d'un composant d'interface à l'exception - des contenus additionnels contrôlés par l'agent utilisateur par exemple les infobulles associées à l'attribut title ou à la validation native d'un formulaire - des contenus additionnels devenant visibles par une activation de l'utilisateur par exemple une fenêtre de dialogue pour chaque contenu additionnel vérifier que - soit le contenu additionnel est positionné de façon à ce qu'il ne gêne pas la consultation des autres contenus informatifs sur lesquels il viendrait se superposer y compris le composant d'interface qui a déclenché son apparition quelles que soient les conditions de consultation y compris lors de l'utilisation d'un mécanisme de zoom - soit un mécanisme au clavier permet de faire disparaître le contenu additionnel par exemple la touche echap si c'est le cas pour chaque contenu additionnel le test est validé
+
+### 10.13.2
+
+Rules: `rgaa-tooltip-review`
+
+retrouver dans le document les contenus additionnels devenant ~~visible~~ **visibles** au survol d'un composant d'interface à l'exception - des contenus additionnels contrôlés par l'agent utilisateur par exemple les infobulles associées à l'attribut title ou à la validation native d'un formulaire - des contenus additionnels devenant visibles par une activation de l'utilisateur par exemple une fenêtre de dialogue pour chaque contenu additionnel vérifier qu'il peut être survolé par le pointeur de la souris sans disparaître si c'est le cas pour chaque contenu additionnel le test est validé
+
+### 10.13.3
+
+Rules: `rgaa-tooltip-review`
+
+retrouver dans le document les contenus additionnels devenant ~~visible~~ **visibles** à la prise de focus ou au survol d'un composant d'interface à l'exception - des contenus additionnels contrôlés par l'agent utilisateur par exemple les infobulles associées à l'attribut title ou à la validation native d'un formulaire - des contenus additionnels devenant visibles par une activation de l'utilisateur par exemple une fenêtre de dialogue pour chaque contenu additionnel vérifier qu'il reste visible - jusqu'à ce que l'utilisateur retire le pointeur souris ou le focus du contenu additionnel ou du composant d'interface ayant déclenché son apparition - jusqu'à ce l'utilisateur déclenche le mécanisme prévu pour faire disparaître le contenu additionnel - jusqu'à ce que l'information proposée par le contenu additionnel ne soit plus valide par exemple un contenu additionnel signalant l'état occupé du composant d'interface que l'utilisateur souhaite activer ou encore un message d'erreur signalé sous la forme d'un contenu additionnel tant que l'utilisateur n'a pas rectifié sa saisie si c'est le cas pour chaque contenu additionnel le test est validé
+
+### 11.10.1
+
+Rules: `rgaa-required-field-indication`
+
+retrouver dans le document les champs de formulaire obligatoires pour chaque champ de formulaire vérifier ~~que préalablement à la validation du formulaire~~ **qu'avant sa saisie** - soit une indication de champ obligatoire est visible et permet d'identifier nommément le champ concerné - soit ~~le~~ **une indication de** champ ~~possède un attribut~~ **obligatoire est donnée par la présence de l'attribut** aria-required= true ou required **sur le champ avant sa saisie - soit une indication de champ facultatif est visible et permet d'identifier nommément le champ concerné** si c'est le cas ~~pour chaque champ de formulaire obligatoire~~ le test est validé
+
+### 11.10.2
+
+Rules: `rgaa-required-field-indication`
+
+retrouver dans le document les champs de formulaire obligatoires qui possèdent un attribut aria-required= true ou required pour chaque champ de formulaire vérifier ~~que préalablement à la validation du formulaire~~ **qu'avant sa saisie** - soit une indication de champ obligatoire est visible et **permet d'identifier nommément le champ concerné - soit une indication de champ obligatoire est visible et** située dans l'étiquette associée au champ - soit une indication de champ obligatoire est visible et située dans le passage de texte associé au champ **- soit une indication de champ obligatoire est visible et située dans la légende associée au groupe de champs** si c'est le cas ~~pour chaque champ de formulaire obligatoire qui possèdent un attribut aria-required= true ou required~~ le test est validé
+
+### 11.10.4
+
+Rules: `invalid-field-error-message`
+
+retrouver dans le document les champs de formulaire ~~obligatoires~~ qui possèdent un attribut aria-invalid= true pour chaque champ de formulaire vérifier que - soit le message d'erreur indiquant le caractère invalide de la saisie est visible et situé dans l'étiquette associée au champ - soit le message d'erreur indiquant le caractère invalide de la saisie est visible et situé dans le passage de texte associé au champ si c'est le cas pour chaque champ de formulaire ~~obligatoire~~ qui possède un attribut aria-invalid= true le test est validé
+
+### 12.6.1
+
+Rules: `rgaa-page-zones-reachable`
+
+retrouver dans le document les zones de regroupement de contenus **présentes dans plusieurs pages web à l'exception des** zones ~~d'en-tête de navigation principale de contenu principal de pied de page et de moteur de recherche~~ **principales constituant la structure du document** pour chaque zone vérifier que la zone - soit possède un rôle wai-aria de type landmark correspondant à sa nature - soit possède un titre de hiérarchie dont le contenu permet de comprendre la nature du contenu de la zone - soit peut être masquée au moyen d'un bouton précédant directement la zone dans l'ordre du code source - soit peut être évitée au moyen d'un lien d'évitement précédant directement la zone dans l'ordre du code source - soit peut être atteinte au moyen d'un lien d'accès rapide soit visible par défaut soit visible à la prise de focus lors d'une tabulation si c'est le cas pour chaque zone de regroupement de contenus le test est validé
+
+### 12.9.1
+
+Rules: `manual-review`
+
+retrouver dans le document l'ensemble des éléments d'interface susceptibles de recevoir le focus au moyen de la tabulation ou au moyen d'un script pour chaque élément d'interface vérifier que l'utilisateur peut atteindre l'élément suivant ou précédent pouvant recevoir le focus - soit au moyen de la touche de tabulation ~~tab~~ **<kbd>tab</kbd>** ou ~~maj+tab~~ **<kbd>maj+tab</kbd>** - soit au moyen d'une autre interaction clavier dont l'utilisateur est informé par exemple les flèches de direction si c'est le cas pour chaque élément d'interface le test est validé
+
+### 13.1.2
+
+Rules: `rgaa-meta-redirect-immediate`
+
+retrouver dans le document une redirection automatique initiée par un élément <meta http-equiv= refresh ~~content= 0 url=' url ciblée '~~ /> **si un procédé de redirection existe** vérifier **- soit** que la redirection est immédiate **la propriété content doit avoir la valeur 0 par exemple content= 0 url='https //url com' - soit que la limite de temps avant la redirection est de vingt heures au moins la propriété content a alors une valeur supérieure ou égale à 72000 par exemple content= 80000 url='https //url com'** si c'est le cas le test est validé
+
+### 13.3.1
+
+Rules: `rgaa-office-document-link`
+
+retrouver dans le document les liens et les contrôles de formulaire un bouton de formulaire ou un formulaire de téléchargement par exemple permettant de télécharger un fichier au format bureautique pour chaque fichier au format bureautique vérifier la présence d'une version alternative présentée comme accessible - pour les documents au format pdf ~~analyser le fichier avec l'outil pac pdf accessibility checker et~~ vérifier ~~l'absence d'erreur d'accessibilité dans le document cf note~~ **la conformité au référentiel d'évaluation de l'accessibilité des documents au format pdf rapdf** - pour les documents au format doc ou docx analyser le fichier avec l'outil de vérification d'accessibilité de microsoft office à partir de la version 2010 et vérifier l'absence d'erreur d'accessibilité cf note - pour les documents au format odt analyser le document avec ~~l'éditeur openoffice et vérifier que l'ensemble des contenus est conforme avec~~ **l'outil de vérification d'accessibilité de libreoffice à partir de** la ~~liste des critères liste document bureautique en téléchargement cf note pour une méthode alternative~~ **version 7 0** - pour les documents au format epub/daisy analyser le document avec un éditeur epub/daisy ~~et vérifier que l'ensemble des contenus est conforme avec la liste des critères liste document bureautique en téléchargement~~ - pour les documents eux-mêmes au format html analyser l'accessibilité du document si c'est le cas pour chaque fichier au format bureautique le test est validé
+
+### 13.5.1
+
+Rules: `rgaa-cryptic-content-review`
+
+retrouver dans le document les contenus cryptiques ~~art ascii émoticône syntaxe cryptique~~ **porteurs d'information** pour chaque contenu cryptique vérifier que - soit ~~une définition est disponible au moyen d'un attribut title sur un lien un contrôle de formulaire une abréviation élément <abbr> par exemple - soit une définition~~ **sa signification** est donnée dans le contexte adjacent immédiatement avant ou après **- soit sa signification est mise à disposition par une méthode compatible avec l'accessibilité par exemple le contenu cryptique est inclus dans un lien dont le nom accessible est défini par la propriété aria-label qui contient la signification du contenu cryptique** si c'est le cas pour chaque contenu cryptique le test est validé
+
+### 13.9.1
+
+Rules: `css-orientation-lock`, `rgaa-orientation-content-parity`
+
+consulter le document dans un mode d'orientation portrait puis dans un mode d'orientation paysage vérifier que - la consultation est possible quel que soit le mode d'orientation de l'écran - le contenu proposé reste le même quel que soit le mode d'orientation de l'écran utilisé même si sa présentation et le moyen d'y accéder ~~peut~~ **peuvent** différer si c'est le cas le test est validé
+
+## Particular cases and technical notes changed
+
+### 1.2, technical notes
+
+lorsqu'une image est associée à une légende la note technique wcag recommande de prévoir systématiquement une alternative textuelle cf critère 1 9 dans ce cas le critère 1 2 est non applicable dans le cas d'une image vectorielle balise <svg> de décoration qui serait affichée au travers d'un élément <use href= … > enfant de l'élément <svg> le test 1 2 4 s'appliquera également à l'élément <svg> ~~associée~~ **associé** par le biais de l'élément <use> **si une image se trouve imbriquée dans une balise possédant** un attribut ~~wai-aria role= presentation peut être utilisé sur les images de décoration et~~ **aria-hidden= true alors elle sera considérée comme étant masquée pour** les ~~zones non cliquables de décoration le rôle none introduit en aria 1 1 et synonyme du rôle presentation peut être aussi utilisé il reste préférable cependant d'utiliser le rôle presentation en attendant un support satisfaisant du rôle none~~ **technologies d'assistance**
+
+### 1.6, technical notes
+
+dans le cas du svg le manque de support de l'élément ~~<title> et~~ <desc> ~~par les technologies d'assistance crée une difficulté dans le cas de l'implémentation de l'alternative textuelle de l'image et de sa description détaillée dans ce cas il est recommandé d'utiliser l'attribut wai-aria aria-label pour implémenter à la fois l'alternative textuelle courte et la référence à la description détaillée adjacente ou l'attribut wai-aria aria-labelledby~~ **ne permet pas son utilisation** pour ~~associer les passages de texte faisant office d'alternative courte et de~~ **l'implémentation d'une** description détaillée l'utilisation de l'attribut wai-aria aria-describedby n'est pas recommandée pour lier une image <img> <object> <canvas> à sa description détaillée par manque de support des technologies d'assistance néanmoins lorsqu'il est utilisé l'attribut devra nécessairement faire référence à l'id de la zone contenant la description détaillée la description détaillée adjacente peut être implémentée via une balise <figcaption> dans ce cas le critère 1 9 doit être vérifié ~~utilisation de <figure> et des attributs wai-aria role= figure et aria-label notamment l'attribut longdesc qui constitue une des conditions du test 1 6 1 et dont la pertinence est vérifiée avec le test 1 7 1 est désormais considéré comme obsolète par la spécification html en cours la vérification de cet attribut ne sera donc requise que pour les versions de la spécification html antérieure à html 5~~
+
+### 1.9, technical notes
+
+~~l'implémentation d'un attribut wai-aria role= group ou role= figure sur l'élément parent <figure> est destiné à pallier le manque de support actuel des éléments <figure> par~~ les ~~technologies d'assistance l'utilisation d'un élément <figcaption> pour associer une légende à une image impose au minimum l'utilisation d'un attribut wai-aria aria-label sur l'élément parent <figure> dont le contenu sera identique au contenu de l'élément <figcaption> pour s'assurer d'un support optimal il peut également être fait une association explicite entre le contenu de l'alternative textuelle de l'image et le contenu de l'élément <figcaption> par exemple <img src= image png alt= photo soleil couchant /><figcaption>photo crédit xxx</figcaption> les attributs wai-aria aria-labelledby et aria-describedby ne peuvent pas être utilisés actuellement par manque de support par les technologies d'assistance note les~~ images légendées doivent par ailleurs respecter le critère 1 1 et le critère 1 3 relatifs aux images porteuses d'information
+
+### 4.1, particular cases
+
+il existe une gestion de cas particulier lorsque - le média temporel est utilisé à des fins décoratives c'est-à-dire qu'il n'apporte aucune information - le média temporel est lui-même une alternative à un contenu de la page une vidéo en langue des signes ou la vocalisation d'un texte par exemple - le média temporel est utilisé pour accéder à une version agrandie - le média temporel est utilisé comme un captcha - le média temporel fait partie d'un test qui deviendrait inutile si la transcription textuelle les sous-titres synchronisés ou l'audiodescription étaient communiqués - ~~pour les services de l'état les collectivités territoriales et leurs établissements si~~ le média temporel a été publié ~~entre le 23 septembre 2019 et~~ **avant** le 23 septembre 2020 sur un site internet ~~intranet ou extranet créé depuis le 23 septembre 2018 il est exempté de l'obligation d'accessibilité - pour les personnes de droit privé mentionnées aux 2° à 4°~~ **d'un organisme** du ~~i de l'article 47 de~~ **secteur public soumis à** la loi du ~~11 février 2005 si le média temporel a été publié avant le 23 septembre 2020 il est exempté de l'obligation d'accessibilité~~ **28 mai 2019** dans ces situations le critère est non applicable ce cas particulier s'applique également aux critères 4 2 4 3 4 5
+
+### 4.3, particular cases
+
+voir cas particuliers critère 4 1 **les médias temporels synchronisés en direct diffusés via un site web soumis à la loi du 28 mai 2019 sont exemptés**
+
+### 4.4, particular cases
+
+**voir cas particuliers critère 4 1 les médias temporels synchronisés en direct diffusés via un site web soumis à la loi du 28 mai 2019 sont exemptés**
+
+### 5.1, technical notes
+
+la spécification html propose plusieurs méthodes pour lier un résumé à un tableau tableau lié à un passage de texte avec l'attribut aria-describedby tableau groupé dans un élément ~~figure~~ **<figure>** avec un résumé présent dans un élément ~~figcaption~~ **<figcaption>** ou un élément ~~p~~ **<p>** résumé présent dans un élément ~~details~~ **<details>** contenu dans l'élément ~~caption~~ **<caption>** ces méthodes n'ont pas un support suffisant pour être utilisées actuellement
+
+### 6.1, particular cases
+
+il existe une gestion de cas particuliers pour les tests 6 1 1 6 1 2 6 1 3 et 6 1 4 lorsque le lien est ambigu pour tout le monde dans cette situation où il n'est pas possible de rendre le lien explicite dans son contexte le critère est non applicable il existe une gestion de cas particuliers pour le test 6 1 5 lorsque - la ponctuation et les lettres majuscules sont présentes dans le texte de l'intitulé visible elles peuvent être ignorées dans le nom accessible sans porter à conséquence - le texte de l'intitulé visible sert de symbole le texte ne doit pas être interprété littéralement au niveau du nom accessible le nom doit exprimer la fonction véhiculée par le symbole par exemple b au niveau d'un éditeur de texte aura pour nom accessible mettre en gras le signe ~~>~~ en fonction du contexte signifiera suivant ou lancer la vidéo le cas des symboles mathématiques fait cependant exception voir la note ci-dessous note si l'étiquette visible représente une expression mathématique les symboles mathématiques peuvent être repris littéralement pour servir d'étiquette au nom accessible ex ~~a>b~~ **a b** il est laissé à l'utilisateur le soin d'opérer la correspondance entre l'expression et ce qu'il doit épeler compte tenu de la connaissance qu'il a du fonctionnement de son logiciel de saisie vocale a plus grand que b ou a supérieur à b
+
+### 8.7, particular cases
+
+il y a une gestion de cas particuliers sur le changement de langue pour les cas suivants - nom propre le critère est non applicable - nom commun de langue étrangère présent dans le dictionnaire officiel de la langue voir note 1 ci-dessous par défaut de la page web le critère est non applicable - le terme de langue étrangère soumis via un champ de formulaire et rappelé dans la page par exemple comme indication du terme recherché dans le cas d'un moteur de recherche le critère est non applicable - passage de texte dont la langue ne peut pas être déterminée le critère est non applicable - terme ou passage de texte issus d'une langue morte ou imaginaire pour laquelle il n'existe pas d'interprétation vocale le critère est non applicable note 1 ~~le dictionnaire officiel est celui recommandé par l'académie en charge de la langue en question~~ **les dictionnaires officiels** pour ~~la france par exemple le lien vers le dictionnaire officiel se trouve~~ **les langues fréquemment employées** sur **les sites publics luxembourgeois sont les suivants - pour** le ~~site~~ **luxembourgeois lëtzebuerger online dictionnaire lod l'utilisation** de ~~l'académie française~~ **spellchecker lu peut aider** à ~~l'adresse suivante http //www academie-francaise fr/le-dictionnaire/la-9e-edition pour toute demande auprès du service~~ **détecter les mots absents** du dictionnaire ~~de l'académie française utiliser~~ **- pour** le ~~formulaire~~ **français trésor** de ~~contact du service du dictionnaire~~ **la langue française informatisé - pour l'allemand digitales wörterbuch der deutschen sprache - pour l'anglais oxford english dictionary** note 2 pour les noms communs de langue étrangère absents dans le dictionnaire officiel de la langue par défaut de la page web et qui sont passés dans le langage commun exemple newsletter le critère est applicable uniquement lorsque l'absence d'indication de langue peut provoquer une incompréhension pour la restitution
+
+### 9.2, particular cases
+
+~~lorsque le doctype déclaré dans la page n'est pas le doctype html5 ce critère est non applicable~~
+
+### 9.2, technical notes
+
+~~la balise <main> peut être utilisée plusieurs fois dans le même document html néanmoins il ne peut y avoir en permanence qu'une seule balise visible et lisible par les technologies d'assistances les autres devant disposer d'un attribut hidden ou d'un style permettant de les masquer aux technologies d'assistances à noter cependant que l'utilisation d'un style seul restera insuffisante pour assurer l'unicité d'une balise <main> visible en cas de désactivation des feuilles de styles~~
+
+### 11.8, technical notes
+
+il est possible d'utiliser une balise ayant un attribut wai-aria role= listbox en remplacement d'une balise <select> en revanche il est impossible de créer des groupes d'options via l'utilisation de wai-aria de ce fait une liste nécessitant un regroupement d'options ~~structurée~~ **structurées** à l'aide d'une balise ayant un attribut wai-aria role= listbox sera considérée comme non conforme au critère 11 8
+
+### 11.10, particular cases
+
+le test 11 10 1 et le test 11 10 2 seront considérés comme non applicables lorsque ***** le formulaire comporte un seul champ de formulaire ~~ou qu'il indique les champs optionnels~~ *** le formulaire comporte uniquement un champ d'identifiant et un champ** de ~~manière - visible - dans la balise <label> ou~~ **mot de passe** dans ~~la légende associée au champ~~ **le cas d'un formulaire d'identification** dans le cas où l'ensemble des champs d'un formulaire sont obligatoires les tests 11 10 1 et 11 10 2 restent applicables
+
+### 11.10, technical notes
+
+~~dans un long formulaire dont la majorité~~ **le test 11 10 1 et le test 11 10 2 traitent** des champs ~~sont obligatoires on pourrait constater que ce sont les quelques champs restés facultatifs qui sont explicitement signalés comme tels dans ce cas il faudrait s'assurer que - un message précise visuellement en haut~~ de ~~formulaire~~ **manière indépendante néanmoins il faut garantir** que ~~tous~~ **la méthode choisie pour avertir** les **utilisateurs** champs ~~sont~~ obligatoires ~~sauf ceux indiqués comme étant facultatifs - une mention facultatif est présente visuellement dans le libellé des champs facultatifs~~ ou ~~dans la légende d'un groupe de~~ champs facultatifs ~~- un attribut required ou aria-required= true reste associé à chaque champ qui n'est pas concerné par ce caractère facultatif~~ **soit cohérente sur l'ensemble du formulaire**
+
+### 12.1, particular cases
+
+il existe une gestion de cas particulier lorsque le site web est constitué d'une seule page ou d'un nombre très limité de pages cf note dans ce cas-là le critère est non applicable le critère est également non applicable pour les pages d'un ensemble de pages qui sont le résultat ou une partie d'un processus un processus de paiement ou de prise de commande par exemple note l'appréciation d'un nombre très limité de pages devrait être ~~réservé~~ **réservée** à un site dont l'ensemble des pages sont atteignables depuis la page d'accueil
+
+### 13.3, particular cases
+
+il existe une gestion de cas particuliers - ~~pour les personnes de droit privé mentionnées aux 2° à 4° du i de l'article 47 de la loi du 11 février 2005~~ si les fichiers bureautiques ex pdf documents microsoft ou libreoffice etc ont été publiés avant le 23 septembre 2018 **sur un site internet d'un organisme du secteur public soumis à la loi du 28 mai 2019** sauf si ~~ce~~ **ces contenus** sont ~~des documents~~ nécessaires pour ~~accomplir une démarche administrative relevant~~ **les besoins de processus administratifs actifs concernant** des tâches effectuées par l'organisme **du secteur public** concerné ils sont exemptés de l'obligation d'accessibilité dans cette situation le critère est non applicable **dans le cas de documents pdf s'il n'existe pas de version alternative accessible ceux-ci doivent être conformes au référentiel d'évaluation de l'accessibilité des documents au format pdf rapdf**
+
+### 13.4, particular cases
+
+**voir cas particuliers critère 13 3**
+
+### 13.5, technical notes
+
+**si un contenu cryptique informatif est imbriqué dans une balise possédant un attribut wai-aria role= img il sera évalué sur les critères 1 1 et 1 3 et le critère 13 5 sera considéré non applicable si un contenu cryptique décoratif est imbriqué dans une balise possédant un attribut wai-aria aria-hidden= true quel que soit le niveau d'imbrication alors il sera considéré comme étant masqué pour les technologies d'assistance du fait du faible support de la balise <abbr> et de l'attribut title la mise à disposition de la signification d'un contenu cryptique avec cette implémentation ne permet pas de rendre le critère conforme**
+
+### 13.8, particular cases
+
+**lorsque le mouvement le clignotement ou le défilement est un élément essentiel au bon déroulement ou à la compréhension d'une fonctionnalité le critère est non applicable dans certains cas le mouvement fait partie intégrante du composant et il n'est pas possible d'en donner le contrôle à l'utilisateur par exemple une barre de progression ou loader dont la fonction est d'indiquer par un mouvement la progression d'un évènement comme un téléchargement dans ce cas le critère est non applicable**
+
+### 13.10, particular cases
+
+il existe une gestion de cas particuliers dans deux types de ~~situation~~ **situations** - le critère ne s'applique qu'à des fonctionnalités mises en place par l'auteur du site il ne concerne donc pas les gestes requis par l'agent utilisateur ou le système d'exploitation - le critère ne s'applique pas aux fonctionnalités dont la réalisation d'un geste complexe est essentielle exécuter le tracé d'une signature par exemple
+
+## Glossary changed
+
+- Entries RAWeb adds: aide-a-la-creation-de-contenus-accessibles, application-web-de-communication-orale-bidirectionnelle, caracteristique-biologique, caracteristiques-essentielles-des-sous-titres, communication-ecrite-en-temps-reel, contenu-cryptique, document, documentation, em-lang-en-landmarks-em, fonctionnalite-d-accessibilite, fonctionnalites-principales-d-un-media-temporel, fonctionnalites-vocales, gabarit, horodatage-em-lang-en-time-stamp-em, indication-de-champ-obligatoire-ou-facultatif, information-d-accessibilite, lien-identique, mecanisme-qui-permet-d-activer-une-fonctionnalite-d-accessibilite, modifier-ou-annuler-les-donnees-et-les-actions-effectuees, outil-d-edition, qvga, regles-d-accessibilite-numerique, role-calcule, service-d-assistance, service-de-relais, sous-titres-de-traduction, transformation, unite-de-saisie
+- Entries RAWeb removes: indication-de-champ-obligatoire, landmarks, modifier-ou-annuler-les-donnees-et-les-actions-effectues, type-et-format-de-donnees
+
+### accessible-et-activable-par-le-clavier-et-tout-dispositif-de-pointage
+
+un composant d'interface lien bouton… est accessible au clavier et par tout dispositif de pointage lorsque l'utilisateur peut prendre indifféremment le focus par un pointeur ou la touche tabulation un composant d'interface lien bouton… est activable au clavier et par tout dispositif de pointage lorsque l'utilisateur peut enclencher indifféremment l'action prévue par le composant d'interface par une pression du pointeur ou la ~~touche~~ **ou les touches prévues par défaut dans les agents utilisateurs par exemple** entrée ~~du clavier~~ **espace** attention pour certains composants d'interface comme les sliders bouton coulissant ou rotatif… il n'est pas possible de contrôler le composant par la seule touche d'entrée dans ces situations d'autres touches comme les touches de direction peuvent être utilisées en particulier pour les éléments ayant un rôle wai-aria correspondant à un motif de conception il est recommandé de considérer le document wai-aria 1 1 authoring practices lors de leur implémentation dans le référentiel l'expression contrôlable par le clavier et tout dispositif de pointage se rapporte également à la présente définition note importante le recours à certaines technologies peut rendre la gestion du focus trop complexe ou trop instable pour ne reposer que sur la tabulation les touches de direction et la touche entrée dans ce cas la mise à disposition de raccourcis clavier peut être la seule solution pour rendre le composant utilisable le critère ne peut être considéré comme conforme qu'à la condition que les raccourcis clavier utilisés soient correctement documentés qu'ils soient fonctionnels et qu'ils respectent le critère 12 10
+
+### alternative-textuelle-image
+
+nom accessible restitué par les technologies d'assistance pour les éléments graphiques de type image balise <img> ou balise ouvrante possédant un attribut wai-aria role= img zone d'image réactive balise <area> bouton de type image balise <input> avec l'attribut type= image image objet balise <object type= image/… > image vectorielle balise <svg> image bitmap balise <canvas> image embarquée balise dans le cas d'un élément graphique le nom accessible est obtenu selon l'ordre suivant passage de texte associé via l'attribut wai-aria aria-labelledby pour les balises <img> <input type= image > <svg> <object type= image/… > <canvas> balises possédant un attribut wai-aria role= img sinon contenu de l'attribut wai-aria aria-label pour les éléments <img> <area> <input type= image > <svg> <object type= image/… > <canvas> balises ouvrantes possédant un attribut wai-aria role= img sinon contenu de l'attribut alt pour les balises <img> <area> <input type= image > sinon contenu de l'attribut title pour les balises <img> <input type= image > <object type= image/… > **sinon contenu de l'élément <title> pour l'élément <svg>** cet ordre doit être utilisé pour déterminer ce qui constitue l'alternative textuelle néanmoins en cas de support partiel de l'algorithme de calcul du nom accessible c'est la valeur réellement restituée par les technologies d'assistance utilisées dans l'environnement de test ou base de référence qu'il faudra considérer comme alternative textuelle par exemple en cas de présence conjointe d'un attribut wai-aria aria-label et d'un attribut wai-aria aria-labelledby sur une balise <img> c'est le passage de texte référencé par l'attribut wai-aria aria-labelledby qui doit être considérée comme alternative textuelle si le contenu du passage de texte est réellement restitué par les technologies d'assistance utilisées dans l'environnement de test en cas de présence conjointe d'un attribut wai-aria aria-label et d'un attribut alt sur une balise <img> c'est le contenu de l'attribut wai-aria aria-label qui doit être considéré comme alternative textuelle si le contenu de l'attribut wai-aria aria-label est réellement restitué par les technologies d'assistance utilisées dans l'environnement de test référence accessible name and description calculation ~~rgaa~~ **raweb** considère trois types d'alternatives textuelles liées à la nature de l'image pour une image porteuse d'information l'alternative textuelle apporte l'information nécessaire à la compréhension du contenu qu'elle véhicule pour une image de décoration aucune alternative textuelle ne doit être restituée pour une image captcha ou une image-test l'alternative textuelle décrit seulement la nature et la fonction de l'image en effet l'alternative textuelle ne peut apporter l'information véhiculée par l'image sans rendre la fonction associée inopérante note 1 pour une image captcha l'alternative peut être par exemple code de sécurité anti-spam ou code pour vérifier que vous êtes un humain ou toute autre alternative permettant à l'utilisateur de comprendre la nature et la fonction de l'image note 2 pour un groupe d'images par exemple un système de vote constitué de plusieurs images d'étoile il est fortement conseillé d'utiliser soit la première image du groupe pour donner une alternative cohérente au groupe d'image voir la technique wcag2 1 g196 soit une balise conteneur pourvue d'un rôle wai-aria img et d'une alternative textuelle dans le premier cas les autres images du groupe sont considérées comme des images de décoration dans le second cas toutes les images du groupe sont considérées comme des images de décoration note 3 pour les image-lien l'alternative doit permettre de comprendre la fonction et la destination du lien ce cas est traité dans la thématique liens note 4 pour les images vectorielles balise <svg> l'alternative textuelle pourrait se trouver aussi présente dans une balise ~~<title> ou dans une balise~~ <text> que cette dernière balise soit ou non visible même si ce n'est pas le rôle dévolu à cet élément en svg note 5 ~~l'utilisation de l'attribut alt étant la seule technique totalement supportée par les aides techniques il est recommandé de privilégier cette solution lors de la mise en œuvre d'une alternative à une balise <img> <area> et <input type= image > note 6~~ bien que l'attribut title soit considéré comme une possibilité d'alternative textuelle à une image son usage peut poser problème notamment du fait qu'une image avec un attribut alt absent ou vide est considérée comme une image pourvue d'un role= ~~présentation~~ **presentation** par wai-aria https //www w3 org/tr/html-aam-1 0/#details-id-54 il faut s'assurer que les assistances techniques présentes dans l'environnement de test retenu restituent correctement l'alternative proposée par l'attribut title
+
+### audiodescription-synchronisee-media-temporel
+
+narration ajoutée via un fichier son à une piste sonore pour décrire les détails visuels importants qui ne peuvent être compris à partir de la piste sonore principale seulement l'audiodescription doit être synchronisée avec le média temporel par un dispositif applicatif lié au lecteur lui-même ou fourni par le développement par exemple avec javascript note 1 l'audiodescription d'une vidéo fournit de l'information à propos des actions des personnages des changements de scènes du texte apparaissant à l'écran et d'autres contenus visuels note 2 dans une audiodescription standard la narration est ajoutée durant les pauses qui existent dans le dialogue ~~voir aussi audiodescription étendue~~ note 3 lorsque toute l'information de la vidéo est déjà donnée dans la piste audio aucune audiodescription supplémentaire n'est requise
+
+### bouton-formulaire
+
+élément d'un formulaire qui permet d'effectuer une action prédéfinie par exemple le bouton de soumission d'un formulaire permet l'envoi au serveur des informations collectées pour leur traitement l'intitulé d'un bouton doit décrire l'action qui résulte de son activation par exemple lancer votre recherche envoyer votre message en html il y a trois types de boutons de formulaire balise <input> de type submit reset ou button balise <input> de type image balise <button> il est également possible de restituer un bouton à l'aide du rôle wai-aria button l'intitulé du bouton peut être de six types le contenu du passage de texte associé au bouton via l'attribut wai-aria aria-labelledby lorsqu'il est présent le contenu de l'attribut aria-label lorsqu'il est présent le contenu de l'attribut alt d'un bouton de type image le contenu de l'attribut value des boutons de type submit reset ou button le contenu de la balise <button> le contenu de l'attribut title lorsqu'il est présent note importante lorsque plusieurs de ces techniques sont présentes sur un même bouton le calcul du nom accessible c'est-à-dire ce qui sera restitué obéit à un ordre strict aria-labelledby sinon aria-label sinon alt pour le cas des input image sinon value pour le cas des input submit reset ou button sinon contenu de la balise <button> sinon title cet ordre doit être utilisé pour l'évaluation de la pertinence du nom accessible du bouton par exemple même dans le cas de la présence d'un title et d'un passage de texte référencé par aria-labelledby sur le même bouton c'est le passage de texte référencé par aria-labelledby qui doit être évalué référence accessible name and description calculation par ailleurs un nom accessible sera considéré comme ~~non-pertinent~~ **non pertinent** s'il ne reprend pas le texte visible du bouton par exemple <button aria-label= confirmer la saisie >valider la saisie</button> sera considéré comme non conforme au critère 11 9
+
+### captcha
+
+un captcha est un test utilisé pour distinguer un utilisateur humain d'un ordinateur le test utilise souvent des images contenant du texte déformé mélangé avec d'autres formes ou utilisant des jeux de ~~couleur~~ **couleurs** altérées que l'utilisateur est invité à retaper d'autres formes de captcha peuvent être basées sur des questions logiques ou des extraits sonores
+
+### contenu-alternatif
+
+contenu venant se substituer à un autre apportant la même information mais pouvant être présenté de façon différente ce contenu peut être de forme textuelle mais également être lui-même structuré à l'aide de balises un contenu alternatif devra respecter l'ensemble des critères du ~~rgaa~~ **raweb** qui lui sont applicables pour être considéré comme une alternative accessible à l'élément qu'il remplace exemple un tableau de données peut être le contenu alternatif d'une image bitmap balise <canvas> affichant un graphique statistique
+
+### contenu-cache
+
+les technologies d'assistance notamment les lecteurs d'écran ne restituent pas le contenu masqué via les propriétés display avec la valeur none display none visibility avec la valeur hidden visibility hidden font-size avec la valeur 0 font-size 0 attribut html5 hidden attribut **html5 inert attribut** wai-aria aria-hidden= true tous les contenus utilisant une ou plusieurs de ces propriétés et attributs sont applicables pour le critère 10 8
+
+### contenu-visible
+
+~~pour~~ **un contenu est visible lorsqu'il est apparent sur la page web au chargement de la page ou après l'activation d'un composant d'interface par exemple l'affichage d'une fenêtre modale ou d'un sous-menu** le test ~~12~~ **10** 2 1 **demande à ce que le** contenu ~~présent~~ **visible soit accessible aux technologies d'assistance cela** signifie que ~~le~~ **tout** contenu visible ~~reste présent lorsque css est désactivé~~ **qui serait implémenté au travers d'une méthode qui nativement ne dispose pas de moyen pour fournir d'alternative devrait être accompagné d'une méthode secondaire pour fournir cette alternative** par exemple une image porteuse d'information en propriété de fond css ~~invalide ce test car l'information n'est plus présente lorsque css est désactivé en revanche une image porteuse d'information en propriété de fond css mais accompagnée d'un~~ **sur un élément qui contient un** texte **visuellement** caché valide ce test car l'information est ~~bien présente lorsque css est désactivé note la pratique qui consiste à gérer des images en propriété de fond d'éléments via css est formellement déconseillée même si elle est accompagnée d'un~~ **accessible aux technologies d'assistance sans ce** texte caché **le test est invalidé**
+
+### contexte-du-lien
+
+le contexte du lien représente les informations supplémentaires on parle d'informations de contexte qui peuvent être mises en relation par un programme informatique avec l'intitulé du lien les informations de contexte qui permettent de compléter l'intitulé du lien sont les suivantes le contenu de la phrase dans laquelle le lien texte est présent le contenu du paragraphe balise <p> dans lequel le lien texte est présent le contenu de l'item de liste balise <li> ou le contenu d'un item de liste parent balise <li> dans lequel le lien texte est présent le contenu du titre balise <hx> précédent le lien texte le contenu de la ou les cellule s d'en-tête de tableau balise s <th> associée s à la cellule de donnée balise <td> dans laquelle le lien texte est présent le contenu de la cellule de donnée balise <td> dans laquelle le lien texte est présent note 1 l'un des 6 contextes de lien combiné à l'intitulé du lien doit permettre de comprendre la fonction et la destination du lien note 2 ~~rgaa~~ **raweb** considère qu'une adresse e-mail de type xxx@xxx yyy est un texte de lien suffisant pour comprendre la fonction du lien et ne requiert pas de signaler plus explicitement l'action
+
+### controle-contenu-en-mouvement-ou-clignotant
+
+possibilité pour l'utilisateur de contrôler l'affichage ou la lecture d'un contenu en mouvement ou clignotant par le clavier et la souris au moins **la méthode de contrôle du contenu en mouvement ou clignotant doit permettre à l'utilisateur d'interagir avec le reste de la page ainsi le fait que l'animation s'arrête lorsque l'utilisateur passe le pointeur de sa souris ou déplace le focus clavier sur le composant sous-jacent et reprend dès que l'utilisateur déplace le pointeur de la souris ou le focus clavier ailleurs sur la page ne serait pas considéré comme un mécanisme permettant de contrôler le contenu en mouvement ou clignotant car cela rendrait la page inutilisable pendant ce temps en conséquence l'arrêt ou la mise en pause via un événement déclenché uniquement sur la prise de focus ou le survol de la souris ne permet pas de valider le critère** tous les contenus en mouvement à l'exception des médias temporels pris en charge par la thématique multimédia sont concernés les images animées par exemple un gif animé les contenus en mouvement proposés via une balise <object> du code javascript ou des effets css par exemple note 1 lorsque c'est approprié la méthode de contrôle devrait être disponible comme premier élément de la page ~~note 2 la méthode de contrôle du contenu en mouvement ou clignotant doit permettre à l'utilisateur d'interagir avec le reste de la page en conséquence l'arrêt ou la mise en pause via un événement déclenché uniquement sur la prise de focus ne permet pas de valider le critère note 3 dans certains cas le mouvement fait partie intégrante du composant et il n'est pas possible d'en donner le contrôle à l'utilisateur par exemple une barre de progression dont la fonction est d'indiquer par un mouvement la progression d'un évènement comme un téléchargement dans ce cas le critère est non applicable~~
+
+### description-detaillee-image
+
+contenu associé à une image en complément de son alternative textuelle afin de décrire en totalité l'information véhiculée par l'image la description détaillée peut être associée à l'image via ~~un attribut longdesc qui contient l'adresse d'une page ou d'un emplacement dans la page contenant la description détaillée~~ une référence à une description détaillée adjacente à l'image dans l'alternative textuelle un lien ou un bouton adjacent qui permet d'accéder à la description détaillée dans la page ou dans une autre page un ou plusieurs passages de texte identifiés par un id et liés par un attribut wai-aria aria-describedby sur le modèle aria-describedby= id1 id2 id3… note 1 si le support de l'attribut aria-describedby fait défaut il est possible d'utiliser un ou plusieurs passages de texte identifiés par un id et liés par un attribut wai-aria aria-labelledby à la suite de l'alternative textuelle ~~note 2 pour assurer une compatibilité maximum avec les agents utilisateurs notamment internet explorer 11 il est recommandé d'implémenter un tabindex= -1 sur les balises qui contiennent un passage de texte et qui ne sont pas des éléments interactifs bouton liens éléments de formulaires etc~~
+
+### en-tete-de-colonne-ou-de-ligne
+
+contenu d'une cellule dans un tableau de données la première cellule d'une colonne ou d'une ligne généralement qui sert d'intitulé pour la totalité ou une partie des cellules de la colonne ou **groupe** de **colonnes ou de** la ligne **ou groupe de lignes** une colonne ou une ligne peut contenir plusieurs en-têtes en-tête intermédiaire lorsque les en-têtes s'appliquent à l'ensemble d'une ligne ou d'une colonne ils peuvent être structurés avec une balise <th> ou une balise pourvue d'un attribut wai-aria role= rowheader ou role= columnheader dans le cas contraire seule une balise <th> peut être utilisée note seule la balise <th> étant totalement supportée par l'ensemble des technologies d'assistance il est fortement recommandé de privilégier cette solution lors de la mise en œuvre afin d'éviter de nombreuses vérifications dans les différentes combinaisons prévues dans l'environnement de test ou base de référence
+
+### ensemble-de-pages
+
+pages web liées les unes aux autres par des liens et constituant un ensemble cohérent à l'intérieur d'un site web par exemple les pages d'une rubrique spécifique les pages d'un blog les pages d'administration d'un compte client sont autant d'ensembles de ~~page~~ **pages** note la page d'accueil d'un site web peut constituer à elle seule un ensemble de pages du fait de son unicité
+
+### environnement-maitrise
+
+tout environnement dans lequel l'accès à l'information les technologies les conditions d'utilisation et le profil des utilisateurs peuvent être connus et maîtrisés les principaux éléments dont la maîtrise est essentielle sont le type et la version des navigateurs les technologies supportées leur version et leur activation javascript ~~wai-aria flash silverlight…~~ **wai-aria…** les technologies d'assistance et tout dispositif utilisé de manière spécifique par les utilisateurs handicapés les systèmes d'exploitation et les apis d'accessibilité supportées la formation des utilisateurs de technologies d'assistance à l'utilisation de tout dispositif particulier interface application en ligne… les auteurs et les administrateurs doivent garantir la compatibilité des technologies utilisées et de leurs usages par les utilisateurs et leurs technologies y compris les technologies d'assistance les services d'information ou les sites web quel que soit leur statut qui offrent un accès public ne peuvent pas être considérés comme des environnements maîtrisés
+
+### etiquette-de-champ-de-formulaire
+
+texte à proximité du champ de formulaire permettant d'en connaître la nature le type ou le format des informations attendues l'étiquette peut être associée au champ de formulaire de plusieurs manières par l'utilisation d'une balise <label> par l'utilisation de l'attribut wai-aria aria-label par l'utilisation d'une liaison entre le texte et le champ par l'attribut wai-aria aria-labelledby par l'utilisation de l'attribut title note importante lorsque plusieurs de ces techniques sont présentes sur un même champ le calcul du nom accessible c'est-à-dire ce qui sera restitué obéit à un ordre strict aria-labelledby sinon aria-label sinon <label> sinon title cet ordre doit être utilisé pour l'évaluation de la pertinence de l'étiquette critère 11 2 par exemple même dans le cas de la présence d'un <label> c'est le passage de texte référencé par aria-labelledby qui doit être pris en compte référence accessible name and description calculation note importante au sujet de l'utilisation de placeholder lorsque l'attribut placeholder est présent il est susceptible d'être restitué à la place de l'attribut title par conséquent lorsque ces deux attributs title et placeholder sont présents ils doivent être identiques note au sujet des étiquettes liées par aria-labelledby il s'agit d'un ou de plusieurs passages de texte identifiés par des id et liés par aria-labelledby sur le modèle suivant aria-labelledby= id1 id2 id3… ~~pour assurer une compatibilité maximum avec les agents utilisateurs notamment internet explorer 11 il est recommandé d'implémenter un tabindex= -1 sur les passages de textes qui ne sont pas des éléments interactifs bouton liens éléments de formulaires etc~~ note l'attribut aria-label ne peut pas être utilisé pour indiquer le caractère obligatoire d'un champ
+
+### formulaire
+
+**un formulaire n'est pas obligatoirement contenu dans une** balise <form> ou **une** balise possédant un attribut wai-aria role= form
+
+### indication-du-type-de-donnees-et-ou-de-format
+
+indication textuelle permettant à l'utilisateur de savoir quel est le type de donnée et/ou le format de saisie requis ~~par un champ obligatoire préalablement à son renseignement~~ exemples courriel format vous@domaine com code postal format 00000 date format jj/mm/aaaa **montant en euros note importante lorsque le type de champ de formulaire propose un masque de saisie par exemple les champs date ou time l'indication de format n'est pas nécessaire**
+
+### intitule-ou-nom-accessible-de-lien
+
+nom accessible restitué par les technologies d'assistance dans le cas d'un lien html le nom accessible est obtenu selon l'ordre suivant passage de texte associé par l'attribut wai-aria aria-labelledby sinon contenu de l'attribut wai-aria aria-label sinon contenu du lien sinon contenu de l'attribut title cet ordre doit être utilisé pour déterminer ce qui constitue l'intitulé du lien par exemple en cas de présence conjointe d'un attribut wai-aria aria-label et d'un attribut wai-aria aria-labelledby c'est le passage de texte référencé par l'attribut wai-aria aria-labelledby qui doit être considéré comme l'intitulé en cas de présence conjointe d'un attribut wai-aria aria-label et d'un contenu dans le lien c'est le contenu de l'attribut wai-aria aria-label qui doit être considéré comme l'intitulé référence accessible name and description calculation dans le cas où le nom accessible est obtenu à partir du contenu du lien celui-ci sera variable en fonction des cas suivants lien texte en html le nom accessible correspond au texte constitué à partir du texte contenu dans le lien du texte contenu dans les éléments enfants du lien lien image en html le nom accessible correspond au texte constitué à partir de l'alternative textuelle d'une ou plusieurs images dans le lien du type image élément <img> ou balise ouvrante ayant l'attribut wai-aria role= img image objet élément <object> image bitmap élément <canvas> image vectorielle élément <svg> lien composite en html le nom accessible correspond au texte constitué à partir de l'ensemble du texte contenu dans le lien du texte contenu dans les éléments enfant du lien du contenu de l'alternative textuelle de la ou des images comprises dans le lien dans le cas d'un lien svg version 1 1 le nom accessible est obtenu comme suit passage de texte associé par l'attribut wai-aria aria-labelledby sinon contenu de l'attribut wai-aria aria-label sinon contenu de l'élément <title> enfant direct du lien sinon contenu de l'attribut xlink title sinon contenu texte d'un ou plusieurs éléments <text> il faut cependant être vigilant car cet algorithme de calcul n'est pas encore pris en compte et effectif au sein des différents lecteurs d'écran à ce jour le support est disponible avec voiceover mais incomplet ou lacunaire avec jaws et nvda si bien que le plus petit dénominateur commun sur lequel il est possible de se reposer pour fournir un intitulé au lien est l'élément <text> ~~note 1 un intitulé de lien sera considéré comme non-explicite dans le cas où le nom accessible ne reprend pas l'intitulé visible du lien note 2 en raison de la configuration possible des aides techniques permettant de forcer la restitution du nom accessible issu du contenu de l'attribut title au détriment du nom accessible issu du contenu du lien un intitulé de lien sera considéré comme non-explicite dans le cas où le lien possède un attribut title dont la valeur ne reprendrait pas au moins le nom accessible issu du contenu du lien note 3 dans le cas de la présence de plusieurs liens ayant une destination différente dont le nom accessible est identique l'intitulé de lien seul sera considéré comme non-explicite si le contexte de lien ne permet pas de les différencier note 4 lorsqu'un lien ne comporte aucun contenu il sera non conforme au regard du critère 10 2 et du critère 6 2 note 5 bien que le calcul du nom accessible d'un lien tienne compte de contenus texte générés en css via les pseudo-éléments before et after cette pratique ne doit pas être utilisée car elle constitue une non-conformité au critère 1 3 1 des wcag 2 1 cf f87~~
+
+### lien-dont-la-nature-n-est-pas-evidente
+
+lien qui peut être confondu avec un texte normal lorsqu'il est signalé uniquement par la couleur par certains types d'utilisateurs ne percevant pas ou mal les couleurs par exemple dans ce texte ~~nouvelle grève à la sncf~~ **nouveaux horaires d'été** si le mot ~~grève~~ **horaires** est un lien signalé uniquement par la couleur sa nature peut être ignorée par les utilisateurs ne percevant pas la couleur et accédant au contenu css activé note signalés uniquement par la couleur signifie que le lien n'est accompagné d'aucun marqueur visuel icône soulignement bordure… en conséquence un lien de la même couleur que le texte environnant est concerné par ce critère
+
+### liste-des-valeurs-possibles-pour-l-attribut-autocomplete
+
+la liste des valeurs disponibles est fournie par la spécification wcag 2 1 name -- nom complet honorific-prefix -- abréviation civilité ou titre given-name -- prénom additional-name -- prénoms additionnels family-name -- nom de famille honorific-suffix -- suffixe honorifique nickname -- surnom diminutif organization-title -- fonction intitulé de poste username -- nom d'utilisateur new-password -- nouveau mot de passe par exemple lors de la création d'un compte ou d'un changement de mot de passe current-password -- mot de passe actuel pour le compte identifié par le champ username par exemple lors d'une connexion organization -- nom de l'organisation correspondant à la personne à l'adresse ou à l'information de contact dans les autres champs associés avec ce champ street-address -- adresse postale multiligne nouvelles lignes conservées address-line1 -- adresse postale une ligne par champ ligne 1 address-line2 -- adresse postale une ligne par champ ligne 2 address-line3 -- adresse postale une ligne par champ ligne 3 address-level4 -- le niveau administratif le plus détaillé pour les adresses pourvues de quatre niveaux administratifs address-level3 -- le troisième niveau administratif pour les adresses pourvues d'au moins trois niveaux administratifs address-level2 -- le deuxième niveau administratif pour les adresses pourvues d'au moins deux niveaux administratifs address-level1 -- le plus large niveau administratif d'une adresse c'est-à-dire la province dans laquelle se trouve la localité country -- code pays country-name -- nom de pays postal-code -- code postal ~~code cedex si le cedex est présent ajouter cedex et ce qui le suit doit être ajouté dans le champ address-level2~~ cc-name -- nom complet figurant sur le moyen de paiement cc-given-name -- prénom figurant sur le moyen de paiement cc-additional-name -- prénoms additionnels figurant sur le moyen de paiement cc-family-name -- nom de famille figurant sur le moyen de paiement cc-number -- code identifiant le moyen de paiement e g un numéro de carte bancaire cc-exp -- date d'expiration du moyen de paiement cc-exp-month -- le mois de la date d'expiration du moyen de paiement cc-exp-year -- l'année de la date d'expiration du moyen de paiement cc-csc -- code de sécurité du moyen de paiement also known as the card security code csc card validation code cvc card verification value cvv signature panel code spc credit card id ccid etc cc-type -- type de moyen de paiement e g visa transaction-currency -- la devise qui a la préférence de l'utilisateur lors d'une transaction transaction-amount -- le montant qui a la préférence de l'utilisateur lors d'une transaction e g en réponse à une enchère ou à un prix soldé language -- langue préférée bday -- date d'anniversaire bday-day -- le jour de la date d'anniversaire bday-month -- le mois de la date d'anniversaire bday-year -- l'année de la date d'anniversaire sex -- identité de genre url -- page d'accueil ou une autre page web correspondant à l'organisation la personne l'adresse ou à l'information de contact dans les autres champs associés avec ce champ photo -- photographie icône ou une autre image correspondant à l'organisation la personne l'adresse ou à l'information de contact dans les autres champs associés avec ce champ tel -- numéro de téléphone complet y compris le code pays tel-country-code -- code pays du numéro de téléphone tel-national -- numéro de téléphone sans la partie code pays avec un préfixe interne au pays s'il y a lieu tel-area-code -- indicatif régional du numéro de téléphone avec un préfixe interne au pays s'il y a lieu tel-local -- numéro de téléphone sans la partie code pays ni l'indicatif régional tel-local-prefix -- la première partie du composant du numéro de téléphone qui suit l'indicatif régional lorsque ce composant est scindé en deux parties tel-local-suffix -- la seconde partie du composant du numéro de téléphone qui suit l'indicatif régional lorsque ce composant est scindé en deux parties tel-extension -- numéro de téléphone d'un poste interne email -- adresse électronique impp -- url correspondant d'un protocole de messagerie instantanée par exemple aim goim screenname=example ou xmpp fred@example net
+
+### listes
+
+suite d'éléments pouvant être regroupés sous la forme d'une liste structurée ordonnée non ordonnée ou de définition par exemple la suite des liens d'un menu de navigation est une liste de liens non ordonnée les différentes étapes d'une procédure sont une liste d'éléments ordonnés le couple terme/description d'un glossaire est une liste de description en html les listes utilisent les balises suivantes liste ordonnée balises <ol> et <li> chaque élément de la liste est affecté d'un marqueur indexé liste non ordonnée balises <ul> et <li> chaque élément de la liste est affecté d'un marqueur non-indexé liste de description balises <dl> <dt> terme à décrire et <dd> description note 1 en html5 la balise <dl> ne représente plus seulement une liste de définition mais de manière générique toute liste de description qui peut comprendre comme groupe de termes-descriptions des noms et des définitions des questions et réponses des catégories et des sujets etc note 2 il est également possible de structurer les listes à l'aide des attributs wai-aria role= list et role= listitem pour les listes ordonnées et non ordonnées note 3 la notion de regroupés visuellement sous forme de liste se caractérise par la présence d'un marqueur visuel permettant de faire comprendre qu'il s'agit d'une liste non ordonnée par exemple - • ~~\*~~ ***** etc la présence d'un marqueur visuel permettant de faire comprendre qu'il s'agit d'une liste ordonnée par exemple un chiffre une lettre grecque etc la présence d'une série d'éléments se suivant visuellement les uns les autres avec une forme visuelle une nature et un fonctionnement identique mais sans avoir directement de marqueur visuel de liste non ordonnée ou ordonnée par exemple un menu de navigation attention cependant toutes les listes ne nécessitent pas obligatoirement une structure de liste par exemple une série de termes séparés par une virgule
+
+### media-non-temporel
+
+contenu qui ne se déroule pas dans le temps consultable via ~~un plugin flash java silverlight… ou via~~ les éléments svg et canvas par exemple une ~~carte~~ **animation** interactive ~~en flash~~ **réalisée avec** une ~~application flash ou java un diaporama sont des médias non temporels~~ **balise canvas** un média non temporel peut contenir des médias temporels un ~~lecteur flash~~ **diaporama réalisé avec canvas** qui propose une liste de vidéos à consulter par exemple ~~note l'utilisation du paramètre wmode pour un objet flash avec les valeurs transparent et opaque invalide de fait le critère 4 13 en effet l'utilisation de ces valeurs a pour conséquence que l'animation flash vue du côté des utilisateurs de lecteur d'écran est invisible~~
+
+### media-temporel-type-son-video-et-synchronise
+
+média temporel seulement audio contenu sonore wav mp3… média temporel seulement vidéo images ou photos en mouvement ou en séquence média temporel synchronisé flux audio ou vidéo synchronisé avec un autre format pour présenter de l'information et/ou comportant des composants temporels interactifs un média temporel peut être consulté de 2 manières différentes fichier à télécharger consultable avec un logiciel externe à la page web contenu embarqué dans la page web et consultable dans la page web via ~~un plugin par exemple une vidéo diffusée par un lecteur flash~~ l'élément <video> par exemple une vidéo l'élément <audio> par exemple un podcast l'élément <svg> par exemple un dessin animé vectoriel l'élément <canvas> par exemple un dessin animé en image bitmap l'élément <bgsound> pour diffuser un arrière-plan sonore à la page web un média temporel peut être diffusé en temps réel ou être proposé en lecture de manière asynchrone média pré-enregistré note 1 ~~l'utilisation du paramètre wmode pour un objet flash avec~~ les ~~valeurs transparent et opaque invalide de fait le critère 4 13 en effet l'utilisation de ces valeurs a pour conséquence que l'animation flash vue du côté des utilisateurs de lecteur d'écran est invisible note 2 les~~ gif animés les animations d'images réalisées par javascript ou css ne sont pas considérés comme étant des médias temporels ~~note 3 l'élément <bgsound> est spécifique à internet explorer et ne devrait pas être utilisé~~
+
+### moteur-de-recherche-interne-a-un-site-web
+
+zone donnant accès directement formulaire ou indirectement élément d'interface donnant accès au formulaire au moteur de recherche qui permet d'effectuer des recherches sur les contenus de l'ensemble du site note attention à ne pas confondre cette zone de recherche unique dans le site avec tout autre moteur de recherche permettant par exemple de faire des recherches sur une partie restreinte du site un catalogue les offres sur une section marchés publics… voir la définition technique de zone ~~d'en-tête~~ **de recherche** fournie par wai-aria search role
+
+### passage-de-texte-lie-par-aria-labelledby-ou-aria-describedby
+
+il s'agit d'un ou de plusieurs passages de texte identifiés par des id dont la valeur est unique dans la page et associés à un élément champ de formulaire bouton etc par les attributs wai-aria aria-labelledby ou aria-describedby sur le modèle suivant aria-labelledby= id1 id2 id3… où la valeur de l'attribut utilisé est égale à la liste des valeurs d'attributs id des passages de texte à associer présents dans la page note 1 ~~pour assurer une compatibilité maximum avec les agents utilisateurs notamment internet explorer 11 il est recommandé d'implémenter un tabindex= -1 sur les passages de textes qui ne sont pas des éléments interactifs bouton liens éléments de formulaires etc note 2~~ la valeur des attributs wai-aria aria-labelledby ou aria-describedby ne doivent pas créer de référence récursive a référence b qui référence a ou traversante a qui référence b qui référence c
+
+### presentation-de-l-information
+
+restitution visuelle des contenus via un navigateur en mode graphique la présentation concerne le style la position et les dimensions des éléments html et de leur contenu la présentation de l'information doit être réalisée via css les éléments basefont big blink center font marquee s strike et tt et les attributs align alink background bgcolor border cellpadding cellspacing char charoff clear compact color frameborder hspace link marginheight marginwidth text valign vlink vspace sont interdits notes les attributs width et height ~~utilisés~~ **sont interdits sauf** sur ~~d'autres éléments que~~ les éléments **<canvas> <iframe>** <img> <object> ~~<canvas> et~~ **<source> ainsi que** <svg> ~~sont également interdits~~ **et ses enfants** l'attribut size utilisé sur d'autres éléments que l'élément <select> est également interdit l'élément <u> est interdit uniquement si le doctype du document ne correspond pas à html 5
+
+### prise-de-focus
+
+la prise de focus est l'état renvoyé par un élément qui reçoit l'attention suite à une action de l'utilisateur il y a trois moyens en html de donner le focus à un élément en activant l'élément par un dispositif de pointage exemple souris en atteignant l'élément par la touche tabulation ou majuscule + tabulation en activant l'élément par un raccourci clavier ~~accesskey~~ **le critère 10 7 ne s'intéresse qu'au focus du clavier tabulation majuscule + tabulation raccourci clavier** certains éléments reçoivent naturellement le focus par exemple <a href> <area href> <button> <input> <object> <select> <label> <legend> <optgroup> <option> et <textarea> le comportement de l'élément lors de la prise de focus dépend de sa nature un lien par exemple devra être activé après la prise de focus sauf utilisation de script en revanche un élément de formulaire comme <textarea> devra autoriser la saisie suite à la prise de focus les éléments <label> et <legend> ne reçoivent la prise de focus que via le pointeur souris pour l'élément <label> le comportement attendu est de transférer la prise de focus sur l'élément qui lui est associé note 1 la spécification wai-aria étend le rôle attribué à l'attribut tabindex en définissant que tout élément html peut acquérir la possibilité de recevoir le focus en lui attribuant la valeur tabindex= 0 en revanche aucun comportement n'est attribué via la seule présence de tabindex de même la valeur tabindex= -1 lorsqu'elle est utilisée sur un élément recevant naturellement le focus retire l'élément qui en est affecté du plan de tabulation en inhibant sa capacité à signaler la prise de focus l'utilisation de tabindex conformément à la spécification wai-aria peut valider certains tests relatifs à la gestion du focus de tabulation notamment note 2 l'indication visuelle du focus du navigateur ne doit pas être supprimée ou dégradée sauf si un style du focus défini par l'auteur est visible et suffisamment contrasté au regard du critère 3 3
+
+### tableau-de-donnees-complexe
+
+un tableau de données est une structure introduite par une balise <table> ou lorsqu'il est correctement restitué par les technologies d'assistance par une balise pourvue d'un attribut wai-aria role= table lorsqu'un tableau de données contient des en-têtes qui ~~ne~~ sont ~~pas~~ répartis ~~uniquement~~ sur ~~la première ligne~~ **plusieurs lignes** et/ou ~~la première colonne~~ **plusieurs colonnes** de la grille ou dont la portée n'est pas valable pour l'ensemble de la colonne ou de la ligne on parle de tableau de données complexe il est alors nécessaire de fournir un résumé permettant d'en expliquer sa nature et sa structure afin d'en faciliter la consultation pour des utilisateurs de technologies d'assistance par exemple
+
+### version-accessible-pour-un-document-en-telechargement
+
+les documents en téléchargement dont les types de format sont reconnus compatibles avec l'accessibilité doivent être rendus accessibles soit directement soit par l'intermédiaire d'une version accessible ou d'une version en html les formats de document dont la compatibilité est reconnue sont microsoft office word 2003 ooxml ~~open office org odf~~ **libreoffice** adobe pdf epub/daisy **les documents pdf doivent être conformes au référentiel d'évaluation de l'accessibilité des documents au format pdf rapdf les autres types de contenus doivent être conformes aux critères de la section 10 non-web documents de la norme européenne en 301 549 v3 2 1** note le format texte txt ne peut pas être utilisé pour produire une version accessible pour un document en téléchargement
+
+### zone-non-cliquable
+
+région d'une image réactive à laquelle aucune action n'est associée une zone non cliquable côté client est contenue dans une balise <area> avec l'attribut nohref lorsque le code html de la page n'est pas du html5 sans attribut href en html5 les balises <area> sont ~~contenus~~ **contenues** dans la balise <map>
