@@ -6,7 +6,7 @@ All notable changes to this package are documented here. This project adheres to
 
 ## [1.0.0] - 2026-11-14
 
-First release. Needs `@surea11y/core` 1.17.0 or a later 1.17 release, and `@surea11y/pack-rgaa` 1.2, which it builds on and which a scan takes in the same packs (`packs: [rgaa, raweb]`). The pack uses experimental APIs of core (standard data and derivation, laws, `uses`), so its range takes no later minor.
+First release. Needs `@surea11y/core` 1.17.0 or a later 1.17 release, and `@surea11y/pack-rgaa` 1.2.1 or a later 1.2 release, which it builds on and which a scan takes in the same packs (`packs: [rgaa, raweb]`). The pack uses experimental APIs of core (standard data and derivation, laws, `uses`), so its range takes no later minor.
 
 ### Added
 

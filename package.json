@@ -56,7 +56,7 @@
     "compare:check": "node scripts/compare-rgaa.js --check"
   },
   "dependencies": {
-    "@surea11y/pack-rgaa": "~1.2.0"
+    "@surea11y/pack-rgaa": "~1.2.1"
   },
   "peerDependencies": {
     "@surea11y/core": "~1.17.0"
