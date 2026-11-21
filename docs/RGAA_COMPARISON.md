@@ -8,8 +8,8 @@ RAWeb's and RGAA's texts are quoted from their reference files: RAWeb 1.1, Servi
 
 | | Tests | With rules |
 |---|---:|---:|
-| Unchanged | 107 | 60 |
-| Form only | 104 | 76 |
+| Unchanged | 107 | 61 |
+| Form only | 104 | 78 |
 | Reworded | 45 | 29 |
 | Removed | 2 | 2 |
 | Added under RGAA's criteria | 8 | |
@@ -388,6 +388,12 @@ vérifier que la zone d'en-tête est structurée au moyen d'un élément <header
 Rules: `rgaa-presentational-attributes-absent`
 
 vérifier l'absence des attributs de présentation align alink background bgcolor border cellpadding cellspacing char charoff clear color compact frameborder hspace link marginheight marginwidth text valign vlink vspace size exception faite de l'élément <select> **vérifier que les attributs** width ~~exception faite des éléments <img> <object> <canvas> et <svg>~~ **ou** height ~~exception faite des~~ **s'ils sont utilisés sont uniquement présents sur les** éléments **<canvas> <iframe>** <img> <object> ~~<canvas> et~~ **<source>** <svg> **ou l'un de ses enfants** si c'est le cas le test est validé
+
+### 10.4.1
+
+Rules: `resize-text-content-loss`
+
+vérifier dans le document si les textes restent présents et lisibles ~~lorsque~~ - **soit lorsque** le zoom texte du navigateur est réglé à 200 % - **soit lorsque** le zoom graphique du navigateur est réglé à 200 % - **soit lorsque** les fonctionnalités de zoom ~~personnalisées proposé~~ **personnalisé proposées** par le document sont ~~utilisés~~ **utilisées** si c'est le cas le test est validé
 
 ### 10.4.2
 
