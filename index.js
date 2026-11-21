@@ -30,11 +30,9 @@ module.exports = definePack({
   name,
   version,
   namespace: 'raweb',
-  // The pack uses other packs (uses), its standard is derived from
-  // pack-rgaa's data, and it routes findings by fields of pack-rgaa's rules:
-  // core's APIs for these are experimental until 1.18.0 or later, so the
-  // range takes no later minor.
-  core: '~1.17.0',
+  // The pack uses other packs (uses), experimental in core until 1.19.0: a
+  // later minor may change it, so the range takes none.
+  core: '~1.18.0',
   description: 'RAWeb 1.1, the Luxembourg accessibility framework',
   uses: [rgaa],
   rules: [],
