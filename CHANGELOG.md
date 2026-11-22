@@ -4,6 +4,15 @@ All notable changes to this package are documented here. This project adheres to
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-22
+
+Needs `@surea11y/core` 1.18.0 or a later 1.18 release.
+
+### Changed
+
+- The pack's `core` range is `~1.18.0`. Core 1.18 makes standard data, its derivation and a profile's laws stable; `uses`, which the pack builds on pack-rgaa with, stays experimental until core 1.19.0, so the range still takes no later minor.
+- Needs `@surea11y/pack-rgaa` 1.3 (`~1.3.0`), the release that takes core 1.18: core 1.18 skips pack-rgaa 1.2, and a scan without the pack-rgaa it was made with skips this pack.
+
 ## [1.0.0] - 2026-11-14
 
 First release. Needs `@surea11y/core` 1.17.0 or a later 1.17 release, and `@surea11y/pack-rgaa` 1.2.1 or a later 1.2 release, which it builds on and which a scan takes in the same packs (`packs: [rgaa, raweb]`). The pack uses experimental APIs of core (standard data and derivation, laws, `uses`), so its range takes no later minor.
